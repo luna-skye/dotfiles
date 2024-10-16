@@ -1,0 +1,32 @@
+{
+  "surface": {
+    "crust": "#090915",
+    "mantle": "#0D0D1B",
+    "base": "#151528",
+    "surface0": "#20203C",
+    "surface1": "#35355F",
+    "overlay0": "#56568F",
+    "overlay1": "#6262A3",
+    "subtext0": "#8787D9",
+    "subtext1": "#ABABF2",
+    "text": "#CACAFC"
+  },
+  "accent": {
+    "red": "#FF5555",
+    "lightRed": "#FF6E6E",
+    "orange": "#FFA900",
+    "lightOrange": "#FFBA46",
+    "yellow": "#FFFA3A",
+    "lightYellow": "#F8FA69",
+    "green": "#00E05F",
+    "lightGreen": "#50FA7B",
+    "blue": "#60BFF2",
+    "lightBlue": "#8BE9FD",
+    "purple": "#BD93F9",
+    "lightPurple": "#D6ACFF",
+    "magenta": "#FF79C6",
+    "lightMagenta": "#FF92DF"
+  },
+  "primary": "purple",
+  "secondary": "magenta"
+}
