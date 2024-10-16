@@ -1,15 +1,4 @@
-{ config, lib, pkgs, ... }: let
-  tmux-nova = pkgs.tmuxPlugins.mkTmuxPlugin {
-    pluginName = "nova";
-    version = "unstable-2024-09-21";
-    src = pkgs.fetchFromGitHub {
-      owner = "o0th";
-      repo = "tmux-nova";
-      rev = "6c8fc10d3daa03f400ea9000f9321d8332eab229";
-      sha256 = "sha256-0LIql8as2+OendEHVqR0F3pmQTxC1oqapwhxT+34lJo=";
-    };
-  };
-in {
+{ config, lib, pkgs, ... }: {
   imports = [];
 
 
@@ -34,50 +23,6 @@ in {
       shortcut   = lib.mkDefault "space"; # set shortcut to space
 
       tmuxp.enable = lib.mkDefault true; # enable tmuxp session manager
-
-      plugins = [
-        { plugin = pkgs.tmuxPlugins.cpu; }
-        { #  TODO: these colors should be reliant on STELLIX, no clue how that'll work though
-          plugin = tmux-nova;
-          extraConfig = /* bash */ ''
-            set -g @plugin 'o0th/tmux-nova'
-
-            set -g @nova-nerdfonts true
-            set -g @nova-nerdfonts-left 
-            set -g @nova-nerdfonts-right 
-
-            set -g @nova-pane-active-border-style "#B58DEE"
-            set -g @nova-pane-border-style "#20203C"
-
-            set -g @nova-status-style-bg "#151528"
-            set -g @nova-status-style-fg "#8787D9"
-            set -g @nova-status-style-active-bg "#35355F"
-            set -g @nova-status-style-active-fg "#B58DEE"
-            set -g @nova-status-style-double-bg "#151528"
-
-            set -g @nova-pane "#I#{?pane_in_mode,  #{pane_mode},}  #W"
-
-            set -g @nova-segment-mode "#{?client_prefix,󰫈,󰋙}"
-            set -g @nova-segment-mode-colors "#20203C #B58DEE"
-
-            set -g @nova-segment-whoami "#(whoami)@#h"
-            set -g @nova-segment-whoami-colors "#20203C #B58DEE"
-
-
-            set -g @cpu_percentage_format "%5.1f%%"
-            set -g @nova-segment-cpu " #(${pkgs.tmuxPlugins.cpu}/share/tmux-plugins/cpu/scripts/cpu_percentage.sh)"
-            set -g @nova-segment-cpu-colors "#151528 #8787D9"
-
-            set -g @ram_percentage_format "%5.1f%%"
-            set -g @nova-segment-ram " #(${pkgs.tmuxPlugins.cpu}/share/tmux-plugins/cpu/scripts/ram_percentage.sh)"
-            set -g @nova-segment-ram-colors "#151528 #8787D9"
-
-            set -g @nova-rows 0
-            set -g @nova-segments-0-left "mode"
-            set -g @nova-segments-0-right "cpu ram whoami"
-          '';
-        }
-      ];
 
       extraConfig = /* bash */ ''
         # set default to 256 color terminal (fixes nvim/hx issues)
