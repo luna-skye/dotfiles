@@ -5,7 +5,7 @@ in {
 
 
   options.bead.stellix = {
-    enable = bead.mkBooleanOption "Whether to enable the STELLIX styling module" false;
+    enable = bead.mkBooleanOption false "Whether to enable the STELLIX styling module";
 
     palette = lib.mkOption {
       description = "STELLAE compliant color palette to use within STELLIX";
