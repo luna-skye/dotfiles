@@ -1,11 +1,15 @@
-{ lib, bead, ... }: {
+{ config, lib, bead, ... }: {
   imports = bead.autoload ../hm;
 
 
-  options.bead = {};
+  options.bead = {
+    extraPkgs = bead.mkListOfOption lib.types.packages [] "Extra packages to install into the user's profile";
+  };
 
 
   config = {
+    home.packages = config.bead.extraPkgs;
+
     #  WARN: DO NOT CHANGE THESE
     home.stateVersion = lib.mkForce "23.11";
     programs.home-manager.enable = lib.mkForce true;
