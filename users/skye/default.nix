@@ -4,7 +4,10 @@
   bead = {
     ssh.enable = true;
 
-    stellix.enable = true;
+    stellix = {
+      enable = true;
+      autoTarget = true;
+    };
     hyprland.enable = true;
     apps = {
       terminal.kitty.enable = true;
