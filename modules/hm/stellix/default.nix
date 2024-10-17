@@ -12,6 +12,8 @@ in {
       type = lib.types.attrs;
       default = lib.importJSON ./palettes/stellae.json;
     };
+
+    autoTarget = bead.mkBooleanOption false "Whether to enable automatically detecting targets to apply STELLIX to, from bead/hm config";
   };
 
 

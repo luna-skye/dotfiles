@@ -20,11 +20,14 @@ in {
 
 
   options.bead.stellix.targets.tmux = {
-    enable = bead.mkBooleanOption true "Whether to enable Tmux overrides from STELLIX";
+    enable = bead.mkBooleanOption false "Whether to enable Tmux overrides from STELLIX";
   };
 
 
-  config = lib.mkIf (cfg.enable) {
+  config = lib.mkIf (config.bead.stellix.enable && (
+    ( config.bead.stellix.autoTarget && config.programs.tmux.enable ) ||
+    ( !config.bead.stellix.autoTarget && cfg.enable )
+  )) {
     programs.tmux.plugins = [
       { plugin = pkgs.tmuxPlugins.cpu; }
       { 
