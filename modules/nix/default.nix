@@ -9,6 +9,8 @@ in {
       name = bead.mkStringOption "hostName" "The host name for the NixOS system";
       timezone = bead.mkStringOption "America/Indiana/Petersburg" "The timezone for the NixOS system";
     };
+
+    extraPkgs = bead.mkListOfOption lib.types.package [] "Extra packages to install globally onto the system. Prefer the user option in most cases.";
   };
 
 
@@ -17,6 +19,7 @@ in {
     networking.hostName = lib.mkDefault cfg.host.name;
     time.timeZone = lib.mkDefault cfg.host.timezone;
 
+    environment.systemPackages = cfg.extraPkgs;
 
     # ---------------------------------------------
     # no ethical consumption under capitalism
