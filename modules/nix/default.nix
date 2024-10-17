@@ -1,19 +1,21 @@
 { config, lib, bead, ... }: let
-  cfg = config.bead.host;
+  cfg = config.bead;
 in {
   imports = bead.autoload ../nix;
 
 
-  options.bead.host = {
-    name = bead.mkStringOption "hostName" "The host name for the NixOS system";
-    timezone = bead.mkStringOption "America/Indiana/Petersburg" "The timezone for the NixOS system";
+  options.bead = {
+    host = {
+      name = bead.mkStringOption "hostName" "The host name for the NixOS system";
+      timezone = bead.mkStringOption "America/Indiana/Petersburg" "The timezone for the NixOS system";
+    };
   };
 
 
   config = {
     # Configurable Options
-    networking.hostName = lib.mkDefault cfg.name;
-    time.timeZone = lib.mkDefault cfg.timezone;
+    networking.hostName = lib.mkDefault cfg.host.name;
+    time.timeZone = lib.mkDefault cfg.host.timezone;
 
 
     # ---------------------------------------------
