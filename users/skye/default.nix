@@ -2,13 +2,13 @@
   imports = [];
 
   bead = {
-    networking.ssh.enable = true;
-
     stellix = {
       enable = true;
       autoTarget = true;
     };
+
     hyprland.enable = true;
+
     apps = {
       terminal.kitty.enable = true;
 
@@ -18,6 +18,8 @@
 
       gaming.enable = true;
     };
+
+    networking.ssh.enable = true;
 
 
     #  WARN: Avoid changing these after first build and initial setup.
