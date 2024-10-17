@@ -2,13 +2,13 @@
   imports = [];
 
 
-  options.bead.ssh = {
-    enable = bead.mkBooleanOption true "Whether to allow SSH connections made to this NixOS system";
+  options.bead.networking = {
+    ssh.enable = bead.mkBooleanOption true "Whether to allow SSH connections made to this NixOS system";
   };
 
 
-  config = lib.mkIf (config.bead.ssh.enable) {
-    services.openssh = {
+  config = {
+    services.openssh = lib.mkIf (config.bead.ssh.enable) {
       enable = true;
       ports = [ 22 ];
 

@@ -2,7 +2,7 @@
   imports = [];
 
   bead = {
-    ssh.enable = true;
+    networking.ssh.enable = true;
 
     stellix = {
       enable = true;
