@@ -12,7 +12,7 @@ in {
   imports = [];
 
 
-  options.bead.hyprland = {
+  options.bead.session.hyprland = {
     monitors = bead.mkListOfOption monitorOptionType [{
       name = "";
       resolution = "highres";
@@ -23,7 +23,7 @@ in {
   };
 
 
-  config = lib.mkIf (bead.anyUserHasEnabled ["bead" "hyprland" "enable"] config) {
+  config = lib.mkIf (bead.anyUserHasEnabled ["bead" "session" "hyprland" "enable"] config) {
     programs.hyprland.enable = lib.mkDefault true;
     services.displayManager.defaultSession = lib.mkDefault "hyprland";
   };

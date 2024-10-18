@@ -1,5 +1,5 @@
 { config, osConfig, lib, bead, pkgs, ... }: let
-  cfg = config.bead.hyprland;
+  cfg = config.bead.session.hyprland;
 
   # Generates a list of strings representing Hyprland workspace monitor relations
   # Values are pulled from OS config options
@@ -7,7 +7,7 @@
     lib.foldl' (acc2: ws:
       acc2 ++ [ "${builtins.toString ws}, monitor:${monitor.name}" ]
     ) acc monitor.workspaces
-  ) [] osConfig.bead.hyprland.monitors;
+  ) [] osConfig.bead.session.hyprland.monitors;
 
   # Generates a list of strings representing Hyprland monitor configuration, including name, resolution, refresh rate, etc.
   # Values are pulled from OS config options
@@ -16,14 +16,14 @@
       rr = if (builtins.isNull m.refreshRate) then "" else "@${builtins.toString m.refreshRate}";
     in
       "${m.name}, ${m.resolution}${rr}, ${m.offset}, 1"
-  ) osConfig.bead.hyprland.monitors;
+  ) osConfig.bead.session.hyprland.monitors;
 in {
   imports = [
     ./keybinds.nix
   ];
 
 
-  options.bead.hyprland = {
+  options.bead.session.hyprland = {
     enable = bead.mkBooleanOption false "Whether to enable the Hyprland Window Manager and associated configuration";
 
     execOnce = bead.mkListOfOption lib.types.str [] "Commands to execute at Hyprland startup";
