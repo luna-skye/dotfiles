@@ -24,6 +24,8 @@ Not all of these are things actively used or relied on by me, but are wonderful 
 - Stylix - Automatic theme generation
     - [Source](https://github.com/danth/stylix)
     - [Docs](https://stylix.danth.me/)
+- Musnix - Realtime Audio on NixOS
+    - [Source](https://github.com/musnix/musnix)
 
 
 ## Software
