@@ -40,11 +40,11 @@ in {
         color15 = lib.mkDefault colors.surface.text;
 
         mark1_foreground = lib.mkDefault colors.surface.crust;
-        mark1_background = lib.mkDefault colors.accent.light_green;
+        mark1_background = lib.mkDefault colors.accent.lightGreen;
         mark2_foreground = lib.mkDefault colors.surface.crust;
-        mark2_background = lib.mkDefault colors.accent.light_yellow;
+        mark2_background = lib.mkDefault colors.accent.lightYellow;
         mark3_foreground = lib.mkDefault colors.surface.crust;
-        mark3_background = lib.mkDefault colors.accent.light_red;
+        mark3_background = lib.mkDefault colors.accent.lightRed;
 
         cursor = lib.mkDefault builtins.attrsets.attrByPath [ "accent" colors.primary ] "#FF0000" colors;
       };
