@@ -46,7 +46,7 @@ in {
         mark3_foreground = lib.mkDefault colors.surface.crust;
         mark3_background = lib.mkDefault colors.accent.lightRed;
 
-        cursor = lib.mkDefault builtins.attrsets.attrByPath [ "accent" colors.primary ] "#FF0000" colors;
+        cursor = lib.mkDefault (lib.attrsets.attrByPath [ "accent" colors.primary ] "#FF0000" colors);
       };
 
       font = lib.mkIf (
