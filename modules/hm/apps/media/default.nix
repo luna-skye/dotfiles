@@ -1,7 +1,7 @@
 { config, lib, bead, pkgs, ... }: let
   cfg = config.bead.apps.media;
 
-  mkPackageOption = pkg: name: lib.types.submodule {
+  mkPackageOption = pkg: name: {
     enable = bead.mkBooleanOption false "Whether to install the ${name}";
     pkg = lib.mkOption {
       description = "The package to be used in installing the ${name}";
