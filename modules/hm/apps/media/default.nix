@@ -40,6 +40,5 @@ in {
       optional (cfg.image.oculante.enable) cfg.image.oculante.pkg ++
       optional (cfg.image.komikku.enable)  cfg.image.komikku.pkg  ++
       []; # its fine, the consistent rows make brain vibrate
-    
   };
 }
