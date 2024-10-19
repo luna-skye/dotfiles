@@ -99,7 +99,7 @@ in {
           brightness = lib.mkDefault cfg.blur.brightness;
           contrast = lib.mkDefault cfg.blur.contrast;
           vibrancy = lib.mkDefault cfg.blur.vibrancy;
-          vibrancy_darkness = lib.mkDefault.vibrancyDark;
+          vibrancy_darkness = lib.mkDefault cfg.blur.vibrancyDark;
 
           xray = lib.mkDefault cfg.blur.xray;
 
