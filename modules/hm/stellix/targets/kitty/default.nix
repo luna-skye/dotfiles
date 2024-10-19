@@ -18,7 +18,7 @@ in {
   )) {
     programs.kitty = {
       # https://sw.kovidgoyal.net/kitty/conf/#color-scheme
-      settings = lib.mkIf (cfg.enableColors) lib.mkDefault {
+      settings = lib.mkIf (cfg.enableColors) {
         background = lib.mkDefault colors.surface.mantle;
         foreground = lib.mkDefault colors.surface.subtext1;
 
@@ -52,7 +52,7 @@ in {
       font = lib.mkIf (
         config.bead.stellix.fonts.enable &&
         cfg.enableFonts
-      ) lib.mkDefault {
+      ) {
         name = lib.mkDefault config.bead.stellix.fonts.monospace.name;
         size = lib.mkDefault 12;
       };
