@@ -60,10 +60,10 @@ in {
 
   config = lib.mkIf (config.bead.stellix.enable && config.bead.stellix.fonts.enable) {
     home.packages = [
-      config.stellix.fonts.monospace.package
-      config.stellix.fonts.sans.package
-      config.stellix.fonts.serif.package
-      config.stellix.fonts.emoji.package
+      config.bead.stellix.fonts.monospace.package
+      config.bead.stellix.fonts.sans.package
+      config.bead.stellix.fonts.serif.package
+      config.bead.stellix.fonts.emoji.package
     ];
   };
 }
