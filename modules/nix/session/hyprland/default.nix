@@ -29,6 +29,5 @@ in {
 
   config = lib.mkIf (cfg.enable) {
     programs.hyprland.enable = lib.mkDefault true;
-    services.displayManager.defaultSession = lib.mkDefault "hyprland";
   };
 }
