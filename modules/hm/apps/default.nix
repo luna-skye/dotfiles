@@ -7,6 +7,9 @@ in {
   options.bead.apps = {
     default = {
       browser = bead.mkListOfOption lib.types.str [] "User's default browser application";
+      audio = bead.mkListOfOption lib.types.str [] "User's default audio application";
+      video = bead.mkListOfOption lib.types.str [] "User's default video application";
+      image = bead.mkListOfOption lib.types.str [] "User's default image application";
     };
   };
 
@@ -30,6 +33,9 @@ in {
     ]);
 
     xdgAssociations = {
+      "audio/*" = cfg.default.audio;
+      "video/*" = cfg.default.video;
+      "image/*" = cfg.default.image;
     } // browserAssociations;
   in {
     xdg.mimeApps = {
