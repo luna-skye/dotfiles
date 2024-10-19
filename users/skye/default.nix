@@ -7,8 +7,6 @@
       autoTarget = true;
     };
 
-    hyprland.enable = true;
-
     apps = {
       terminal.kitty.enable = true;
 
