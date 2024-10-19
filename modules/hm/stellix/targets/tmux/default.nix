@@ -2,8 +2,8 @@
   cfg = config.bead.stellix.targets.tmux;
 
   colors = config.bead.stellix.palette;
-  colPrimary = builtins.attrsets.attrByPath [ "accent" colors.primary ] "#FF0000" colors;
-  # colSecondary = builtins.attrsets.attrByPath [ "accent" colors.secondary ] "#FF0000" colors;
+  colPrimary = lib.attrsets.attrByPath [ "accent" colors.primary ] "#FF0000" colors;
+  # colSecondary = lib.attrsets.attrByPath [ "accent" colors.secondary ] "#FF0000" colors;
 
   tmux-nova = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "nova";
