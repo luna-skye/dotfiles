@@ -3,7 +3,7 @@
 
 
   options.bead = {
-    extraPkgs = bead.mkListOfOption lib.types.packages [] "Extra packages to install into the user's profile";
+    extraPkgs = bead.mkListOfOption lib.types.package [] "Extra packages to install into the user's profile";
   };
 
 
