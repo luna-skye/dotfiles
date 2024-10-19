@@ -37,7 +37,7 @@ in {
   };
 
 
-  config = lib.mkIf (cfg.enable) {
+  config = lib.mkIf (osCfg.enable) {
     wayland.windowManager.hyprland = {
       enable          = lib.mkDefault true;
       xwayland.enable = lib.mkDefault true;

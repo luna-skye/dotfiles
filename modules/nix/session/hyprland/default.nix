@@ -1,4 +1,6 @@
 { config, lib, bead, ... }: let 
+  cfg = config.bead.session.hyprland;
+
   monitorOptionType = lib.types.submodule {
     options = {
       name        = bead.mkStringOption ""        "The internal ID of the monitor";
@@ -13,6 +15,8 @@ in {
 
 
   options.bead.session.hyprland = {
+    enable = bead.mkBooleanOption false "Whether to enable the Hyprland session and related services for the NixOS system";
+
     monitors = bead.mkListOfOption monitorOptionType [{
       name = "";
       resolution = "highres";
@@ -23,7 +27,7 @@ in {
   };
 
 
-  config = lib.mkIf (bead.anyUserHasEnabled ["bead" "session" "hyprland" "enable"] config) {
+  config = lib.mkIf (cfg.enable) {
     programs.hyprland.enable = lib.mkDefault true;
     services.displayManager.defaultSession = lib.mkDefault "hyprland";
   };
