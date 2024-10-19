@@ -3,7 +3,7 @@
 
   bead = {
     host.name = "luna";
-    hyprland = {
+    session.hyprland = {
       enable = true;
       monitors = [
         {
