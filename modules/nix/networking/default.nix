@@ -8,12 +8,12 @@
 
 
   config = {
-    services.openssh = lib.mkIf (config.bead.ssh.enable) {
+    services.openssh = lib.mkIf (config.bead.networking.ssh.enable) {
       enable = true;
       ports = [ 22 ];
 
       settings = {
-        AllowUsers = bead.usersWithEnabled [ "bead" "cli" "ssh" "enable" ] config;
+        AllowUsers = bead.usersWithEnabled [ "bead" "cli" "networking" "ssh" "enable" ] config;
         UseDns = true;
         X11Forwarding = false;
         PermitRootLogin = "prohibit-password";
