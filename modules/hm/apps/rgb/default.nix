@@ -2,9 +2,7 @@
   imports = [];
 
 
-  options.bead.apps.rgb = {
-    enable = bead.mkBooleanOption false "Whether to enable the OpenRGB application";
-  };
+  options.bead.apps.rgb = {};
 
 
   config = {};
