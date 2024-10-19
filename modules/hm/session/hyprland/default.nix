@@ -1,5 +1,6 @@
 { config, osConfig, lib, bead, pkgs, ... }: let
   cfg = config.bead.session.hyprland;
+  osCfg = osConfig.bead.session.hyprland;
 
   # Generates a list of strings representing Hyprland workspace monitor relations
   # Values are pulled from OS config options
@@ -7,7 +8,7 @@
     lib.foldl' (acc2: ws:
       acc2 ++ [ "${builtins.toString ws}, monitor:${monitor.name}" ]
     ) acc monitor.workspaces
-  ) [] osConfig.bead.session.hyprland.monitors;
+  ) [] osCfg.monitors;
 
   # Generates a list of strings representing Hyprland monitor configuration, including name, resolution, refresh rate, etc.
   # Values are pulled from OS config options
@@ -16,7 +17,7 @@
       rr = if (builtins.isNull m.refreshRate) then "" else "@${builtins.toString m.refreshRate}";
     in
       "${m.name}, ${m.resolution}${rr}, ${m.offset}, 1"
-  ) osConfig.bead.session.hyprland.monitors;
+  ) osCfg.monitors;
 in {
   imports = [
     ./keybinds.nix
@@ -38,13 +39,13 @@ in {
 
   config = lib.mkIf (cfg.enable) {
     wayland.windowManager.hyprland = {
-      enable = lib.mkDefault true;
+      enable          = lib.mkDefault true;
       xwayland.enable = lib.mkDefault true;
-      systemd.enable = lib.mkDefault true;
+      systemd.enable  = lib.mkDefault true;
 
       settings = {
         workspace = lib.mkDefault genWorkspaces;
-        monitor = lib.mkDefault genMonitors;
+        monitor   = lib.mkDefault genMonitors;
 
         exec-once = [
           "swww init"                                    # start wallpaper daemon
