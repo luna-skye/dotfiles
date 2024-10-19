@@ -25,6 +25,7 @@ in {
 
     image = {
       oculante = mkPackageOption pkgs.oculante "Oculante image viewer";
+      komikku = mkPackageOption pkgs.komikku "Komikku comic/manga reader";
     };
   };
 
@@ -37,6 +38,8 @@ in {
       optional (cfg.video.vlc.enable)      cfg.video.vlc.pkg      ++
       optional (cfg.video.mpv.enable)      cfg.video.mpv.pkg      ++
       optional (cfg.image.oculante.enable) cfg.image.oculante.pkg ++
+      optional (cfg.image.komikku.enable)  cfg.image.komikku.pkg  ++
       []; # its fine, the consistent rows make brain vibrate
+    
   };
 }
