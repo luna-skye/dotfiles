@@ -1,7 +1,9 @@
 { config, lib, bead, pkgs, ... }: let
   cfg = config.bead.apps.media;
 in {
-  imports = [];
+  imports = [
+    ./obs.nix
+  ];
 
 
   options.bead.apps.media = {
