@@ -43,8 +43,11 @@ in {
 
 
   config = lib.mkIf (config.bead.apps.daw.enable) {
-    home.packages = config.bead.apps.daw.plugins ++
-      lib.lists.optionals (config.bead.apps.daw.ardour.enable) [ pkgs.ardour ] ++
-      lib.lists.optionals (config.bead.apps.daw.enableDefaultPlugins) defaultPlugins;
+    home.packages = let
+      inherit (lib.lists) optionals;
+    in
+      optionals (config.bead.apps.daw.ardour.enable)        [ pkgs.ardour ] ++
+      optionals (config.bead.apps.daw.enableDefaultPlugins) defaultPlugins  ++
+      config.bead.apps.daw.plugins;
   };
 }

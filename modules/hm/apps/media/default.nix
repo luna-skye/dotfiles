@@ -30,11 +30,13 @@ in {
 
 
   config = {
-    home.packages =
-      lib.lists.optional (cfg.audio.tenacity.enable) cfg.audio.tenacity.pkg ++
-      lib.lists.optional (cfg.video.vlc.enable)      cfg.video.vlc.pkg      ++
-      lib.lists.optional (cfg.video.mpv.enable)      cfg.video.mpv.pkg      ++
-      lib.lists.optional (cfg.image.oculante.enable) cfg.image.oculante.pkg
-      ;
+    home.packages = let
+       inherit (lib.lists) optional;
+    in 
+      optional (cfg.audio.tenacity.enable) cfg.audio.tenacity.pkg ++
+      optional (cfg.video.vlc.enable)      cfg.video.vlc.pkg      ++
+      optional (cfg.video.mpv.enable)      cfg.video.mpv.pkg      ++
+      optional (cfg.image.oculante.enable) cfg.image.oculante.pkg ++
+      []; # its fine, the consistent rows make brain vibrate
   };
 }

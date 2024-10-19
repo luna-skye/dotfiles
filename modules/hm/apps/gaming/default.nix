@@ -34,12 +34,15 @@
 
 
   config = lib.mkIf (config.bead.apps.gaming.enable) {
-    home.packages = [] ++
-      (lib.lists.optional (config.bead.apps.gaming.steam.enable) pkgs.protontricks) ++
-      (lib.lists.optional (config.bead.apps.gaming.lutris.enable) pkgs.lutris) ++
+    home.packages = let
+      inherit (lib.lists) optional;
+    in [] ++
+      optional (config.bead.apps.gaming.steam.enable)              pkgs.protontricks  ++
+      optional (config.bead.apps.gaming.lutris.enable)             pkgs.lutris        ++
 
-      (lib.lists.optional (config.bead.apps.gaming.minecraft.atl.enable) pkgs.atlauncher) ++
-      (lib.lists.optional (config.bead.apps.gaming.minecraft.modrinth.enable) pkgs.prismlauncher) ++
-      (lib.lists.optional (config.bead.apps.gaming.minecraft.prism.enable) pkgs.modrinth-app);
+      optional (config.bead.apps.gaming.minecraft.atl.enable)      pkgs.atlauncher    ++
+      optional (config.bead.apps.gaming.minecraft.modrinth.enable) pkgs.prismlauncher ++
+      optional (config.bead.apps.gaming.minecraft.prism.enable)    pkgs.modrinth-app  ++
+      [];
   };
 }
