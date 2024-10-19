@@ -18,7 +18,7 @@ in {
 
 
   options.bead.stellix.fonts = {
-    enable = bead.mkBooleanOption "Whether to enable STELLIX controlled fonts" false;
+    enable = bead.mkBooleanOption true "Whether to enable STELLIX controlled fonts";
 
     monospace = lib.mkOption {
       description = "Monospace font to be applied across targetted apps";
