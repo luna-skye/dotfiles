@@ -5,7 +5,7 @@ in {
 
 
   options.bead.session = {
-    default = bead.mkStringOption "" "The default graphical session to pre-select or auto-load into";
+    default = bead.mkNullOrOption lib.types.str null "The default graphical session to pre-select or auto-load into";
   };
 
 
