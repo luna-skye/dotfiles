@@ -107,13 +107,16 @@ in {
         };
       };
 
-      animations = let
-        bezier = lib.lists.optionals (cfg.animations.enableDefaultAnimations) [
+      animations = {
+        enable = lib.mkDefault cfg.animations.enable;
+
+        bezier = lib.mkDefault (if (cfg.animations.enableDefaultAnimations) then [
           "smoothOut, 0.36, 0, 0.66, -0.56"
           "smoothIn, 0.25, 1, 0.5, 1"
           "easeInOutCubic, 0.65, 0, 0.35, 1"
-        ] ++ cfg.animations.extraBezier;
-        animation = lib.lists.optionals (cfg.animations.enableDefaultAnimations) [
+        ] else []) ++ cfg.animations.extraBezier;
+
+        animation = lib.mkDefault (if (cfg.animations.enableDefaultAnimations) then [
           "windows, 1, 1.5, smoothIn"
           "windowsOut, 1, 1.5, smoothIn"
           "border, 1, 2, smoothIn"
@@ -121,11 +124,7 @@ in {
           "fade, 1, 1.4, easeInOutCubic"
           "fadeDim, 1, 1.5, easeInOutCubic"
           "workspaces, 1, 1.5, easeInOutCubic, slidevert"
-        ] ++ cfg.animations.extraAnimation;
-      in {
-        enable = lib.mkDefault cfg.animations.enable;
-        bezier = lib.mkDefault bezier;
-        animation = lib.mkDefault animation;
+        ] else []) ++ cfg.animations.extraAnimation;
       };
 
       misc = {
