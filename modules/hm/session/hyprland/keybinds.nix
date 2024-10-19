@@ -49,7 +49,7 @@ in {
   };
 
 
-  config = lib.mkIf (cfg.enable) {
+  config = {
     wayland.windowManager.hyprland.settings = {
       "$mod" = cfg.keybinds.keys.mod;
 
