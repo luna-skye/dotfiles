@@ -13,7 +13,7 @@
       ports = [ 22 ];
 
       settings = {
-        AllowUsers = bead.usersWithEnabled [ "bead" "cli" "networking" "ssh" "enable" ] config;
+        AllowUsers = bead.usersWithEnabled [ "bead" "networking" "ssh" "enable" ] config;
         UseDns = true;
         X11Forwarding = false;
         PermitRootLogin = "prohibit-password";
