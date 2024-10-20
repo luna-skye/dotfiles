@@ -23,10 +23,9 @@ in
   # ## Arguments
   # - `configPath`: Configuration path to check value for, as a Nix String list
   # - `config`: A reference to the config set to check against, expects nix config
-  usersWithEnabled = configPath: config: lib.filter(user:
-    let value = lib.attrsets.attrByPath configPath false user;
-    in lib.isBool value && value
-  ) (lib.attrValues config.home-manager.users);
+  usersWithEnabled = configPath: config: lib.attrNames (lib.filterAttrs (userName: userCfg:
+    (lib.getAttrFromPath configPath userCfg) == true
+  ) config.home-manager.users);
 
 
   # Returns a list of all default.nix module entry points within a provided directory.
