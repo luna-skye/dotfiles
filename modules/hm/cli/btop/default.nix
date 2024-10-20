@@ -48,13 +48,13 @@ in {
         cpu_graph_lower  = lib.mkDefault "system";
         cpu_invert_lower = lib.mkDefault true;
 
-        proc_sorting   = cfg.process.sorting;
-        proc_reversed  = cfg.process.reversed;
-        proc_tree      = cfg.process.tree;
-        proc_colors    = cfg.process.colors;
-        proc_gradient  = cfg.process.gradient;
-        proc_per_core  = cfg.process.perCore;
-        proc_mem_bytes = cfg.process.memBytes;
+        proc_sorting   = lib.mkDefault cfg.process.sorting;
+        proc_reversed  = lib.mkDefault cfg.process.reversed;
+        proc_tree      = lib.mkDefault cfg.process.tree;
+        proc_colors    = lib.mkDefault cfg.process.colors;
+        proc_gradient  = lib.mkDefault cfg.process.gradient;
+        proc_per_core  = lib.mkDefault cfg.process.perCore;
+        proc_mem_bytes = lib.mkDefault cfg.process.memBytes;
       };
     };
   };
