@@ -8,13 +8,32 @@
     };
 
     apps = {
+      default = {
+        browser = [ "floorp" ];
+        audio = [ "vlc.desktop" ];
+        video = [ "vlc.desktop" ];
+        image = [ "oculante.desktop" ];
+      };
+
       terminal.kitty.enable = true;
 
+      browser.floorp.enable = true;
+      gaming.enable = true;
+
+      anki.enable = true;
       daw.enable = true;
       blender.enable = true;
       godot.enable = true;
 
-      gaming.enable = true;
+      media = {
+        audio.tenacity.enable = true;
+
+        video.vlc.enable = true;
+        video.obs.enable = true;
+
+        image.oculante.enable = true;
+        image.komikku.enable = true;
+      };
     };
 
     networking.ssh.enable = true;
@@ -28,7 +47,7 @@
       extraGroups = [ "network-manager" "wheel" ];
 
       dirs = {
-        desktop     = "$HOME/desktop";
+        desktop     = "$HOME/desk";
         documents   = "$HOME/docs";
         download    = "$HOME/dl";
         music       = "$HOME/music";
