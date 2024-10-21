@@ -28,16 +28,36 @@ in
   ) config.home-manager.users);
 
 
-  # Returns a list of all default.nix module entry points within a provided directory.
+  #  FIX: The following functions rely on the long deprecated builtin function `toPath`
+  #  SEE: https://nixos.wiki/wiki/Nix_Language:_Tips_%26_Tricks#Convert_a_string_to_an_.28import-able.29_path
+  #  AND: https://github.com/NixOS/nix/issues/1074
+  #  AND: https://github.com/NixOS/nix/pull/2524
+
+  # Returns a list of all default.nix submodule entry points within a provided directory
   # 
   # ## Arguments
-  # - `dir`: The directory to crawl for module entry points
-  #  TODO: Figure out way around lib.toPath deprecation, not able to use the new solution, might be a good reason for that
-  autoload = dir: builtins.concatLists (lib.mapAttrsToList (path: kind: 
+  # - `dir`: The directory to crawl for submodule entry points
+  getSubmodules = dir: builtins.concatLists (lib.mapAttrsToList (path: kind: 
     if kind == "directory"
       then let
         file = "${builtins.toPath dir}/${path}/default.nix";
-      in if builtins.pathExists file then [ file ] else [ ]
-      else [ ])
+      in if builtins.pathExists file then [ file ] else []
+    else [])
+  (builtins.readDir dir));
+
+
+  # Returns a list of all scoped submodule entry points within a provided directory
+  #
+  # ## Arguments
+  # - `dir`: The directory to crawl for submodule entry points
+  # - `scope`: The scope entry point to look for and match against, i.e. "hm" or "nix"
+  getScopedSubmodules = dir: scope: builtins.concatLists (lib.mapAttrsToList (path: kind:
+    if (kind == "directory") then
+      let
+        named = "${builtins.toPath dir}/${path}/${scope}.nix";          # ex: session/hyprland/nix.nix
+        scoped = "${builtins.toPath dir}/${path}/${scope}/default.nix"; # ex: session/hyprland/hm/default.nix
+      in
+        if (builtins.pathExists named) then [ named ] else (if (builtins.pathExists scoped) then [ scoped ] else [])
+    else [])
   (builtins.readDir dir));
 }

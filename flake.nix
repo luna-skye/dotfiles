@@ -23,7 +23,7 @@
     mkHmUser = user: {
       name = user;
       value.imports = [
-        (./modules/hm)
+        (./modules/hm.nix)
         (./users + "/${user}")
       ];
     };
@@ -48,7 +48,7 @@
           home-manager.users = builtins.listToAttrs (map (user: mkHmUser user) users);
         }
 
-        (./modules/nix)
+        (./modules/nix.nix)
       ];
     };
   in {
