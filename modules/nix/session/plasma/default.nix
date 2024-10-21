@@ -10,13 +10,10 @@ in {
 
 
   config = lib.mkIf (cfg.enable) {
-    services.displayManager = {
-      sddm = {
-        enable = lib.mkDefault true;
-        wayland.enable = lib.mkDefault true;
-      };
-
-      plasma6.enable = lib.mkDefault true;
+    services.displayManager.sddm = {
+      enable = lib.mkDefault true;
+      wayland.enable = lib.mkDefault true;
     };
+    services.desktopManager.plasma6.enable = lib.mkDefault true;
   };
 }
