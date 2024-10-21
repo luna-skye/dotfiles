@@ -1,3 +1,4 @@
+#  TODO: Find way to disable .desktop file outputs for plugins, namely lsp-plugins, should be easy with an override
 { config, lib, bead, pkgs, ... }: let
   defaultPlugins = builtins.attrValues { inherit (pkgs)
     vital             # best synth <3
