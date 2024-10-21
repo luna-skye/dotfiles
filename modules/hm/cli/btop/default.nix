@@ -6,7 +6,7 @@ in {
 
 
   options.bead.cli.btop = {
-    updateRate = bead.mkNumberOption 100 "Metric polling speed in milliseconds";
+    updateRate = bead.mkNumberOption 200 "Metric polling speed in milliseconds";
 
     graphSymbol = {
       default = bead.mkEnumOption [ "braille" "block" "tty" ] "tty" "Symbol type to render default graphs with";
