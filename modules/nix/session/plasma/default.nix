@@ -1,5 +1,5 @@
 { config, lib, bead, ... }: let
-  cfg = config.bead.plasma;
+  cfg = config.bead.session.plasma;
 in {
   imports = [];
 
