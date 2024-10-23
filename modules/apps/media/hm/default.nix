@@ -9,6 +9,7 @@ in {
   options.bead.apps.media = {
     audio = {
       tenacity = bead.mkPackageOption pkgs.tenacity "Tenacity audio editor";
+      spotify  = bead.mkPackageOption pkgs.spotify  "Official Spotify music streaming";
     };
 
     video = {
@@ -29,6 +30,7 @@ in {
        inherit (lib.lists) optional;
     in 
       optional (cfg.audio.tenacity.enable) cfg.audio.tenacity.pkg ++
+      optional (cfg.audio.spotify.enable)  cfg.audio.spotify.pkg  ++
 
       optional (cfg.video.vlc.enable)      cfg.video.vlc.pkg      ++
       optional (cfg.video.mpv.enable)      cfg.video.mpv.pkg      ++
