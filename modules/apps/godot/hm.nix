@@ -1,5 +1,4 @@
-{ config, lib, bead, pkgs, ... }:
-let
+{ config, lib, bead, pkgs, ... }: let
   gdpkgs = import (builtins.fetchGit {
     name = "godot-4.2.1";
     url = "https://github.com/NixOS/nixpkgs/";
