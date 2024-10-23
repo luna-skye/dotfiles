@@ -1,8 +1,13 @@
-{ config, lib, bead, ... }: {
+{ config, lib, bead, ... }: let
+  cfg = config.bead.cli.git;
+in {
   imports = [];
 
 
   options.bead.cli.git = {
+    username = bead.mkStringOption "" "The username to use for Git commits";
+    email = bead.mkStringOption "" "The email address to use for Git commits";
+
     initBranch = bead.mkStringOption "main" "The default branch of newly initialized git project";
 
     enableDefaultIgnores = bead.mkBooleanOption true "Whether to enable the preconfigured ignore list";
@@ -19,9 +24,12 @@
 
   config = {
     programs.git = {
-      enable = true;
-      lfs.enable = true;
-      delta.enable = true;
+      enable = lib.mkDefault true;
+      lfs.enable = lib.mkDefault true;
+      delta.enable = lib.mkDefault true;
+
+      userName = lib.mkDefault cfg.username;
+      userEmail = lib.mkDefault cfg.email;
 
       ignores = (if (config.bead.cli.git.enableDefaultIgnores) then [
         ".cache/"
