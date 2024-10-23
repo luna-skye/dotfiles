@@ -15,6 +15,8 @@
       btop
       eza
       sloc
+      glow
+      tealdeer
 
       fd
       ripgrep
