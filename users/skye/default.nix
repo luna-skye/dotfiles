@@ -36,6 +36,10 @@
       };
     };
 
+    cli.git = {
+      username = "Luna Skye";
+      email = "sepshuncontact@gmail.com";
+    };
     networking.ssh.enable = true;
 
 
