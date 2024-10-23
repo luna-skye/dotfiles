@@ -26,6 +26,8 @@ Not all of these are things actively used or relied on by me, but are wonderful 
     - [Docs](https://stylix.danth.me/)
 - Musnix - Realtime Audio on NixOS
     - [Source](https://github.com/musnix/musnix)
+- NixCord - Vencord/Vesktop Flake for NixOS
+    - [Source](https://github.com/SkettiSouls/NixCord)
 
 
 ## Software
