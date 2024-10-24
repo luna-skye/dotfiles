@@ -1,4 +1,6 @@
-{ config, lib, bead, ... }: {
+{ config, lib, bead, pkgs, ... }: let
+  cfg = config.bead.apps.terminal;
+in {
   imports = [];
 
 
@@ -7,15 +9,18 @@
 
     kitty = {
       enable = bead.mkBooleanOption false "Whether to enable the Kitty terminal emulator";
+
+      defaultShell = bead.mkStringOption "${pkgs.fish}/bin/fish" "The default shell path to use in Kitty";
     };
   };
 
 
   config = {
-    programs.kitty = lib.mkIf (config.bead.apps.terminal.kitty.enable) {
+    programs.kitty = lib.mkIf (cfg.kitty.enable) {
       enable = lib.mkDefault true;
 
       settings = {
+        shell = lib.mkDefault cfg.kitty.defaultShell;
         scrollback_lines = lib.mkDefault 10000;
         enable_audio_bell = lib.mkDefault false;
         update_check_interval = lib.mkDefault 0;
