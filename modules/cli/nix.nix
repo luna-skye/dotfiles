@@ -17,6 +17,8 @@
       sloc
       glow
       tealdeer
+      yt-dlp
+      ffmpeg_4-full
 
       fd
       ripgrep
