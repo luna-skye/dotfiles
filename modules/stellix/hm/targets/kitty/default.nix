@@ -12,10 +12,7 @@ in {
   };
 
 
-  config = lib.mkIf (config.bead.stellix.enable && (
-    ( config.bead.stellix.autoTarget && config.programs.kitty.enable ) ||
-    ( !config.bead.stellix.autoTarget && cfg.enable )
-  )) {
+  config = lib.mkIf (config.bead.stellix.enable && cfg.enable) {
     programs.kitty = {
       # https://sw.kovidgoyal.net/kitty/conf/#color-scheme
       settings = lib.mkIf (cfg.enableColors) {

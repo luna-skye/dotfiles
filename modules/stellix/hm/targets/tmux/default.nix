@@ -24,10 +24,7 @@ in {
   };
 
 
-  config = lib.mkIf (config.bead.stellix.enable && (
-    ( config.bead.stellix.autoTarget && config.programs.tmux.enable ) ||
-    ( !config.bead.stellix.autoTarget && cfg.enable )
-  )) {
+  config = lib.mkIf (config.bead.stellix.enable && cfg.enable) {
     programs.tmux.plugins = [
       { plugin = pkgs.tmuxPlugins.cpu; }
       { 

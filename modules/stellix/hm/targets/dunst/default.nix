@@ -13,10 +13,7 @@ in {
   };
 
 
-  config = lib.mkIf (config.bead.stellix.enable && (
-    ( config.bead.stellix.autoTarget && config.services.dunst.enable ) ||
-    ( !config.bead.stellix.autoTarget && cfg.enable )
-  )) {
+  config = lib.mkIf (config.bead.stellix.enable && cfg.enable) {
     services.dunst.settings = let
       bg = "${colors.surface.mantle}D9";
     in {

@@ -19,5 +19,14 @@ in {
   };
 
 
-  config = lib.mkIf (cfg.enable) {};
+  # auto-targeting
+  config = lib.mkIf (cfg.enable && cfg.autoTarget) {
+    bead.stellix.targets = {
+      btop.enable     = lib.mkDefault true;
+      dunst.enable    = lib.mkDefault config.services.dunst.enable;
+      hyprland.enable = lib.mkDefault config.wayland.windowManager.hyprland.enable;
+      kitty.enable    = lib.mkDefault config.programs.kitty.enable;
+      tmux.enable     = lib.mkDefault config.programs.tmux.enable;
+    };
+  };
 }

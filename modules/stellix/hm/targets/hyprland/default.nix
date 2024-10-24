@@ -54,10 +54,7 @@ in {
   };
 
 
-  config = lib.mkIf (config.bead.stellix.enable && (
-    ( config.bead.stellix.autoTarget && config.wayland.windowManager.hyprland.enable ) ||
-    ( !config.bead.stellix.autoTarget && cfg.enable )
-  )) {
+  config = lib.mkIf (config.bead.stellix.enable && cfg.enable) {
     wayland.windowManager.hyprland.settings = let
       colPrimary = lib.attrsets.attrByPath [ "accent" colors.primary ] "#FF0000" colors;
       colSecondary = lib.attrsets.attrByPath [ "accent" colors.secondary ] "#FF0000" colors;
