@@ -1,4 +1,4 @@
-{ config, lib, bead, ... }: let
+{ config, lib, bead, pkgs, ... }: let
   cfg = config.bead.cli.shell;
 in {
   imports = [];
@@ -47,12 +47,16 @@ in {
       '';
 
       shellAliases = (if (cfg.fish.enableDefaultAliases) then {
-        ".." = "cd ..";
-        "..." = "cd ../../";
-        "...." = "cd ../../../";
-        "....." = "cd ../../../../";
+        ff = ''clear && fastfetch'';
+        mkdir = ''mkdir -pv''; # make parent dirs on demand
 
-        mkdir = "mkdir -pv"; # make parent dirs on demand
+        tree = ''${lib.getExe pkgs.eza} --tree --icons'';
+        l = ''${lib.getExe pkgs.eza} -h --git --icons --color=auto --group-directories-first -s extension'';
+        ls = ''${lib.getExe pkgs.eza} -l --icons --color=auto --group-directories-first'';
+        "l." = ''${lib.getExe pkgs.eza} -l -d .* --icons --color=auto --group-directories-first'';
+
+        #  TODO: add aliases for mp4 and ogg
+        ytmp3 = ''${lib.getExe pkgs.yt-dlp} -x --continue --add-meta-data --embed-thumbnail --audio-format mp3 --audio-quality 0 --metadata-from-title"%(artist)s - %{title}s" --prefer-ffmpeg -o "%(title)s.%(ext)s"'';
       } else {}) // cfg.fish.aliases;
     };
 
