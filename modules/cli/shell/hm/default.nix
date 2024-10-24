@@ -39,7 +39,7 @@ in {
 
   config = {
     programs.fish = lib.mkIf (cfg.fish.enable) {
-      enable = true;
+      enable = lib.mkDefault true;
 
       shellInit = ''
         set -U fish_greeting
