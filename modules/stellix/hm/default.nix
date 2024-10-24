@@ -1,9 +1,9 @@
 { config, lib, bead, ... }: let 
   cfg = config.bead.stellix;
 in {
-  imports = bead.getSubmodules ./targets ++ [
+  imports = [
     ./fonts.nix
-  ];
+  ] ++ bead.getSubmodules ./targets;
 
 
   options.bead.stellix = {
