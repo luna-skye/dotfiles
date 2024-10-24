@@ -10,6 +10,8 @@
   config = {
     home.packages = config.bead.extraPkgs;
 
+    home.file.".config/totality-nixos/logo.jpg".source = ../assets/logo.jpg;
+
     #  WARN: DO NOT CHANGE THESE
     home.stateVersion = lib.mkForce "23.11";
     programs.home-manager.enable = lib.mkForce true;
