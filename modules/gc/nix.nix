@@ -1,18 +1,22 @@
-{ config, lib, bead, ... }: {
+{ config, lib, bead, ... }:
+
+let
+  cfg = config.bead.gc;
+in {
   imports = [];
 
 
   options.bead.gc = {
-    enable = bead.mkBooleanOption true "Whether to enable automatic garbage collection on the NixOS system";
+    enableAuto = bead.mkBooleanOption true "Whether to enable automatic garbage collection on the NixOS system";
   };
 
 
-  config = lib.mkIf (config.bead.gc.enable) {
     boot.loader.systemd-boot.configurationLimit = 10;
-    nix.gc = {
       automatic = true;
       dates     = "weekly";
       options   = "--delete-older-than 1w";
+  config = {
+    nix.gc = lib.mkIf (cfg.enableAuto) {
     };
     nix.settings.auto-optimise-store = true;
   };
