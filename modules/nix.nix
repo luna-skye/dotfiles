@@ -33,6 +33,9 @@ in {
     boot.loader.systemd-boot.enable = lib.mkDefault true;
     boot.loader.efi.canTouchEfiVariables = lib.mkDefault true;
 
+    # Limit old generation count on bootloader
+    boot.loader.systemd-boot.configurationLimit = lib.mkDefault 10;
+
     # Force disable emergency mode, it's deadlocked NixOS systems for me in the past
     systemd.enableEmergencyMode = lib.mkForce false;
 
