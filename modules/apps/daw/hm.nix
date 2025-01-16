@@ -1,5 +1,5 @@
 #  TODO: Find way to disable .desktop file outputs for plugins, namely lsp-plugins, should be easy with an override
-{ config, lib, bead, pkgs, ... }: let
+{ config, lib, helpers, pkgs, ... }: let
   defaultPlugins = builtins.attrValues { inherit (pkgs)
     vital             # best synth <3
     cardinal          # vcv rack emulator
@@ -32,13 +32,13 @@ in {
 
 
   options.bead.apps.daw = {
-    enable = bead.mkBooleanOption false "Whether to enable any of the audio workstation module";
+    enable = helpers.mkBooleanOption false "Whether to enable any of the audio workstation module";
 
-    enableDefaultPlugins = bead.mkBooleanOption true "Whether to enable preconfigured LV2/VST plugins";
-    plugins = bead.mkListOfOption lib.types.package [] "List of packages to install alongside Ardour as audio plugins";
+    enableDefaultPlugins = helpers.mkBooleanOption true "Whether to enable preconfigured LV2/VST plugins";
+    plugins = helpers.mkListOfOption lib.types.package [] "List of packages to install alongside Ardour as audio plugins";
 
     ardour = {
-      enable = bead.mkBooleanOption false "Whether to enable the Ardour audio workstation software";
+      enable = helpers.mkBooleanOption false "Whether to enable the Ardour audio workstation software";
     };
   };
 

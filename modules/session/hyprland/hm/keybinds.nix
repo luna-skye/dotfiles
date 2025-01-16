@@ -1,4 +1,4 @@
-{ config, lib, bead, ... }: let
+{ config, lib, helpers, ... }: let
   cfg = config.bead.hyprland;
 
   # Generated bindings for moving yourself and windows between workspaces using the 0-9 number row
@@ -15,40 +15,40 @@ in {
 
 
   options.bead.hyprland.keybinds = {
-    enableDefault = bead.mkBooleanOption true "Whether to use preconfigured keybindings for Hyprland";
+    enableDefault = helpers.mkBooleanOption true "Whether to use preconfigured keybindings for Hyprland";
 
     keys = {
-      mod = bead.mkStringOption "SUPER" "Modifier key used for most Hyprland keybinds";
+      mod = helpers.mkStringOption "SUPER" "Modifier key used for most Hyprland keybinds";
 
       directions = {
-        left  = bead.mkStringOption "h" "Key for left navigation";
-        down  = bead.mkStringOption "l" "Key for down navigation";
-        up    = bead.mkStringOption "j" "Key for up navigation";
-        right = bead.mkStringOption "k" "Key for right navigation";
+        left  = helpers.mkStringOption "h" "Key for left navigation";
+        down  = helpers.mkStringOption "l" "Key for down navigation";
+        up    = helpers.mkStringOption "j" "Key for up navigation";
+        right = helpers.mkStringOption "k" "Key for right navigation";
       };
       
-      toggleWindowFullscreen = bead.mkStringOption "F" "Key to toggle active window fullscreen";
-      toggleWindowFloating   = bead.mkStringOption "V" "Key to toggle active window floating";
-      centerWindow           = bead.mkStringOption "Period" "Key to center the active window";
-      closeWindow            = bead.mkStringOption "X" "Key to close the active window";
+      toggleWindowFullscreen = helpers.mkStringOption "F" "Key to toggle active window fullscreen";
+      toggleWindowFloating   = helpers.mkStringOption "V" "Key to toggle active window floating";
+      centerWindow           = helpers.mkStringOption "Period" "Key to center the active window";
+      closeWindow            = helpers.mkStringOption "X" "Key to close the active window";
 
-      openBrowser      = bead.mkStringOption "B" "Key to open the configured default browser";
-      openTerminal     = bead.mkStringOption "T" "Key to open the configured default browser";
-      openFileExplorer = bead.mkStringOption "E" "Key to open the configured default browser";
+      openBrowser      = helpers.mkStringOption "B" "Key to open the configured default browser";
+      openTerminal     = helpers.mkStringOption "T" "Key to open the configured default browser";
+      openFileExplorer = helpers.mkStringOption "E" "Key to open the configured default browser";
 
-      pickColor      = bead.mkStringOption "P" "Key to start Hyprpicker color picker";
-      takeScreenshot = bead.mkStringOption "Print" "Key to take screenshots";
+      pickColor      = helpers.mkStringOption "P" "Key to start Hyprpicker color picker";
+      takeScreenshot = helpers.mkStringOption "Print" "Key to take screenshots";
     };
 
     actions = {
-      launcher = bead.mkStringOption "walker --modules applications,finder,calc,ssh" "The command to execute when calling the application launcher";
+      launcher = helpers.mkStringOption "walker --modules applications,finder,calc,ssh" "The command to execute when calling the application launcher";
     };
 
     extra = {
-      bind  = bead.mkListOfOption lib.types.str [] "Custom normal keybinds to register in Hyprland";
-      bindm = bead.mkListOfOption lib.types.str [] "Custom mouse keybinds to register in Hyprland";
-      binde = bead.mkListOfOption lib.types.str [] "Custom event keybinds to register in Hyprland";
-      bindl = bead.mkListOfOption lib.types.str [] "Custom locked keybinds to register in Hyprland";
+      bind  = helpers.mkListOfOption lib.types.str [] "Custom normal keybinds to register in Hyprland";
+      bindm = helpers.mkListOfOption lib.types.str [] "Custom mouse keybinds to register in Hyprland";
+      binde = helpers.mkListOfOption lib.types.str [] "Custom event keybinds to register in Hyprland";
+      bindl = helpers.mkListOfOption lib.types.str [] "Custom locked keybinds to register in Hyprland";
     };
   };
 

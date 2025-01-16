@@ -1,11 +1,11 @@
-{ config, lib, bead, ... }: let
+{ config, lib, helpers, ... }: let
   cfg = config.bead.session.plasma;
 in {
   imports = [];
 
 
   options.bead.session.plasma = {
-    enable = bead.mkBooleanOption false "Whether to enable the KDE Plasma Desktop Environment";
+    enable = helpers.mkBooleanOption false "Whether to enable the KDE Plasma Desktop Environment";
   };
 
 

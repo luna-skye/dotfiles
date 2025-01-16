@@ -1,4 +1,4 @@
-{ config, lib, bead, ... }: let
+{ config, lib, helpers, ... }: let
   cfg = config.bead.stellix.targets.kitty;
   colors = config.bead.stellix.palette;
 in {
@@ -6,10 +6,10 @@ in {
 
 
   options.bead.stellix.targets.kitty = {
-    enable = bead.mkBooleanOption false "Whether to enable Kitty terminal emulator color overrides from STELLIX";
+    enable = helpers.mkBooleanOption false "Whether to enable Kitty terminal emulator color overrides from STELLIX";
 
-    enableColors = bead.mkBooleanOption true "Whether to override Kitty's colors with STELLIX colors";
-    enableFonts = bead.mkBooleanOption true "Whether to override Kitty's fonts with STELLIX fonts";
+    enableColors = helpers.mkBooleanOption true "Whether to override Kitty's colors with STELLIX colors";
+    enableFonts = helpers.mkBooleanOption true "Whether to override Kitty's fonts with STELLIX fonts";
   };
 
 

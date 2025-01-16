@@ -1,9 +1,9 @@
-{ config, lib, bead, ... }: {
+{ config, lib, helpers, ... }: {
   imports = [];
 
 
   options.bead.networking = {
-    ssh.enable = bead.mkBooleanOption true "Whether to allow SSH connections made to this NixOS system";
+    ssh.enable = helpers.mkBooleanOption true "Whether to allow SSH connections made to this NixOS system";
   };
 
 
@@ -25,7 +25,7 @@
       ports = [ 22 ];
 
       settings = {
-        AllowUsers = bead.usersWithEnabled [ "bead" "networking" "ssh" "enable" ] config;
+        AllowUsers = helpers.usersWithEnabled [ "bead" "networking" "ssh" "enable" ] config;
         UseDns = true;
         X11Forwarding = false;
         PermitRootLogin = "prohibit-password";

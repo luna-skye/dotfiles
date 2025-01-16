@@ -1,33 +1,33 @@
-{ config, lib, bead, pkgs, ... }: {
+{ config, lib, helpers, pkgs, ... }: {
   imports = [];
 
 
   options.bead.apps.gaming = {
-    enable = bead.mkBooleanOption false "Whether to enable ANY gaming related packages";
+    enable = helpers.mkBooleanOption false "Whether to enable ANY gaming related packages";
 
     steam = {
-      enable = bead.mkBooleanOption true "Whether to enable the Steam gaming platform";
+      enable = helpers.mkBooleanOption true "Whether to enable the Steam gaming platform";
     };
 
     heroic = {
-      enable = bead.mkBooleanOption true "Whether to enable the Heroic gaming platform, for Epic Games content";
+      enable = helpers.mkBooleanOption true "Whether to enable the Heroic gaming platform, for Epic Games content";
     };
 
     lutris = {
-      enable = bead.mkBooleanOption true "Whether to enable the Lutris gaming application";
+      enable = helpers.mkBooleanOption true "Whether to enable the Lutris gaming application";
     };
 
     minecraft = {
       modrinth = {
-        enable = bead.mkBooleanOption true "Whether to enable the Modrinth Minecraft launcher";
+        enable = helpers.mkBooleanOption true "Whether to enable the Modrinth Minecraft launcher";
       };
 
       atl = {
-        enable = bead.mkBooleanOption false "Whether to enable the ATLauncher Minecraft launcher";
+        enable = helpers.mkBooleanOption false "Whether to enable the ATLauncher Minecraft launcher";
       };
 
       prism = {
-        enable = bead.mkBooleanOption false "Whether to enable the Prism Launcher";
+        enable = helpers.mkBooleanOption false "Whether to enable the Prism Launcher";
       };
     };
   };

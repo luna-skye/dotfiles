@@ -1,13 +1,13 @@
-{ config, lib, bead, pkgs, ... }: let
+{ config, lib, helpers, pkgs, ... }: let
   cfg = config.bead.cli.shell.nushell;
 in {
   imports = [];
 
 
   options.bead.cli.shell.nushell = {
-    enable = bead.mkBooleanOption true "Whether to enable the Nu shell";
+    enable = helpers.mkBooleanOption true "Whether to enable the Nu shell";
 
-    enableDefaultAliases = bead.mkBooleanOption true "Whether to enable the default provided aliases for Nushell";
+    enableDefaultAliases = helpers.mkBooleanOption true "Whether to enable the default provided aliases for Nushell";
     aliases = lib.mkOption {
       description = "Shell aliases to register in Nushell for the user";
       type = lib.types.attrs;

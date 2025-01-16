@@ -1,16 +1,17 @@
-{ config, lib, bead, pkgs, ... }: let
+{ config, lib, helpers, pkgs, ... }: let
   cfg = config.bead.apps.terminal;
+
 in {
   imports = [];
 
 
   options.bead.apps.terminal = {
-    default = bead.mkListOfOption lib.types.str [ "kitty" ] "Which terminal emulator to set as the default";
+    default = helpers.mkListOfOption lib.types.str [ "kitty" ] "Which terminal emulator to set as the default";
 
     kitty = {
-      enable = bead.mkBooleanOption false "Whether to enable the Kitty terminal emulator";
+      enable = helpers.mkBooleanOption false "Whether to enable the Kitty terminal emulator";
 
-      defaultShell = bead.mkStringOption "${pkgs.fish}/bin/fish" "The default shell path to use in Kitty";
+      defaultShell = helpers.mkStringOption "${pkgs.fish}/bin/fish" "The default shell path to use in Kitty";
     };
   };
 

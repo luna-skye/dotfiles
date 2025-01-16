@@ -1,4 +1,4 @@
-{ config, lib, bead, pkgs, ... }: let
+{ config, lib, helpers, pkgs, ... }: let
   cfg = config.bead.apps.media;
 in {
   imports = [
@@ -8,19 +8,19 @@ in {
 
   options.bead.apps.media = {
     audio = {
-      tenacity = bead.mkPackageOption pkgs.tenacity "Tenacity audio editor";
-      spotify  = bead.mkPackageOption pkgs.spotify  "Official Spotify music streaming";
+      tenacity = helpers.mkPackageOption pkgs.tenacity "Tenacity audio editor";
+      spotify  = helpers.mkPackageOption pkgs.spotify  "Official Spotify music streaming";
     };
 
     video = {
-      vlc      = bead.mkPackageOption pkgs.vlc      "VLC video player";
-      mpv      = bead.mkPackageOption pkgs.mpv      "MPV video player";
-      kdenlive = bead.mkPackageOption pkgs.kdenlive "Kdenlive video editor";
+      vlc      = helpers.mkPackageOption pkgs.vlc      "VLC video player";
+      mpv      = helpers.mkPackageOption pkgs.mpv      "MPV video player";
+      kdenlive = helpers.mkPackageOption pkgs.kdenlive "Kdenlive video editor";
     };
 
     image = {
-      oculante = bead.mkPackageOption pkgs.oculante "Oculante image viewer";
-      komikku = bead.mkPackageOption pkgs.komikku "Komikku comic/manga reader";
+      oculante = helpers.mkPackageOption pkgs.oculante "Oculante image viewer";
+      komikku = helpers.mkPackageOption pkgs.komikku "Komikku comic/manga reader";
     };
   };
 

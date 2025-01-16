@@ -1,20 +1,20 @@
-{ config, lib, bead, pkgs, ... }: let
+{ config, lib, helpers, pkgs, ... }: let
   cfg = config.bead.cli.shell.fish;
 in {
   imports = [];
 
 
   options.bead.cli.shell.fish = {
-    enable = bead.mkBooleanOption true "Whether to enable the Fish shell";
+    enable = helpers.mkBooleanOption true "Whether to enable the Fish shell";
 
-    enableDefaultAbbrs = bead.mkBooleanOption true "Whether to enable the default provided abbreviations for Fish shell";
+    enableDefaultAbbrs = helpers.mkBooleanOption true "Whether to enable the default provided abbreviations for Fish shell";
     abbrs = lib.mkOption {
       description = "Shell aliases to register in Fish for the user";
       type = lib.types.attrs;
       default = {};
     };
 
-    enableDefaultAliases = bead.mkBooleanOption true "Whether to enable the default provided aliases for Fish shell";
+    enableDefaultAliases = helpers.mkBooleanOption true "Whether to enable the default provided aliases for Fish shell";
     aliases = lib.mkOption {
       description = "Shell aliases to register in Fish for the user";
       type = lib.types.attrs;

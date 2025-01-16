@@ -1,4 +1,4 @@
-{ config, lib, bead, ... }:
+{ config, lib, helpers, ... }:
 
 let
   cfg = config.bead.gc;
@@ -7,9 +7,9 @@ in {
 
 
   options.bead.gc = {
-    enableAuto = bead.mkBooleanOption true "Whether to enable automatic garbage collection on the NixOS system";
-    autoFrequency = bead.mkStringOption "weekly" "How frequently to run automatic garbage collection";
-    autoDeleteAfter = bead.mkStringOption "1w" "Timeframe to keep generations around for";
+    enableAuto = helpers.mkBooleanOption true "Whether to enable automatic garbage collection on the NixOS system";
+    autoFrequency = helpers.mkStringOption "weekly" "How frequently to run automatic garbage collection";
+    autoDeleteAfter = helpers.mkStringOption "1w" "Timeframe to keep generations around for";
   };
 
 

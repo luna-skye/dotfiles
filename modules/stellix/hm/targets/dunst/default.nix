@@ -1,4 +1,4 @@
-{ config, lib, bead, ... }: let
+{ config, lib, helpers, ... }: let
   cfg = config.bead.stellix.targets.dunst;
   colors = config.bead.stellix.palette;
 in {
@@ -6,13 +6,13 @@ in {
 
 
   options.bead.stellix.targets.dunst = {
-    enable = bead.mkBooleanOption false "Whether to enable Dunst notification service styling through STELLIX";
+    enable = helpers.mkBooleanOption false "Whether to enable Dunst notification service styling through STELLIX";
 
-    enableColors = bead.mkBooleanOption true "Whether to use STELLIX colors for Dunst";
-    enableFonts = bead.mkBooleanOption true "Whether to use STELLIX fonts for Dunst";
+    enableColors = helpers.mkBooleanOption true "Whether to use STELLIX colors for Dunst";
+    enableFonts = helpers.mkBooleanOption true "Whether to use STELLIX fonts for Dunst";
 
-    cornerRadius = bead.mkNumberOption 0 "The amount in pixels to round Dunst notifications";
-    borderWidth = bead.mkNumberOption 2 "Width in pixels to render Dunst notification frames";
+    cornerRadius = helpers.mkNumberOption 0 "The amount in pixels to round Dunst notifications";
+    borderWidth = helpers.mkNumberOption 2 "Width in pixels to render Dunst notification frames";
   };
 
 

@@ -1,11 +1,11 @@
-{ config, lib, bead, pkgs, ... }: let
+{ config, lib, helpers, pkgs, ... }: let
   cfg = config.bead.services.swww;
 in {
   imports = [];
 
 
   options.bead.services.swww = {
-    enable = bead.mkBooleanOption false "Whether to enable the SWWW wallpaper daemon";
+    enable = helpers.mkBooleanOption false "Whether to enable the SWWW wallpaper daemon";
   };
 
 

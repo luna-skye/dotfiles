@@ -1,4 +1,4 @@
-{ config, lib, bead, pkgs, ... }: {
+{ config, lib, helpers, pkgs, ... }: {
   imports = [];
 
 
@@ -6,9 +6,9 @@
 
 
   config = let
-    enableSteam  = bead.anyUserHasEnabled [ "bead" "apps" "gaming" "steam"  "enable" ] config;
-    enableHeroic = bead.anyUserHasEnabled [ "bead" "apps" "gaming" "heroic" "enable" ] config;
-  in lib.mkIf (bead.anyUserHasEnabled [ "bead" "apps" "gaming" "enable" ] config) {
+    enableSteam  = helpers.anyUserHasEnabled [ "bead" "apps" "gaming" "steam"  "enable" ] config;
+    enableHeroic = helpers.anyUserHasEnabled [ "bead" "apps" "gaming" "heroic" "enable" ] config;
+  in lib.mkIf (helpers.anyUserHasEnabled [ "bead" "apps" "gaming" "enable" ] config) {
     programs.steam = lib.mkIf (enableSteam) {
       enable = lib.mkDefault true;
       remotePlay.openFirewall = lib.mkDefault true;

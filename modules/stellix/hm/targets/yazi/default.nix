@@ -1,6 +1,6 @@
 # Loosely based on stylix: https://github.com/danth/stylix/blob/master/modules/yazi/hm.nix
 # Which is based on the official yazi catppuccin theme: https://github.com/yazi-rs/themes
-{ config, lib, bead, ... }: let
+{ config, lib, helpers, ... }: let
   cfg = config.bead.stellix.targets.yazi;
   colors = config.bead.stellix.palette;
 in {
@@ -8,7 +8,7 @@ in {
 
 
   options.bead.stellix.targets.yazi = {
-    enable = bead.mkBooleanOption false "Whether to enable Yazi as a target for STELLIX theming";
+    enable = helpers.mkBooleanOption false "Whether to enable Yazi as a target for STELLIX theming";
   };
 
 

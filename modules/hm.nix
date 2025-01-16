@@ -1,9 +1,9 @@
-{ config, lib, bead, ... }: {
-  imports = bead.getScopedSubmodules ../modules "hm";
+{ config, lib, helpers, ... }: {
+  imports = helpers.getScopedSubmodules ../modules "hm";
 
 
   options.bead = {
-    extraPkgs = bead.mkListOfOption lib.types.package [] "Extra packages to install into the user's profile";
+    extraPkgs = helpers.mkListOfOption lib.types.package [] "Extra packages to install into the user's profile";
   };
 
 

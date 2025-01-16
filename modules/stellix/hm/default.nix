@@ -1,13 +1,13 @@
-{ config, lib, bead, ... }: let 
+{ config, lib, helpers, ... }: let 
   cfg = config.bead.stellix;
 in {
   imports = [
     ./fonts.nix
-  ] ++ bead.getSubmodules ./targets;
+  ] ++ helpers.getSubmodules ./targets;
 
 
   options.bead.stellix = {
-    enable = bead.mkBooleanOption false "Whether to enable the STELLIX styling module";
+    enable = helpers.mkBooleanOption false "Whether to enable the STELLIX styling module";
 
     palette = lib.mkOption {
       description = "STELLAE compliant color palette to use within STELLIX";
@@ -15,7 +15,7 @@ in {
       default = lib.importJSON ./palettes/stellae.json;
     };
 
-    autoTarget = bead.mkBooleanOption false "Whether to enable automatically detecting targets to apply STELLIX to, from bead/hm config";
+    autoTarget = helpers.mkBooleanOption false "Whether to enable automatically detecting targets to apply STELLIX to, from bead/hm config";
   };
 
 

@@ -1,14 +1,14 @@
-{ config, lib, bead, ... }: let
+{ config, lib, helpers, ... }: let
   cfg = config.bead.cli.shell.omp;
 in {
   imports = [];
 
 
   options.bead.cli.shell.omp = {
-    enable = bead.mkBooleanOption true "Whether to enable the Oh-My-Posh shell prompt";
+    enable = helpers.mkBooleanOption true "Whether to enable the Oh-My-Posh shell prompt";
 
-    enableFish = bead.mkBooleanOption true "Whether to enable the Oh-My-Posh shell prompt for the Fish shell";
-    enableNushell = bead.mkBooleanOption true "Whether to enable the Oh-My-Posh shell prompt for Nushell";
+    enableFish = helpers.mkBooleanOption true "Whether to enable the Oh-My-Posh shell prompt for the Fish shell";
+    enableNushell = helpers.mkBooleanOption true "Whether to enable the Oh-My-Posh shell prompt for Nushell";
   };
 
 

@@ -1,12 +1,12 @@
-{ config, lib, bead, pkgs, ... }: let
+{ config, lib, helpers, pkgs, ... }: let
   cfg = config.bead.apps.browser.floorp;
 in {
   imports = [];
 
 
   options.bead.apps.browser.floorp = {
-    enable = bead.mkBooleanOption false "Whether to enable the Floorp web browser";
-    # enableDefaultExtensions = bead.mkBooleanOption true "Whether to enable the preconfigured extensions for Floorp";
+    enable = helpers.mkBooleanOption false "Whether to enable the Floorp web browser";
+    # enableDefaultExtensions = helpers.mkBooleanOption true "Whether to enable the preconfigured extensions for Floorp";
 
     # settings = {
     #   openPrevious = {};

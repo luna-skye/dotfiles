@@ -1,10 +1,10 @@
-{ config, lib, bead, ... }: {
+{ config, lib, helpers, ... }: {
   imports = [];
 
 
   options.bead.cli.yazi = {
-    enable = bead.mkBooleanOption true "Whether to install and configure Yazi for the user";
-    enableYyCommand = bead.mkBooleanOption true "Whether to enable the `yy` shortcut for persistent yazi navigation";
+    enable = helpers.mkBooleanOption true "Whether to install and configure Yazi for the user";
+    enableYyCommand = helpers.mkBooleanOption true "Whether to enable the `yy` shortcut for persistent yazi navigation";
   };
 
 

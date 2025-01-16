@@ -1,14 +1,14 @@
-{ config, lib, bead, pkgs, ... }: let
+{ config, lib, helpers, pkgs, ... }: let
   cfg = config.bead.apps.media.video.obs;
 in {
   imports = [];
 
 
   options.bead.apps.media.video.obs = {
-    enable = bead.mkBooleanOption false "Whether to enable the OBS Studio software and configuration";
+    enable = helpers.mkBooleanOption false "Whether to enable the OBS Studio software and configuration";
 
-    enableDefaultPlugins = bead.mkBooleanOption true "Whether to enable the OBS Studio software and configuration";
-    plugins = bead.mkListOfOption lib.types.package [] "Extra plugins to install into OBS Studio";
+    enableDefaultPlugins = helpers.mkBooleanOption true "Whether to enable the OBS Studio software and configuration";
+    plugins = helpers.mkListOfOption lib.types.package [] "Extra plugins to install into OBS Studio";
   };
 
 

@@ -1,16 +1,16 @@
-{ config, lib, bead, ... }: let
+{ config, lib, helpers, ... }: let
   cfg = config.bead;
 in {
-  imports = bead.getScopedSubmodules ../modules "nix";
+  imports = helpers.getScopedSubmodules ../modules "nix";
 
 
   options.bead = {
     host = {
-      name = bead.mkStringOption "hostName" "The host name for the NixOS system";
-      timezone = bead.mkStringOption "America/Indiana/Petersburg" "The timezone for the NixOS system";
+      name = helpers.mkStringOption "hostName" "The host name for the NixOS system";
+      timezone = helpers.mkStringOption "America/Indiana/Petersburg" "The timezone for the NixOS system";
     };
 
-    extraPkgs = bead.mkListOfOption lib.types.package [] "Extra packages to install globally onto the system. Prefer the user option in most cases.";
+    extraPkgs = helpers.mkListOfOption lib.types.package [] "Extra packages to install globally onto the system. Prefer the user option in most cases.";
   };
 
 

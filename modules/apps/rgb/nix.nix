@@ -1,11 +1,11 @@
-{ config, lib, bead, pkgs, ... }: let
+{ config, lib, helpers, pkgs, ... }: let
   cfg = config.bead.apps.rgb;
 in {
   imports = [];
 
 
   options.bead.apps.rgb = {
-    enable = bead.mkBooleanOption false "Whether to enable the OpenRGB application";
+    enable = helpers.mkBooleanOption false "Whether to enable the OpenRGB application";
   };
 
 

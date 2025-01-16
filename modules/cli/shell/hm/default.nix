@@ -1,7 +1,7 @@
-{ config, lib, bead, pkgs, ... }: let
+{ config, lib, helpers, pkgs, ... }: let
   cfg = config.bead.cli.shell;
 in {
-  imports = bead.getSubmodules ../hm;
+  imports = helpers.getSubmodules ../hm;
 
 
   options.bead.cli.shell = {};

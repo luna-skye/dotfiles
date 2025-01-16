@@ -1,5 +1,5 @@
 #  TODO: Look into improving this, either with custom config or from Musnix
-{ config, lib, bead, pkgs, ... }: let
+{ config, lib, helpers, pkgs, ... }: let
   cfg = config.bead.audio;
 in {
   imports = [];

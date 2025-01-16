@@ -1,3 +1,3 @@
-{ bead, ... }: {
-  imports = bead.getScopedSubmodules ../apps "nix";
+{ helpers, ... }: {
+  imports = helpers.getScopedSubmodules ../apps "nix";
 }

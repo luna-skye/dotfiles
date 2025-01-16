@@ -1,4 +1,4 @@
-{ config, lib, bead, ... }: let
+{ config, lib, helpers, ... }: let
   inherit (lib.lists) optionals;
   cfg = config.bead.cache;
 in {
@@ -7,15 +7,15 @@ in {
 
   options.bead.cache = let
     substituterType = lib.types.submodule {
-      url = bead.mkStringOption "" "URL for the binary substituter";
-      key = bead.mkStringOption "" "Key for the binary substituter";
+      url = helpers.mkStringOption "" "URL for the binary substituter";
+      key = helpers.mkStringOption "" "Key for the binary substituter";
     };
   in {
-    enable = bead.mkBooleanOption true "Whether to enable the use of binary caches when building the NixOS system";
+    enable = helpers.mkBooleanOption true "Whether to enable the use of binary caches when building the NixOS system";
 
-    useDefaultSubstituters = bead.mkBooleanOption true "Whether to use default substituters and trusted keys for caches";
+    useDefaultSubstituters = helpers.mkBooleanOption true "Whether to use default substituters and trusted keys for caches";
 
-    extraSubstituters = bead.mkListOfOption substituterType [] "Extra binary substituters and keys to add to a NixOS host";
+    extraSubstituters = helpers.mkListOfOption substituterType [] "Extra binary substituters and keys to add to a NixOS host";
   };
 
 

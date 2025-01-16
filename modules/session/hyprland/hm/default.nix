@@ -1,4 +1,4 @@
-{ config, osConfig, lib, bead, pkgs, ... }: let
+{ config, osConfig, lib, helpers, pkgs, ... }: let
   cfg = config.bead.session.hyprland;
   osCfg = osConfig.bead.session.hyprland;
 
@@ -25,16 +25,16 @@ in {
 
 
   options.bead.session.hyprland = {
-    autoEnableServices = bead.mkBooleanOption true "Whether to automatically enable related bead services, such as Dunst, AGS, SWWW, etc.";
+    autoEnableServices = helpers.mkBooleanOption true "Whether to automatically enable related bead services, such as Dunst, AGS, SWWW, etc.";
 
-    defaultExecOnce = bead.mkBooleanOption true "Whether to apply default execOnce commands";
-    execOnce = bead.mkListOfOption lib.types.str [] "Commands to execute at Hyprland startup";
+    defaultExecOnce = helpers.mkBooleanOption true "Whether to apply default execOnce commands";
+    execOnce = helpers.mkListOfOption lib.types.str [] "Commands to execute at Hyprland startup";
 
-    defaultWindowRules = bead.mkBooleanOption true "Whether to apply default Hyprland window rules";
-    windowRules = bead.mkListOfOption lib.types.str [] "Rules to apply to windows";
+    defaultWindowRules = helpers.mkBooleanOption true "Whether to apply default Hyprland window rules";
+    windowRules = helpers.mkListOfOption lib.types.str [] "Rules to apply to windows";
 
-    defaultLayerRules = bead.mkBooleanOption true "Whether to apply default Hyprland layer rules";
-    layerRules = bead.mkListOfOption lib.types.str [] "Rules to apply to layers";
+    defaultLayerRules = helpers.mkBooleanOption true "Whether to apply default Hyprland layer rules";
+    layerRules = helpers.mkListOfOption lib.types.str [] "Rules to apply to layers";
   };
 
 

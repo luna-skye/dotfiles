@@ -1,4 +1,4 @@
-{ config, lib, bead, pkgs, ... }: let
+{ config, lib, helpers, pkgs, ... }: let
   gdpkgs = import (builtins.fetchGit {
     name = "godot-4.2.1";
     url = "https://github.com/NixOS/nixpkgs/";
@@ -10,7 +10,7 @@ in {
 
 
   options.bead.apps.godot = {
-    enable = bead.mkBooleanOption false "Whether to enable the Godot Game Engine application for the user";
+    enable = helpers.mkBooleanOption false "Whether to enable the Godot Game Engine application for the user";
   };
 
 

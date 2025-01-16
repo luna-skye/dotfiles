@@ -1,19 +1,19 @@
-{ config, lib, bead, ... }: let
+{ config, lib, helpers, ... }: let
   cfg = config.bead.cli.git;
 in {
   imports = [];
 
 
   options.bead.cli.git = {
-    username = bead.mkStringOption "" "The username to use for Git commits";
-    email = bead.mkStringOption "" "The email address to use for Git commits";
+    username = helpers.mkStringOption "" "The username to use for Git commits";
+    email = helpers.mkStringOption "" "The email address to use for Git commits";
 
-    initBranch = bead.mkStringOption "main" "The default branch of newly initialized git project";
+    initBranch = helpers.mkStringOption "main" "The default branch of newly initialized git project";
 
-    enableDefaultIgnores = bead.mkBooleanOption true "Whether to enable the preconfigured ignore list";
-    ignores = bead.mkListOfOption lib.types.str [] "List of file/dir globs to always ignore in git projects";
+    enableDefaultIgnores = helpers.mkBooleanOption true "Whether to enable the preconfigured ignore list";
+    ignores = helpers.mkListOfOption lib.types.str [] "List of file/dir globs to always ignore in git projects";
 
-    enableDefaultAliases = bead.mkBooleanOption true "Whether to enable the preconfigured alias shorthands";
+    enableDefaultAliases = helpers.mkBooleanOption true "Whether to enable the preconfigured alias shorthands";
     aliases = lib.mkOption {
       type = lib.types.attrs;
       description = "Set of alias shorthands to register under the git command";

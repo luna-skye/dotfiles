@@ -1,14 +1,14 @@
-{ config, lib, bead, pkgs, ... }: let
+{ config, lib, helpers, pkgs, ... }: let
   cfg = config.bead.services.walker;
 in {
   imports = [];
 
 
   options.bead.services.walker = {
-    enable = bead.mkBooleanOption false "Whether to enable the Walker application launcher";
+    enable = helpers.mkBooleanOption false "Whether to enable the Walker application launcher";
 
-    activationKeys = bead.mkStringOption "jkl;asdf" "Which keys to use for quick launch shortcuts";
-    theme = bead.mkStringOption "catppuccin" "The theme name to use by default, loaded from `~/.config/walker/themes/`";
+    activationKeys = helpers.mkStringOption "jkl;asdf" "Which keys to use for quick launch shortcuts";
+    theme = helpers.mkStringOption "catppuccin" "The theme name to use by default, loaded from `~/.config/walker/themes/`";
   };
 
 

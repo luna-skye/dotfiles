@@ -1,11 +1,11 @@
-{ config, lib, bead, pkgs, ... }: let
+{ config, lib, helpers, pkgs, ... }: let
   cfg = config.bead.apps.bottles;
 in {
   imports = [];
 
 
   options.bead.apps.bottles = {
-    enable = bead.mkBooleanOption false "Whether to enable the Bottle Wine manager";
+    enable = helpers.mkBooleanOption false "Whether to enable the Bottle Wine manager";
   };
 
 

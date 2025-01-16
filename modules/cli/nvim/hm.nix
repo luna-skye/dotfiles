@@ -1,4 +1,4 @@
-{ config, lib, bead, ... }: {
+{ config, lib, helpers, ... }: {
   imports = [];
 
 

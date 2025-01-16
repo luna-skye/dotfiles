@@ -1,11 +1,11 @@
-{ config, lib, bead, ... }: let
+{ config, lib, helpers, ... }: let
   cfg = config.bead.cli.zoxide;
 in {
   imports = [];
 
 
   options.bead.cli.zoxide = {
-    enable = bead.mkBooleanOption true "Whether to enable Zoxide on the system";
+    enable = helpers.mkBooleanOption true "Whether to enable Zoxide on the system";
   };
 
 

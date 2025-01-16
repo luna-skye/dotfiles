@@ -1,11 +1,11 @@
-{ config, lib, bead, ... }: {
+{ config, lib, helpers, ... }: {
   imports = [];
 
 
   options.bead.user = {
-    name = bead.mkStringOption "username" "The string name of the home-manager user";
-    isNormalUser = bead.mkBooleanOption true "Whether this user should be registered as a normal user on the NixOS system level";
-    extraGroups = bead.mkListOfOption lib.types.str [ "network-manager" "wheel" ] "User groups to add this user to on the NixOS system level";
+    name = helpers.mkStringOption "username" "The string name of the home-manager user";
+    isNormalUser = helpers.mkBooleanOption true "Whether this user should be registered as a normal user on the NixOS system level";
+    extraGroups = helpers.mkListOfOption lib.types.str [ "network-manager" "wheel" ] "User groups to add this user to on the NixOS system level";
 
     dirs = lib.mkOption {
       description = lib.mdDoc ''Sets the XDG Home directories for a user'';

@@ -1,4 +1,4 @@
-{ config, lib, bead, pkgs, ... }: {
+{ config, lib, helpers, pkgs, ... }: {
   imports = [
     ./chrome
     ./floorp

@@ -1,15 +1,18 @@
-{ config, lib, bead, ... }: let
+{ config, lib, helpers, ... }:
+
+let
   cfg = config.bead.apps;
+
 in {
-  imports = bead.getScopedSubmodules ../apps "hm";
+  imports = helpers.getScopedSubmodules ../apps "hm";
 
 
   options.bead.apps = {
     default = {
-      browser = bead.mkListOfOption lib.types.str [] "User's default browser application";
-      audio = bead.mkListOfOption lib.types.str [] "User's default audio application";
-      video = bead.mkListOfOption lib.types.str [] "User's default video application";
-      image = bead.mkListOfOption lib.types.str [] "User's default image application";
+      browser = helpers.mkListOfOption lib.types.str [] "User's default browser application";
+      audio   = helpers.mkListOfOption lib.types.str [] "User's default audio application";
+      video   = helpers.mkListOfOption lib.types.str [] "User's default video application";
+      image   = helpers.mkListOfOption lib.types.str [] "User's default image application";
     };
   };
 

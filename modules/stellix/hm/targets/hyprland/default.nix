@@ -1,4 +1,4 @@
-{ config, lib, bead, ... }: let
+{ config, lib, helpers, ... }: let
   cfg = config.bead.stellix.targets.hyprland;
   colors = config.bead.stellix.palette;
 in {
@@ -6,50 +6,50 @@ in {
 
 
   options.bead.stellix.targets.hyprland = {
-    enable = bead.mkBooleanOption false "Whether to style Hyprland automatically through STELLIX";
+    enable = helpers.mkBooleanOption false "Whether to style Hyprland automatically through STELLIX";
 
-    cornerRadius = bead.mkNumberOption 0 "The amount in pixels to round window corners";
+    cornerRadius = helpers.mkNumberOption 0 "The amount in pixels to round window corners";
 
     gaps = {
-      inner = bead.mkNumberOption 8 "Number of pixels between tiled windows";
-      outer = bead.mkNumberOption 16 "Number of pixels between windows and monitor edge";
-      workspaces = bead.mkNumberOption 0 "Number of pixels between workspaces";
+      inner = helpers.mkNumberOption 8 "Number of pixels between tiled windows";
+      outer = helpers.mkNumberOption 16 "Number of pixels between windows and monitor edge";
+      workspaces = helpers.mkNumberOption 0 "Number of pixels between workspaces";
     };
 
     border = {
-      size = bead.mkNumberOption 2 "Size of window borders in pixels";
+      size = helpers.mkNumberOption 2 "Size of window borders in pixels";
 
       gradient = {
-        enable = bead.mkBooleanOption true "Whether to configure window border colors as gradients";
-        angle = bead.mkNumberOption 45 "The angle to render window border gradients with";
+        enable = helpers.mkBooleanOption true "Whether to configure window border colors as gradients";
+        angle = helpers.mkNumberOption 45 "The angle to render window border gradients with";
       };
     };
 
     opacity = {
-      active = bead.mkNumberOption 0.95 "The opacity of active windows";
-      inactive = bead.mkNumberOption 0.9 "The opacity of inactive windows";
-      fullscreen = bead.mkNumberOption 1 "The opacity of fullscreen windows";
+      active = helpers.mkNumberOption 0.95 "The opacity of active windows";
+      inactive = helpers.mkNumberOption 0.9 "The opacity of inactive windows";
+      fullscreen = helpers.mkNumberOption 1 "The opacity of fullscreen windows";
     };
 
     blur = {
-      enable = bead.mkBooleanOption true "Whether to enable blurring behind windows";
+      enable = helpers.mkBooleanOption true "Whether to enable blurring behind windows";
 
-      size = bead.mkNumberOption 8 "The size of blur to apply, in pixels";
-      noise = bead.mkNumberOption 0 "The amount of noise grain to add to the blur [0.0 - 1.0]";
-      brightness = bead.mkNumberOption 0.82 " [0.0 - 2.0]";
-      contrast = bead.mkNumberOption 0.9 " [0.0 - 2.0]";
-      vibrancy = bead.mkNumberOption 0.18 " [0.0 - 1.0]";
-      vibrancyDark = bead.mkNumberOption 0.18 " [0.0 - 1.0]";
+      size = helpers.mkNumberOption 8 "The size of blur to apply, in pixels";
+      noise = helpers.mkNumberOption 0 "The amount of noise grain to add to the blur [0.0 - 1.0]";
+      brightness = helpers.mkNumberOption 0.82 " [0.0 - 2.0]";
+      contrast = helpers.mkNumberOption 0.9 " [0.0 - 2.0]";
+      vibrancy = helpers.mkNumberOption 0.18 " [0.0 - 1.0]";
+      vibrancyDark = helpers.mkNumberOption 0.18 " [0.0 - 1.0]";
 
-      xray = bead.mkBooleanOption true "Whether blur should ignore stacked windows";
+      xray = helpers.mkBooleanOption true "Whether blur should ignore stacked windows";
     };
 
     animations = {
-      enable = bead.mkBooleanOption true "Whether to enable animations in Hyprland";
-      enableDefaultAnimations = bead.mkBooleanOption true "Whether to enable default preconfigured animations";
+      enable = helpers.mkBooleanOption true "Whether to enable animations in Hyprland";
+      enableDefaultAnimations = helpers.mkBooleanOption true "Whether to enable default preconfigured animations";
 
-      extraBezier = bead.mkListOfOption lib.types.str [] "Extra bezier curves to register";
-      extraAnimation = bead.mkListOfOption lib.types.str [] "Extra animation rules to register";
+      extraBezier = helpers.mkListOfOption lib.types.str [] "Extra bezier curves to register";
+      extraAnimation = helpers.mkListOfOption lib.types.str [] "Extra animation rules to register";
     };
   };
 

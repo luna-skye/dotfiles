@@ -14,7 +14,7 @@
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: let
     inherit (inputs.nixpkgs) lib;
-    bead = import ./lib { inherit self; inherit inputs; };
+    helpers = import ./lib { inherit self; inherit inputs; };
 
     # Returns a named set which represents a hm user, including config module imports
     # 
@@ -34,7 +34,7 @@
     # - `host`: The name of the host system
     # - `users`: A list of string names for home-manager users to overlay onto the system
     mkNixosHost = host: users: lib.nixosSystem {
-      specialArgs = { inherit inputs; inherit bead; };
+      specialArgs = { inherit inputs; inherit helpers; };
       modules = [
         (./hosts + "/${host}/hardware.nix")
         (./hosts + "/${host}/configuration.nix")
@@ -43,7 +43,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "backup";
-          home-manager.extraSpecialArgs = { inherit inputs; inherit self; inherit bead; };
+          home-manager.extraSpecialArgs = { inherit inputs; inherit self; inherit helpers; };
           home-manager.users = builtins.listToAttrs (map (user: mkHmUser user) users);
         }
 
@@ -53,8 +53,8 @@
   in {
     nixosConfigurations = {
       luna = mkNixosHost "luna" [ "skye" ];
-      # mimas = bead.mkNixosHost "mimas" [ "skye" ];
-      # narvi = bead.mkNixosHost "narvi" [ "slic" ];
+      # mimas = mkNixosHost "mimas" [ "skye" ];
+      # narvi = mkNixosHost "narvi" [ "slic" ];
     };
 
     genDocs = {};

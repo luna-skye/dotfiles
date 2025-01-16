@@ -1,13 +1,13 @@
-{ config, lib, bead, ... }: let 
+{ config, lib, helpers, ... }: let 
   cfg = config.bead.session.hyprland;
 
   monitorOptionType = lib.types.submodule {
     options = {
-      name        = bead.mkStringOption ""        "The internal ID of the monitor";
-      resolution  = bead.mkStringOption "highres" "The target resolution for the monitor";
-      offset      = bead.mkStringOption "auto"    "Offset for the monitor, similar to resolution";
-      refreshRate = bead.mkNullOrOption lib.types.number null "Target refresh rate for the monitor";
-      workspaces  = bead.mkListOfOption lib.types.number [1]  "List of workspace indices allocated to this monitor";
+      name        = helpers.mkStringOption ""        "The internal ID of the monitor";
+      resolution  = helpers.mkStringOption "highres" "The target resolution for the monitor";
+      offset      = helpers.mkStringOption "auto"    "Offset for the monitor, similar to resolution";
+      refreshRate = helpers.mkNullOrOption lib.types.number null "Target refresh rate for the monitor";
+      workspaces  = helpers.mkListOfOption lib.types.number [1]  "List of workspace indices allocated to this monitor";
     };
   };
 in {
@@ -15,9 +15,9 @@ in {
 
 
   options.bead.session.hyprland = {
-    enable = bead.mkBooleanOption false "Whether to enable the Hyprland session and related services for the NixOS system";
+    enable = helpers.mkBooleanOption false "Whether to enable the Hyprland session and related services for the NixOS system";
 
-    monitors = bead.mkListOfOption monitorOptionType [{
+    monitors = helpers.mkListOfOption monitorOptionType [{
       name = "";
       resolution = "highres";
       offset = "auto";

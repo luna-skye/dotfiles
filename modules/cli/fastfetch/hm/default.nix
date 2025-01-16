@@ -1,11 +1,11 @@
-{ config, lib, bead, ... }: let
+{ config, lib, helpers, ... }: let
   cfg = config.bead.cli.fastfetch;
 in {
 
   imports = [];
 
   options.bead.cli.fastfetch = {
-    enable = bead.mkBooleanOption true "Whether to enable the Fastfetch CLI utility";
+    enable = helpers.mkBooleanOption true "Whether to enable the Fastfetch CLI utility";
   };
   
   config = lib.mkIf (cfg.enable) {

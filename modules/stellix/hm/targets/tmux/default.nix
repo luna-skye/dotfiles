@@ -1,4 +1,4 @@
-{ config, lib, bead, pkgs, ... }: let
+{ config, lib, helpers, pkgs, ... }: let
   cfg = config.bead.stellix.targets.tmux;
 
   colors = config.bead.stellix.palette;
@@ -20,7 +20,7 @@ in {
 
 
   options.bead.stellix.targets.tmux = {
-    enable = bead.mkBooleanOption false "Whether to enable Tmux overrides from STELLIX";
+    enable = helpers.mkBooleanOption false "Whether to enable Tmux overrides from STELLIX";
   };
 
 

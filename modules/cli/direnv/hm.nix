@@ -1,9 +1,9 @@
-{ config, lib, bead, ... }: {
+{ config, lib, helpers, ... }: {
   imports = [];
 
 
   options.bead.cli.direnv = {
-    enable = bead.mkBooleanOption true "Whether to enable direnv for the Home Manager user";
+    enable = helpers.mkBooleanOption true "Whether to enable direnv for the Home Manager user";
   };
 
 

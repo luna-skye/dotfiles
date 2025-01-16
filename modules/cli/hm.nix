@@ -1,11 +1,11 @@
-{ config, lib, bead, pkgs, ... }: let
+{ config, lib, helpers, pkgs, ... }: let
   cfg = config.bead.cli;
 in {
-  imports = bead.getScopedSubmodules ../cli "hm";
+  imports = helpers.getScopedSubmodules ../cli "hm";
 
 
   options.bead.cli = {
-    enableFun = bead.mkBooleanOption true "Whether to enable various fun CLI packages";
+    enableFun = helpers.mkBooleanOption true "Whether to enable various fun CLI packages";
   };
 
 

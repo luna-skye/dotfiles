@@ -1,4 +1,4 @@
-{ config, lib, bead, pkgs, ... }: let
+{ config, lib, helpers, pkgs, ... }: let
   # Represents a font type with an name and package options
   fontType = lib.types.submodule {
     options = {
@@ -18,7 +18,7 @@ in {
 
 
   options.bead.stellix.fonts = {
-    enable = bead.mkBooleanOption true "Whether to enable STELLIX controlled fonts";
+    enable = helpers.mkBooleanOption true "Whether to enable STELLIX controlled fonts";
 
     monospace = lib.mkOption {
       description = "Monospace font to be applied across targetted apps";

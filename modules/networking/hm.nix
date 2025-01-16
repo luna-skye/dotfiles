@@ -1,9 +1,9 @@
-{ config, lib, bead, ... }: {
+{ config, lib, helpers, ... }: {
   imports = [];
 
   
   options.bead.networking = {
-    ssh.enable = bead.mkBooleanOption false "Whether to allow SSH connections for this user";
+    ssh.enable = helpers.mkBooleanOption false "Whether to allow SSH connections for this user";
   };
 
 

@@ -1,5 +1,5 @@
-{ config, lib, bead, ... }: {
-  imports = bead.getScopedSubmodules ../services "hm";
+{ config, lib, helpers, ... }: {
+  imports = helpers.getScopedSubmodules ../services "hm";
 
 
   options.bead.services = {};

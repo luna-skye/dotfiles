@@ -1,4 +1,4 @@
-{ config, osConfig, lib, bead, ... }: let
+{ config, osConfig, lib, helpers, ... }: let
   cfg = config.bead.services.dunst;
   osCfg = osConfig.bead.services.dunst;
 in {
@@ -6,7 +6,7 @@ in {
 
 
   options.bead.services.dunst = {
-    enable = bead.mkBooleanOption false "Whether to enable the Dunst notification daemon";
+    enable = helpers.mkBooleanOption false "Whether to enable the Dunst notification daemon";
   };
 
 

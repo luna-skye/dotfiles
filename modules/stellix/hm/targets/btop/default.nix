@@ -1,4 +1,4 @@
-{ config, lib, bead, ... }: let
+{ config, lib, helpers, ... }: let
   cfg = config.bead.stellix.targets.btop;
   colors = config.bead.stellix.palette;
 in {
@@ -6,10 +6,10 @@ in {
 
 
   options.bead.stellix.targets.btop = {
-    enable = bead.mkBooleanOption false "Whether to enable Btop as a theme target for STELLIX";
+    enable = helpers.mkBooleanOption false "Whether to enable Btop as a theme target for STELLIX";
 
-    background = bead.mkBooleanOption false "Whether to enable the theme's background for Btop";
-    roundedCorners = bead.mkBooleanOption false "Whether to enable the rounded corners in Btop";
+    background = helpers.mkBooleanOption false "Whether to enable the theme's background for Btop";
+    roundedCorners = helpers.mkBooleanOption false "Whether to enable the rounded corners in Btop";
   };
 
   

@@ -1,10 +1,10 @@
-{ config, lib, bead, pkgs, ... }: {
+{ config, lib, helpers, pkgs, ... }: {
   imports = [];
 
 
   options.bead.apps.blender = {
-    enable = bead.mkBooleanOption false "Whether to enable the Blender 3D modelling software";
-    useHIP = bead.mkBooleanOption true "Whether to use the Blender-HIP package, beneficial for AMD systems";
+    enable = helpers.mkBooleanOption false "Whether to enable the Blender 3D modelling software";
+    useHIP = helpers.mkBooleanOption true "Whether to use the Blender-HIP package, beneficial for AMD systems";
   };
 
 

@@ -1,11 +1,11 @@
-{ config, lib, bead, ... }: let
+{ config, lib, helpers, ... }: let
   cfg = config.bead.session;
 in {
-  imports = bead.getScopedSubmodules ../session "nix";
+  imports = helpers.getScopedSubmodules ../session "nix";
 
 
   options.bead.session = {
-    default = bead.mkNullOrOption lib.types.str null "The default graphical session to pre-select or auto-load into";
+    default = helpers.mkNullOrOption lib.types.str null "The default graphical session to pre-select or auto-load into";
   };
 
 
