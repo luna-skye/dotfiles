@@ -1,0 +1,49 @@
+{ ... }:
+
+{
+  zen = {
+    host.name = "narvi";
+    benchmarks.enable = true;
+    session = {
+      default = "plasma";
+      plasma.enable = true;
+    };
+    apps = {
+      zen-browser.enable = true;
+      obsidian.enable = true;
+      rgb.enable = true;
+      gaming = {
+        enable = true;
+        minecraft.prism.enable = true;
+        r2modman.enable = true;
+      };
+      media = {
+        image.gwenview.enable = true;
+        video.vlc.enable = true;
+        audio.elisa.enable = true;
+      };
+      feishin.enable = true;
+      bottles.enable = true;
+      discord.enable = true;
+      signal.enable = true;
+      anki.enable = true;
+      komikku.enable = true;
+      office.enable = true;
+    };
+  };
+
+  services.xserver.enable = true;
+  services.xserver.videoDrivers = [ "amdgpu" ];
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
+  };
+
+  users.users.steve = {
+    isNormalUser = true;
+    description = "steve";
+    extraGroups = [ "networkmanager" "wheel" ];
+  };
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "steve";
+}

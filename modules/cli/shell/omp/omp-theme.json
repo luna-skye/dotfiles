@@ -1,0 +1,84 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 2,
+  "final_space": true,
+  "blocks": [
+    {
+      "alignment": "left",
+      "type": "prompt",
+      "segments": [
+        {
+          "foreground": "blue",
+          "properties": { "style": "full" },
+          "style": "plain",
+          "template": " {{ .Path }} ",
+          "type": "path"
+        },
+        {
+          "foreground": "yellow",
+          "style": "plain",
+          "template": "{{ .HEAD }} ",
+          "type": "git"
+        }
+      ]
+    },
+    {
+      "alignment": "right",
+      "type": "prompt",
+      "segments": [
+        {
+          "foreground": "lightYellow",
+          "properties": {},
+          "style": "plain",
+          "template": "  {{ .UserName }}",
+          "type": "text"
+        },
+        {
+          "foreground": "darkGray",
+          "properties": {},
+          "style": "plain",
+          "template": "@",
+          "type": "text"
+        },
+        {
+          "foreground": "yellow",
+          "properties": {},
+          "style": "plain",
+          "template": "{{ .HostName }}",
+          "type": "text"
+        },
+        {
+          "foreground": "blue",
+          "properties": {},
+          "style": "plain",
+          "template": "  {{ .Shell }}",
+          "type": "text"
+        },
+        {
+          "foreground": "blue",
+          "background": "transparent",
+          "template": " (nix-{{ .Type }})",
+          "type": "nix-shell"
+        }
+      ]
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "type": "prompt",
+      "segments": [
+        {
+          "foreground": "magenta",
+          "style": "plain",
+          "template": "\u276f",
+          "type": "text"
+        }
+      ]
+    }
+  ],
+  "transient_prompt": {
+    "background": "transparent",
+    "foreground": "magenta",
+    "template": "\u276f "
+  }
+}
