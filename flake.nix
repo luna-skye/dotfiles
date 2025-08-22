@@ -75,6 +75,7 @@
       luna = mkNixosHost "luna" [ "skye" ];
       mimas = mkNixosHost "mimas" [ "skye" ];
       narvi = mkNixosHost "narvi" [ "steve" ];
+      ariel = mkNixosHost "ariel" [ "seajewel" ];
     };
   };
 }
