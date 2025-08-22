@@ -21,6 +21,7 @@
         video.vlc.enable = true;
         audio.elisa.enable = true;
       };
+      feishin.enable = true;
       bottles.enable = true;
       discord.enable = true;
       signal.enable = true;
