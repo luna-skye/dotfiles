@@ -4,7 +4,7 @@
   zen = {
     host.name = "ariel";
     session = {
-      default = "plasma6";
+      default = "plasma";
       plasma.enable = true;
     };
     apps = {
