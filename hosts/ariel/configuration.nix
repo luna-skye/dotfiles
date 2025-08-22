@@ -14,7 +14,7 @@
       gaming = {
         enable = true;
         lutris.enable = true;
-        minecraft.modrinth.enable = true;
+        minecraft.prism.enable = true;
       };
       media = {
         image.gwenview.enable = true;
