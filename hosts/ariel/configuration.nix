@@ -26,6 +26,7 @@
       discord.enable = true;
       signal.enable = true;
     };
+    printing.enable = true;
   };
 
   users.users.seajewel = {
