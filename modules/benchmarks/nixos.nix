@@ -14,6 +14,7 @@ in {
     environment.systemPackages =
       builtins.attrValues { inherit (pkgs)
         lm_sensors           # read chip sensors
+        geekbench            # general cpu/gpu benches
         phoronix-test-suite  # variety of tests across cpu, mem, gpu, io, and network
         iozone               # io (disk) tests
         vkmark               # vulkan tests
