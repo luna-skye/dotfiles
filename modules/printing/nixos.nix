@@ -15,6 +15,7 @@ in {
     services.printing = {
       enable = true;
       allowFrom = lib.lists.optionals (cfg.networking.enable) [ "all" ];
+      listenAddresses = lib.lists.optionals (cfg.networking.enable) [ "*:631" ];
       browsing = cfg.networking.enable;
       defaultShared = cfg.networking.enable;
       openFirewall = cfg.networking.enable;
