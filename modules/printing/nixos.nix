@@ -7,7 +7,7 @@ let
 in {
   options.zen.printing = {
     enable = helpers.mkBooleanOption false "Whether to enable printing services";
-    extraDrivers = helpers.mklistOfOption lib.types.package [] "Extra device drivers to install";
+    extraDrivers = helpers.mkListOfOption lib.types.package [] "Extra device drivers to install";
     networking.enable = helpers.mkBooleanOption true "Whether to enable network based printing for this system's printers";
   };
 
