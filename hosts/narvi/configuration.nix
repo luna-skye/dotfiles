@@ -8,6 +8,7 @@
       default = "plasma";
       plasma.enable = true;
     };
+    printing.enable = true;
     apps = {
       zen-browser.enable = true;
       obsidian.enable = true;
