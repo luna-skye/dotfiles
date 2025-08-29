@@ -7,6 +7,7 @@ let
 in {
   options.zen.printing = {
     enable = helpers.mkBooleanOption false "Whether to enable printing services";
+    extraDrivers = helpers.mklistOfOption lib.types.package [] "Extra device drivers to install";
     networking.enable = helpers.mkBooleanOption true "Whether to enable network based printing for this system's printers";
   };
 
@@ -17,7 +18,7 @@ in {
       browsing = cfg.networking.enable;
       defaultShared = cfg.networking.enable;
       openFirewall = cfg.networking.enable;
-      drivers = [ pkgs.gutenprint pkgs.gutenprintBin ];
+      drivers = cfg.extraDrivers;
     };
     services.avahi = {
       enable = true;

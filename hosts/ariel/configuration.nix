@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   zen = {
@@ -6,6 +6,10 @@
     session = {
       default = "plasma";
       plasma.enable = true;
+    };
+    printing = {
+      enable = true;
+      extraDrivers = [ pkgs.gutenprint pkgs.gutenprintBin ];
     };
     apps = {
       zen-browser.enable = true;
@@ -27,7 +31,6 @@
       discord.enable = true;
       signal.enable = true;
     };
-    printing.enable = true;
   };
 
   users.users.seajewel = {
