@@ -1,7 +1,7 @@
 <div align="center"><img src="./.assets/banner.png" /></div>
 <div align="center" style="color: #97A1D9;">eclipsing every* system <a href="https://gitlab.com/luna-skye" style="color: #ECD974;">Luna Skye</a> touches</div><br>
 <div align="center">
-  <a href="https://github.com/luna-skye/dotfiles/-/commits/main"><img src="https://img.shields.io/github/last-commit/luna-skye/dotfiles?style=for-the-badge&colorA=313244&colorB=cba6f7"></a>
+  <a href="https://github.com/luna-skye/dotfiles/-/commits/main"><img src="https://img.shields.io/github/last-commit/luna-skye/dotfiles?style=for-the-badge&labelColor=313244"></a>
   <a href="https://gitlab.com/luna-skye/dotfiles/-/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=ca9ee6&colorA=313244&colorB=cba6f7"/></a>
   <a href="https://nixos.org"><img src="https://img.shields.io/badge/NixOS-unstable-blue.svg?style=for-the-badge&labelColor=313244&logo=NixOS&logoColor=white&color=91D7E3"></a>
 </div>
