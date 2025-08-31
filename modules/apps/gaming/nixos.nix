@@ -6,6 +6,7 @@ let
 in {
   options.zen.apps.gaming = {
     enable = helpers.mkBooleanOption false "Whether to enable ANY gaming related packages";
+    useAMDVLK = helpers.mkBooleanOption false "Whether to use AMDVLK drivers instead of MESA provided ones";
 
     steam.enable = helpers.mkBooleanOption true "Whether to enable the Steam gaming platform";
     heroic.enable = helpers.mkBooleanOption false "Whether to enable the Heroic gaming platform, for Epic Games content";
@@ -35,11 +36,10 @@ in {
       [];
 
     # enable graphics layers with amdvlk
-    #  TODO: This is AMD GPU specific, should be handled elsewhere and configurable
     hardware.graphics = lib.mkIf (true) {
       enable = lib.mkDefault true;
-      extraPackages = [ pkgs.amdvlk ];
-      extraPackages32 = [ pkgs.driversi686Linux.amdvlk ];
+      extraPackages = lib.lists.optionals (cfg.useAMDVLK) [ pkgs.amdvlk ];
+      extraPackages32 = lib.lists.optionals (cfg.useAMDVLK) [ pkgs.driversi686Linux.amdvlk ];
     };
   };
 }
