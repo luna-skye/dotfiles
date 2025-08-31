@@ -8,6 +8,7 @@ in {
     enable = helpers.mkBooleanOption false "Whether to enable ANY gaming related packages";
     useAMDVLK = helpers.mkBooleanOption false "Whether to use AMDVLK drivers instead of MESA provided ones";
 
+    gamemode.enable = helpers.mkBooleanOption true "Whether to install Feral Gamemode";
     steam.enable = helpers.mkBooleanOption true "Whether to enable the Steam gaming platform";
     heroic.enable = helpers.mkBooleanOption false "Whether to enable the Heroic gaming platform, for Epic Games content";
     lutris.enable = helpers.mkBooleanOption false "Whether to enable the Lutris gaming application";
@@ -34,6 +35,8 @@ in {
       optional (cfg.steam.enable)  pkgs.pkgsi686Linux.gperftools ++ # required for tf2
       optional (cfg.heroic.enable) pkgs.heroic ++
       [];
+
+    programs.gamemode.enable = cfg.gamemode.enable;
 
     # enable graphics layers with amdvlk
     hardware.graphics = lib.mkIf (true) {
