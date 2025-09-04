@@ -3,6 +3,7 @@
 {
   zen = {
     host.name = "ariel";
+    benchmarks.enable = true;
     session = {
       default = "plasma";
       plasma.enable = true;
