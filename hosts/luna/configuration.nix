@@ -36,6 +36,7 @@
         enable = true;
         lutris.enable = true;
         minecraft.atl.enable = true;
+        minecraft.prism.enable = true;
         r2modman.enable = true;
       };
       media = {
