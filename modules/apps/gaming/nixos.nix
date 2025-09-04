@@ -9,7 +9,18 @@ in {
     useAMDVLK = helpers.mkBooleanOption false "Whether to use AMDVLK drivers instead of MESA provided ones";
 
     gamemode.enable = helpers.mkBooleanOption true "Whether to install Feral Gamemode";
-    mangohud.enable = helpers.mkBooleanOption true "Whether to install Mangohud overlay";
+
+    mangohud = let
+      inherit (lib.types) oneOf bool int float str path listOf;
+      settingsType = oneOf [bool int float str path (listOf (oneOf [int str]))];
+    in {
+      enable = helpers.mkBooleanOption true "Whether to install Mangohud overlay";
+      settings = lib.mkOption {
+        description = "Extra configuration to override default and be written to mangohud conf";
+        type = lib.types.attrsOf settingsType;
+        default = {};
+      };
+    };
 
     steam.enable = helpers.mkBooleanOption true "Whether to enable the Steam gaming platform";
     heroic.enable = helpers.mkBooleanOption false "Whether to enable the Heroic gaming platform, for Epic Games content";
@@ -36,7 +47,6 @@ in {
     in 
       optional (cfg.steam.enable)  pkgs.pkgsi686Linux.gperftools ++ # required for tf2
       optional (cfg.heroic.enable) pkgs.heroic ++
-      optional (cfg.mangohud.enable) pkgs.mangohud ++
       [];
 
     programs.gamemode.enable = cfg.gamemode.enable;
