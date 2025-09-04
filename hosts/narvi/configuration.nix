@@ -15,6 +15,7 @@
       rgb.enable = true;
       gaming = {
         enable = true;
+        mangohud.settings.fps_limit = 60;
         minecraft.prism.enable = true;
         r2modman.enable = true;
       };
