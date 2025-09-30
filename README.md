@@ -103,10 +103,10 @@ The following `just` recipes are available to help with this.
 
 ## Nix REPL
 The Nix REPL is a vital tool for debugging and exploring Nix code, this repo's `.justfile` includes two recipes to simplify loading things into the REPL.
-| Recipe    | Actions                                                                    |
-|-----------|----------------------------------------------------------------------------|
-| `pkgs`    | Nix REPL with Nixpkgs loaded, useful for quick pkg searches                |
-| `clean`   | Nix REPL with the `flake.nix` file loaded, great for debugging config      |
+| Recipe | Actions                                                               |
+|--------|-----------------------------------------------------------------------|
+| `pkgs` | Nix REPL with Nixpkgs loaded, useful for quick pkg searches           |
+| `repl` | Nix REPL with the `flake.nix` file loaded, great for debugging config |
 
 ---
 <br><br><br><br>
