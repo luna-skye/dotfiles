@@ -4,7 +4,13 @@
   zen = {
     host.name = "luna";
     # ups.enable = true;
+    system.fan2go = {
+      enable = true;
+      settings = import ./fans.nix;
+    };
+
     benchmarks.enable = true;
+
     session = {
       default = "plasma";
       plasma.enable = true;
@@ -28,6 +34,7 @@
         ];
       };
     };
+
     apps = {
       zen-browser.enable = true;
       obsidian.enable = true;
