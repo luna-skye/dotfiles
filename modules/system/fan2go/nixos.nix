@@ -18,7 +18,7 @@ in {
     };
   };
 
-  config = lib.mkIf (cfg.autostart) {
+  config = lib.mkIf (cfg.enable && cfg.autostart) {
     systemd.services.fan2go = {
       description = "fan2go fan controller";
       wantedBy = [ "multi-user.target" ];
