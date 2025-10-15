@@ -1,5 +1,6 @@
 { config, lib, helpers, pkgs, ... }:
 
+
 let
   cfg = config.zen.apps.obsidian;
 

@@ -1,11 +1,13 @@
 { config, helpers, lib, inputs, ... }:
 
+
 let
   pkgs = import inputs.nixpkgs {
     system = "x86_64-linux";
     config.allowUnfree = true;
     config.permittedInsecurePackages = [ "openssl-1.1.1w" ]; 
   };
+
 in {
   options.zen.apps.unityhub = {
     enable = helpers.mkBooleanOption false "Whether to install the Unity Engine Hub";
