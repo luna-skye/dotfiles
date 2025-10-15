@@ -61,6 +61,7 @@
       daw.enable = true;
       discord.enable = true;
       signal.enable = true;
+      teamspeak.enable = true;
       anki.enable = true;
       komikku.enable = true;
       obs.enable = true;
