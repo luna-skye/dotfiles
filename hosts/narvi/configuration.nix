@@ -28,6 +28,7 @@
       bottles.enable = true;
       discord.enable = true;
       signal.enable = true;
+      mumble.enable = true;
       anki.enable = true;
       komikku.enable = true;
       office.enable = true;
