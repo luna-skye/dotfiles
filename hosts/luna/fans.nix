@@ -26,14 +26,14 @@
       linear = {
         sensor = "cpu_package";
         min = 40;
-        max = 80;
+        max = 75;
       };
     }
     { id = "gpu_curve";
       linear = {
         sensor = "gpu_package";
         min = 45;
-        max = 80;
+        max = 75;
       };
     }
     { id = "case_curve";
