@@ -57,6 +57,7 @@
       krita.enable = true;
       blender.enable = true;
       godot.enable = true;
+      idea.enable = true;
       unityhub.enable = false;
       daw.enable = true;
       discord.enable = true;
