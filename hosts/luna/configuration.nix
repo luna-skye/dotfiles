@@ -56,6 +56,7 @@
       bottles.enable = true;
       krita.enable = true;
       blender.enable = true;
+      kdenlive.enable = true;
       godot.enable = true;
       idea.enable = true;
       unityhub.enable = false;
