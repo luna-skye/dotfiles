@@ -14,6 +14,7 @@
     };
     apps = {
       zen-browser.enable = true;
+      chromium.enable = true;
       obsidian.enable = true;
       rgb.enable = true;
       office.enable = true;
