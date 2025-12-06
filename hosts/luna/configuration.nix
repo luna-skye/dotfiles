@@ -37,6 +37,7 @@
 
     apps = {
       zen-browser.enable = true;
+      chromium.enable = true;
       obsidian.enable = true;
       rgb.enable = true;
       gaming = {
@@ -56,7 +57,7 @@
       bottles.enable = true;
       krita.enable = true;
       blender.enable = true;
-      kdenlive.enable = true;
+      davinci-resolve.enable = true;
       godot.enable = true;
       idea.enable = true;
       unityhub.enable = false;
@@ -82,5 +83,9 @@
   services.displayManager.autoLogin.user = "skye";
   services.xserver.videoDrivers = [ "amdgpu" ];
 
-  networking.firewall.allowedTCPPorts = [ 3000 25565 ];
+  networking.firewall.allowedTCPPorts = [
+    3000  # webdev server
+    25565 # mc server stuff
+    36123 # mc mekanism voice
+  ];
 }

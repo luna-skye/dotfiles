@@ -2,8 +2,6 @@
 
 {
   home.packages = builtins.attrValues { inherit (pkgs)
-    ungoogled-chromium
-
     figma-linux
     inkscape
     imagemagick
