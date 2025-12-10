@@ -37,11 +37,13 @@ in {
           bottom = helpers.mkNumberOption 8 "Bottom margin of windows";
           left   = helpers.mkNumberOption 8 "Left margin of windows";
         };
+
+        border-size = helpers.mkNumberOption 2 "Pixel width for borders around window";
         gaps   = helpers.mkNumberOption 8 "Pixel width for gaps between windows";
         radius = helpers.mkNumberOption 8 "Roundness, in pixels, of windows";
 
-        active-opacity   = helpers.mkNumberOption 1.0 "Opacity of active windows";
-        inactive-opacity = helpers.mkNumberOption 0.9 "Opacity of inactive windows";
+        active-opacity   = helpers.mkNumberOption 1.00 "Opacity of active windows";
+        inactive-opacity = helpers.mkNumberOption 0.95 "Opacity of inactive windows";
       };
 
       tab = {
@@ -72,12 +74,10 @@ in {
         spread = helpers.mkNumberOption  4           "Spread of the shadow around windows";
         color  = lib.mkOption {
           type = lib.types.attrs;
-          default = colors.surface.surface1;
+          default = colors.surface.crust;
           description = "Color of the shadow around windows";
         };
       };
-
-      animation-speed = helpers.mkNumberOption 1.2 "Speed of all animations, higher is faster";
     };
 
     window-rules = {};
@@ -133,9 +133,9 @@ in {
 
         focus-ring { off; }
         border {
-          width 4
-          active-color from="#${stellae.colors.hslToHex cfg.style.active-color-1}" to="#${stellae.colors.hslToHex cfg.style.active-color-2}" angle=45 relative-to="workspace-view"
-          inactive-color from="#${stellae.colors.hslToHex cfg.style.inactive-color}" to="#${stellae.colors.hslToHex cfg.style.inactive-color}" angle=45 relative-to="workspace-view"
+          width ${toString cfg.style.window.border-size}
+          active-gradient from="#${stellae.colors.hslToHex cfg.style.active-color-1}" to="#${stellae.colors.hslToHex cfg.style.active-color-2}" angle=45
+          inactive-gradient from="#${stellae.colors.hslToHex cfg.style.inactive-color}" to="#${stellae.colors.hslToHex cfg.style.inactive-color}" angle=45 relative-to="workspace-view"
         }
 
         struts {
@@ -148,12 +148,12 @@ in {
           ${if (cfg.style.shadow.enable) then "on" else "off"}
           softness ${toString cfg.style.shadow.size}
           spread ${toString cfg.style.shadow.spread}
-          color #${stellae.colors.hslToHex cfg.style.shadow.color}
+          color "#${stellae.colors.hslToHex cfg.style.shadow.color}"
         }
       }
 
       animations {
-        slowdown ${toString ((cfg.style.animation-speed * -1) + 1)}
+        slowdown 0.8
       }
 
       // Omit client-side decorations if possible, removing some rounded corners
@@ -176,16 +176,31 @@ in {
         opacity ${toString cfg.style.window.active-opacity}
       }
 
+      // Application Rules
+      window-rule {
+        match app-id="godot"
+        open-maximized true
+        opacity 1.0
+      }
+      window-rule {
+        match app-id="blender"
+        open-maximized true
+        opacity 1.0
+      }
+      window-rule {
+        match app-id="zen-twilight"
+        open-maximized true
+        opacity 1.0
+      }
+      window-rule {
+        match app-id="kitty"
+        opacity 0.98
+      }
+
       // Inactive Window
       window-rule {
         match is-focused=false
         opacity ${toString cfg.style.window.inactive-opacity}
-      }
-
-      // Application Rules
-      window-rule {
-        match title="Blender"
-        open-maximized true
       }
 
 
