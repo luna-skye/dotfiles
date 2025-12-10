@@ -26,7 +26,7 @@ in {
     ./keybinds.nix
     ./style.nix
   ];
-  options.zen.session.hyprland = {};
+
   config = lib.mkIf (hostCfg.enable) {
     wayland.windowManager.hyprland = {
       enable          = mkDefault true;
