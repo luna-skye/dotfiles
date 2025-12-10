@@ -1,8 +1,8 @@
-{ inputs, config, osConfig, lib, pkgs, ... }:
+{ inputs, osConfig, lib, pkgs, ... }:
+
 
 let
   inherit (lib) mkDefault;
-  cfg = config.zen.session.hyprland;
   hostCfg = osConfig.zen.session.hyprland;
 
   # Generates a list of strings representing Hyprland workspace monitor relations
@@ -18,7 +18,7 @@ let
   genMonitors = lib.map (m:
     let rr = if (builtins.isNull m.refreshRate) then "" else "@${builtins.toString m.refreshRate}";
     in "${m.name}, ${m.resolution}${rr}, ${m.offset}, 1"
-  ) hostCfg.monitors;
+  ) osConfig.zen.session.monitors;
 
 in {
   imports = [

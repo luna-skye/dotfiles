@@ -699,6 +699,21 @@
     },
     "nixpkgs_5": {
       "locked": {
+        "lastModified": 1734865579,
+        "narHash": "sha256-6HClXUDf4RxE3KvtPstjS/9vmmiZs/BW+Kp6pxZFa0Q=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "e89c48ff1715b08d926819dc440d1e7d3befd303",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_6": {
+      "locked": {
         "lastModified": 1743315132,
         "narHash": "sha256-6hl6L/tRnwubHcA4pfUUtk542wn2Om+D4UnDhlDW9BE=",
         "owner": "NixOS",
@@ -713,7 +728,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_6": {
+    "nixpkgs_7": {
       "locked": {
         "lastModified": 1742800061,
         "narHash": "sha256-oDJGK1UMArK52vcW9S5S2apeec4rbfNELgc50LqiPNs=",
@@ -729,7 +744,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_7": {
+    "nixpkgs_8": {
       "locked": {
         "lastModified": 1734865579,
         "narHash": "sha256-6HClXUDf4RxE3KvtPstjS/9vmmiZs/BW+Kp6pxZFa0Q=",
@@ -747,7 +762,7 @@
     "nixvim": {
       "inputs": {
         "flake-parts": "flake-parts_2",
-        "nixpkgs": "nixpkgs_6",
+        "nixpkgs": "nixpkgs_7",
         "nuschtosSearch": "nuschtosSearch"
       },
       "locked": {
@@ -821,6 +836,7 @@
         "nix-cachyos-kernel": "nix-cachyos-kernel",
         "nixpkgs": "nixpkgs_3",
         "sops-nix": "sops-nix",
+        "stellae-nix": "stellae-nix",
         "zen-browser": "zen-browser",
         "zenvim": "zenvim"
       }
@@ -845,7 +861,7 @@
     },
     "stellae": {
       "inputs": {
-        "nixpkgs": "nixpkgs_7"
+        "nixpkgs": "nixpkgs_8"
       },
       "locked": {
         "lastModified": 1743498800,
@@ -853,6 +869,24 @@
         "owner": "luna-skye",
         "repo": "stellae",
         "rev": "bdc601cfe1770b4c545a5b026c68bbbbde81c3eb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "luna-skye",
+        "repo": "stellae",
+        "type": "github"
+      }
+    },
+    "stellae-nix": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_5"
+      },
+      "locked": {
+        "lastModified": 1765398816,
+        "narHash": "sha256-OweOAvzrgdgrCZncBMuy1UeRA4FWmprGJ0xMDltDkFY=",
+        "owner": "luna-skye",
+        "repo": "stellae",
+        "rev": "90ee44d89e83d84a60ef5e8c898cd8f7e075770d",
         "type": "github"
       },
       "original": {
@@ -1004,7 +1038,7 @@
     "zenvim": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs_5",
+        "nixpkgs": "nixpkgs_6",
         "nixvim": "nixvim",
         "stellae": "stellae"
       },

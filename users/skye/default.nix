@@ -18,13 +18,9 @@
     };
   };
 
-  theme = {
-    enable = true;
-    fonts.enable = true;
-    target = {
-      hyprland.enable = true;
-      dunst.enable = true;
-      kitty.enable = true;
+    theme = {
+      enable = true;
+      fonts.enable = true;
     };
   };
 

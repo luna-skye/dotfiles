@@ -1,11 +1,3 @@
-# TODO: STELLAE Themeing Input
-#   - Tmux
-#   - Nvim (Passing STELLAE to Zenvim input)
-#   - Tofi
-#   - Hyprland
-#   - Kitty
-#   - Dunst
-
 {
   description = "Luna Skye's NixOS Dotfiles";
 
@@ -29,6 +21,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    stellae-nix.url = "github:luna-skye/stellae";
     zenvim.url = "github:luna-skye/nvim";
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -41,10 +34,20 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, sops-nix, nix-cachyos-kernel, ... }:
-  let
+  outputs = inputs@{
+    self,
+    nixpkgs,
+    home-manager,
+    sops-nix,
+    nix-cachyos-kernel,
+    stellae-nix,
+    ...
+  }: let
     inherit (inputs.nixpkgs) lib;
-    helpers = import ./helpers { inherit self; inherit inputs; };
+    helpers = import ./helpers {
+      inherit self;
+      inherit inputs;
+    };
 
     mkHmUser = user: {
       name = user;
@@ -55,7 +58,10 @@
     };
 
     mkNixosHost = host: users: lib.nixosSystem {
-      specialArgs = { inherit inputs; inherit helpers; };
+      specialArgs = {
+        inherit inputs;
+        inherit helpers;
+      };
       modules = [
         inputs.musnix.nixosModules.musnix
         sops-nix.nixosModules.sops
@@ -67,7 +73,11 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "backup";
-          home-manager.extraSpecialArgs = { inherit inputs; inherit self; inherit helpers; };
+          home-manager.extraSpecialArgs = {
+            inherit self;
+            inherit inputs;
+            inherit helpers;
+          };
           home-manager.users = builtins.listToAttrs (map (user: mkHmUser user) users);
         }
       ];
