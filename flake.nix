@@ -17,6 +17,8 @@
     };
     sops-nix.url = "github:Mic92/sops-nix";
 
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
+
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
@@ -39,7 +41,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, sops-nix, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, sops-nix, nix-cachyos-kernel, ... }:
   let
     inherit (inputs.nixpkgs) lib;
     helpers = import ./helpers { inherit self; inherit inputs; };
