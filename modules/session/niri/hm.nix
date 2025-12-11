@@ -167,7 +167,18 @@ in {
           bottom ${toString cfg.style.window.margin.bottom}
         }
         shadow {
-          ${if (cfg.style.shadow.enable) then "on" else "off"}
+          ${if (cfg.style.shadow.enable) then "// off" else "off"}
+          softness ${toString cfg.style.shadow.size}
+          spread ${toString cfg.style.shadow.spread}
+          color "#${stellae.colors.hslToHex cfg.style.shadow.color}"
+        }
+      }
+
+      overview {
+        zoom 0.5
+        backdrop-color "#${stellae.colors.hslToHex colors.surface.crust}"
+        workspace-shadow {
+          ${if (cfg.style.shadow.enable) then "// off" else "off"}
           softness ${toString cfg.style.shadow.size}
           spread ${toString cfg.style.shadow.spread}
           color "#${stellae.colors.hslToHex cfg.style.shadow.color}"
@@ -258,7 +269,10 @@ in {
 
 
       // KEYBINDS //
-      hotkey-overlay { skip-at-startup; }
+      hotkey-overlay {
+        skip-at-startup
+        hide-not-bound
+      }
 
       binds {
         // laptop keys
