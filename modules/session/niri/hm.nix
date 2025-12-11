@@ -284,6 +284,7 @@ in {
         XF86AudioMicMute      allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
         Mod+Shift+Slash { show-hotkey-overlay; }
+        Mod+Escape { open-overview; }
 
         // programs
         Mod+Backspace { spawn "tofi-drun" "--drun-launch=true"; }
@@ -293,8 +294,6 @@ in {
         Mod+T { spawn "kitty"; }
 
         // windows
-        Mod+X hotkey-overlay-title="Close Window" { close-window; }
-
         Mod+Left  hotkey-overlay-title="Focus Window Left"  { focus-column-left; }
         Mod+Right hotkey-overlay-title="Focus Window Right" { focus-column-right; }
         Mod+Down  hotkey-overlay-title="Focus Window Down"  { focus-window-or-workspace-down; }
@@ -303,6 +302,7 @@ in {
         Mod+L hotkey-overlay-title="Focus Window Left"  { focus-column-left; }
         Mod+J hotkey-overlay-title="Focus Window Down"  { focus-window-or-workspace-down; }
         Mod+K hotkey-overlay-title="Focus Window Up"    { focus-window-or-workspace-up; }
+        Mod+X hotkey-overlay-title="Close Window" { close-window; }
 
         Mod+Home  { focus-column-first; }
         Mod+End   { focus-column-last; }
@@ -388,6 +388,7 @@ in {
         Print { screenshot; }
         Ctrl+Print { screenshot-screen; }
         Alt+Print { screenshot-window; }
+
         Mod+Alt+Escape { quit; }
       }
     '';
