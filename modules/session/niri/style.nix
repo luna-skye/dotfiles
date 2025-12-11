@@ -1,4 +1,4 @@
-{ inputs, lib, config, helpers }:
+{ inputs, config, lib, helpers }:
 
 
 let
