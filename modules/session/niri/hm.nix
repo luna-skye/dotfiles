@@ -124,7 +124,7 @@ in {
           inactive-color "#${stellae.colors.hslToHex cfg.style.inactive-color}"
         }
 
-        default-column-width { proportion 0.5; }
+        default-column-width { proportion ${toString cfg.layout.default-window-size}; }
         preset-column-widths {
           proportion 0.33333
           proportion 0.5
