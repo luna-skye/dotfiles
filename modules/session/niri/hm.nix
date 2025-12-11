@@ -33,9 +33,6 @@ let
 
 in {
   options.zen.session.niri = {
-    layout = {
-      default-window-size = helpers.mkNumberOption 0.5 "Default proportional size of windows";
-    };
     window-rules = window-rules.options;
     keybinds = keybinds.options;
     style = style.options;
