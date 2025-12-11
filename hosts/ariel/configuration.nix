@@ -3,7 +3,9 @@
 {
   zen = {
     host.name = "ariel";
-    # benchmarks.enable = true;
+    system = {
+      kernel.useCachy = true;
+    };
     session = {
       default = "plasma";
       plasma.enable = true;
