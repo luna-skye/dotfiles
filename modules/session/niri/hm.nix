@@ -1,4 +1,4 @@
-{ inputs, osConfig, config, lib, helpers, ... }:
+{ inputs, osConfig, config, pkgs, lib, helpers, ... }:
 
 
 let
@@ -88,6 +88,28 @@ in {
   };
 
   config = lib.mkIf (hostCfg.enable) {
+    home.pointerCursor = {
+      gtk.enable = true;
+      package = pkgs.catppuccin-cursors.mochaMauve;
+      name = "catppuccin-mocha-mauve-cursors";
+      size = 24;
+    };
+    gtk = {
+      enable = true;
+      theme = {
+        name = "catppuccin-mocha-mauve-standard";
+        package = pkgs.catppuccin-gtk.override {
+          accents = [ "mauve" ];
+          size = "standard";
+          variant = "mocha";
+        };
+      };
+    };
+    qt = {
+      enable = true;
+      platformTheme.name = "kde";
+    };
+
     home.file.".config/niri/config.kdl".text = ''
       // STARTUP //
       environment {
@@ -95,7 +117,7 @@ in {
         QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
         QT_QPA_PLATFORMTHEME "qt6ct-kde"
         GDK_BACKEND "wayland,x11"
-        // GTK_THEME "Sweet-Dark"
+        GTK_THEME "catppuccin-mocha-mauve-standard"
         DISPLAY ":2"
       }
 
@@ -154,6 +176,13 @@ in {
 
       animations {
         slowdown 0.8
+      }
+
+      cursor {
+        xcursor-theme "catppuccin-mocha-mauve-cursors"
+        xcursor-size 24
+        // hide-when-typing
+        // hide-after-inactive-ms 1000
       }
 
       // Omit client-side decorations if possible, removing some rounded corners
