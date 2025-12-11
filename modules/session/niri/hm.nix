@@ -288,7 +288,7 @@ in {
 
         // programs
         Mod+Backspace { spawn "tofi-drun" "--drun-launch=true"; }
-        Mod+Period { spawn "/nix/store/zky49vh5n3cc0qkbrw2yqq6dl6y18k4z-config-menu"; }
+        Mod+Period { spawn "${config.zen.scripts.configMenu}"; }
         Mod+B { spawn "zen-twilight"; }
         Mod+E { spawn "dolphin"; }
         Mod+T { spawn "kitty"; }
