@@ -9,6 +9,10 @@ let
 
 in {
   options = {
+    layout = {
+      default-window-size = helpers.mkNumberOption 0.5 "Default proportional size of windows";
+    };
+
     window = {
       margin = {
         top    = helpers.mkNumberOption 8 "Top margin of windows";
@@ -79,7 +83,7 @@ in {
         inactive-color "#${stellae.colors.hslToHex cfg.style.inactive-color}"
       }
 
-      default-column-width { proportion ${toString cfg.layout.default-window-size}; }
+      default-column-width { proportion ${toString cfg.style.layout.default-window-size}; }
       preset-column-widths {
         proportion 0.33333
         proportion 0.5

@@ -1,6 +1,5 @@
 { inputs, osConfig, config, pkgs, lib, helpers, ... }:
 
-#  TODO: Seperate into submodules (style, keybinds, etc.)
 #  TODO: Improve layout options
 #  TODO: Nix controlled window rules
 #  TODO: Add keybind options
@@ -38,7 +37,6 @@ in {
       default-window-size = helpers.mkNumberOption 0.5 "Default proportional size of windows";
     };
     window-rules = window-rules.options;
-
     keybinds = keybinds.options;
     style = style.options;
     screenshot-path = helpers.mkStringOption "~/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png" "Where to store screenshots on disk and with what string format";
