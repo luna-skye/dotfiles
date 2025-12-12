@@ -15,10 +15,10 @@ in {
 
     window = {
       margin = {
-        top    = helpers.mkNumberOption 8 "Top margin of windows";
-        right  = helpers.mkNumberOption 8 "Right margin of windows";
-        bottom = helpers.mkNumberOption 8 "Bottom margin of windows";
-        left   = helpers.mkNumberOption 8 "Left margin of windows";
+        top    = helpers.mkNumberOption 4 "Top margin of windows";
+        right  = helpers.mkNumberOption 4 "Right margin of windows";
+        bottom = helpers.mkNumberOption 4 "Bottom margin of windows";
+        left   = helpers.mkNumberOption 4 "Left margin of windows";
       };
 
       border-size = helpers.mkNumberOption 2 "Pixel width for borders around window";
