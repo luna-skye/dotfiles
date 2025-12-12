@@ -32,11 +32,10 @@ in {
   options.zen.scripts.configMenu = lib.mkOption {
     description = "Dmenu script for editing dotfile configurations";
     type = lib.types.package;
-    default = null;
+    default = configMenuScript;
   };
 
   config = lib.mkIf (hostCfg.enable) {
-    zen.scripts.configMenu = configMenuScript;
     programs.tofi = {
       enable = true;
       settings = {
