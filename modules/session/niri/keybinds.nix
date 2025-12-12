@@ -106,22 +106,24 @@ in {
       Mod+7 { focus-workspace 7; }
       Mod+8 { focus-workspace 8; }
       Mod+9 { focus-workspace 9; }
-      Mod+Ctrl+1 { move-column-to-workspace 1; }
-      Mod+Ctrl+2 { move-column-to-workspace 2; }
-      Mod+Ctrl+3 { move-column-to-workspace 3; }
-      Mod+Ctrl+4 { move-column-to-workspace 4; }
-      Mod+Ctrl+5 { move-column-to-workspace 5; }
-      Mod+Ctrl+6 { move-column-to-workspace 6; }
-      Mod+Ctrl+7 { move-column-to-workspace 7; }
-      Mod+Ctrl+8 { move-column-to-workspace 8; }
-      Mod+Ctrl+9 { move-column-to-workspace 9; }
+      Mod+Shift+1 { move-column-to-workspace 1; }
+      Mod+Shift+2 { move-column-to-workspace 2; }
+      Mod+Shift+3 { move-column-to-workspace 3; }
+      Mod+Shift+4 { move-column-to-workspace 4; }
+      Mod+Shift+5 { move-column-to-workspace 5; }
+      Mod+Shift+6 { move-column-to-workspace 6; }
+      Mod+Shift+7 { move-column-to-workspace 7; }
+      Mod+Shift+8 { move-column-to-workspace 8; }
+      Mod+Shift+9 { move-column-to-workspace 9; }
 
-      Mod+V { switch-focus-between-floating-and-tiling; }
-      Mod+Alt+V { toggle-window-floating; }
+      Mod+V { toggle-window-floating; }
+      Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
       Mod+R { switch-preset-column-width; }
       Mod+Shift+R hotkey-overlay-title="Expand Column to Fill Available Width" { expand-column-to-available-width; }
+
       Mod+F { maximize-column; }
-      Mod+Ctrl+F { fullscreen-window; }
+      Mod+Shift+F { fullscreen-window; }
       Mod+C hotkey-overlay-title="Center Column" { center-column; }
 
       Print { screenshot; }
