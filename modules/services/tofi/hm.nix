@@ -11,7 +11,7 @@ let
     stel=' STELLAE Project'
 
     chosen=$(
-      printf '%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n' "$dotf" "$iodf" "$nvim" "$astl" "$stel" | tofi
+      printf '%s\n%s\n%s\n%s\n%s\n%s\n%s\n' "$dotf" "$iodf" "$nvim" "$stel" | tofi
     )
 
     case "$chosen" in
