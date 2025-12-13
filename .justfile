@@ -18,6 +18,11 @@ check:
   nix flake check --no-build --show-trace .
 
 
+# Checks that the flake successfully evaluates, aborts and shows trace on warning
+check-trace:
+  nix flake check --no-build --show-trace . --option abort-on-warn true
+
+
 # Update all inputs
 update:
   nix flake update
