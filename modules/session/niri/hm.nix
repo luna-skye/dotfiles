@@ -62,6 +62,8 @@ in {
       platformTheme.name = "kde";
     };
 
+    home.packages = [ pkgs.networkmanagerapplet ];
+
     # NIRI CONFIG FILE
     home.file.".config/niri/config.kdl".text = ''
       // STARTUP //
