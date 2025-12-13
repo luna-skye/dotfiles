@@ -22,8 +22,8 @@ in {
       gource
       bat
       yt-dlp
-      gowall
       jq
+      ydotool
       ;
     } ++ lib.lists.optionals (cfg.enableFun) builtins.attrValues { inherit (pkgs) 
       fortune-kind
