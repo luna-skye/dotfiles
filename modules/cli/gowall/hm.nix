@@ -3,7 +3,7 @@
 
 let
   stellae = inputs.stellae-nix.lib;
-  toHex = c: stellae.colors.hslToHex c;
+  toHex = c: "#${stellae.colors.hslToHex c}";
 
   capitalize = str: lib.strings.toUpper(lib.substring 0 1 str) + lib.substring 1 (-1) str;
 
