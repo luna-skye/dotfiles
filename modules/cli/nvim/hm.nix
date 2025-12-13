@@ -1,5 +1,5 @@
 { inputs, pkgs, ... }:
 
 {
-  home.packages = [ inputs.zenvim.packages.${pkgs.system}.default ];
+  home.packages = [ inputs.zenvim.packages.${pkgs.stdenv.hostPlatform.system}.default ];
 }

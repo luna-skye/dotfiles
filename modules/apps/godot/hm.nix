@@ -10,7 +10,7 @@ let
     url = "https://github.com/NixOS/nixpkgs/";
     ref = "refs/heads/nixpkgs-unstable";
     rev = "02b8c7ddb7fe956871fa65466bf8a30fa69ec078";
-  }) { inherit (pkgs) system; };
+  }) { inherit (pkgs.stdenv.hostPlatform) system; };
 
 in {
   imports = [];

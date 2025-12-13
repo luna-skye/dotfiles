@@ -5,6 +5,6 @@ let
 
 in {
   config = lib.mkIf (hostCfg.enable) {
-    home.packages = [ pkgs.isoimagewriter ];
+    home.packages = [ pkgs.kdePackages.isoimagewriter ];
   };
 }

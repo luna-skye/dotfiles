@@ -10,10 +10,10 @@ let
       owner = "markusressel";
       repo = "fan2go-tui";
       tag = version;
-      hash = "sha256-ML6ZdXfD+s7NqZ6xZfOjS6Oj4lBwk3HgVayfCApvK3g=";
+      hash = "sha256-15UyuDwVyKNPgF+C/ApjQDqWMQoeO2C1aLRniC6xJFY=";
       leaveDotGit = true;
     };
-    vendorHash = "sha256-vkfeEjQh+i/YPRwe9aotMU+wHTOXFDLpIKbPixuURt8=";
+    vendorHash = "sha256-IMMnZZ6oJMRxtfT9iFM7pbAauvglt74i4Nco/rMwX/g=";
     meta = {
       description = "TUI application for fan2go";
       mainProgram = "fan2go-tui";

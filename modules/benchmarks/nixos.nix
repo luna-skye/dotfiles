@@ -4,10 +4,20 @@
 let
   cfg = config.zen.benchmarks;
 
+  unigineBenchmarks = builtins.attrValues { inherit (pkgs)
+    unigine-valley
+    unigine-superposition
+    unigine-heaven
+    ;
+  };
+
 in {
   options.zen.benchmarks = {
     enable = helpers.mkBooleanOption false "Whether to install benchmarking utility softwares";
-    unigine.enable = helpers.mkBooleanOption true "Whether to install Unigine Engine 3D benchmarks";
+
+    # causing hash mismatch failures in 25.11
+    # see: https://github.com/NixOS/nixpkgs/issues/469329
+    unigine.enable = helpers.mkBooleanOption false "Whether to install Unigine Engine 3D benchmarks";
   };
 
   config = lib.mkIf (cfg.enable) {
@@ -21,13 +31,6 @@ in {
         furmark              # opengl/vulkan tests
         ;
       } ++
-      lib.lists.optionals (cfg.unigine.enable) builtins.attrValues { inherit (pkgs)
-        unigine-valley
-        unigine-tropics
-        unigine-superposition
-        unigine-sanctuary
-        unigine-heaven
-        ;
-      };
+      lib.lists.optionals (cfg.unigine.enable) unigineBenchmarks;
   };
 }

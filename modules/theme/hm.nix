@@ -34,10 +34,10 @@ in {
 
     fonts = {
       enable = lib.mkEnableOption "Enable automatic management of fonts";
-      monospace = mkFontOption { name = "JetBrains Mono";   package = pkgs.jetbrains-mono;   } "Monospace font to apply to target apps";
-      sans      = mkFontOption { name = "Noto Sans";        package = pkgs.noto-fonts;       } "Sans font to apply to target apps";
-      serif     = mkFontOption { name = "Noto Serif";       package = pkgs.noto-fonts;       } "Serif font to apply to target apps";
-      emoji     = mkFontOption { name = "Noto Color Emoji"; package = pkgs.noto-fonts-emoji; } "Emoji font to apply to target apps";
+      monospace = mkFontOption { name = "JetBrains Mono";   package = pkgs.jetbrains-mono;         } "Monospace font to apply to target apps";
+      sans      = mkFontOption { name = "Noto Sans";        package = pkgs.noto-fonts;             } "Sans font to apply to target apps";
+      serif     = mkFontOption { name = "Noto Serif";       package = pkgs.noto-fonts;             } "Serif font to apply to target apps";
+      emoji     = mkFontOption { name = "Noto Color Emoji"; package = pkgs.noto-fonts-color-emoji; } "Emoji font to apply to target apps";
     };
 
     palette = lib.mkOption {

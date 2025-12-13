@@ -28,30 +28,19 @@ in {
     programs.git = {
       enable = lib.mkDefault true;
       lfs.enable = lib.mkDefault true;
-      delta.enable = lib.mkDefault true;
 
-      userName = lib.mkDefault cfg.username;
-      userEmail = lib.mkDefault cfg.email;
+      settings = {
+        user.name = lib.mkDefault cfg.username;
+        user.email = lib.mkDefault cfg.email;
 
-      ignores = (if (cfg.enableDefaultIgnores) then [
-        ".cache/"
-        ".DS_Store"
-        ".idea/"
-        "*.swp"
-        "*.elc"
-        ".direnv/"
-        "node_modules"
-        "result"
-        "result-*"
-      ] else []) ++ cfg.ignores;
+        aliases = (if (cfg.enableDefaultAliases) then {
+          # historical viewing
+          graph = "log --all --graph --decorate --oneline";
+          hist = ''log --graph --date=relative --pretty=format:"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%Creset" --decorate --all'';
+          llog = ''log --graph --date=relative --pretty=format:"%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset)" --name-status'';
+        } else {}) // cfg.aliases;
 
-      extraConfig = {
         init.defaultBranch = lib.mkDefault cfg.initBranch;
-
-        delta = {
-          options.map-styles = lib.mkDefault "bold purple => syntax #ca9ee6, bold cyan => syntax #8caaee";
-          line-numbers = lib.mkDefault true;
-        };
 
         branch.autosetupmerge = lib.mkDefault true;
         push.default = lib.mkDefault "current";
@@ -64,12 +53,23 @@ in {
         };
       };
 
-      aliases = (if (cfg.enableDefaultAliases) then {
-        # historical viewing
-        graph = "log --all --graph --decorate --oneline";
-        hist = ''log --graph --date=relative --pretty=format:"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%Creset" --decorate --all'';
-        llog = ''log --graph --date=relative --pretty=format:"%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset)" --name-status'';
-      } else {}) // cfg.aliases;
+      ignores = (if (cfg.enableDefaultIgnores) then [
+        ".cache/"
+        ".DS_Store"
+        ".idea/"
+        "*.swp"
+        "*.elc"
+        ".direnv/"
+        "node_modules"
+        "result"
+        "result-*"
+      ] else []) ++ cfg.ignores;
+    };
+
+    programs.delta = {
+      enable = true;
+      enableGitIntegration = true;
+      options.map-styles = lib.mkDefault "bold purple => syntax #ca9ee6, bold cyan => syntax #8caaee";
     };
   };
 }

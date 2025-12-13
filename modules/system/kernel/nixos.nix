@@ -11,6 +11,6 @@ in {
 
   config = {
     boot.kernelPackages = lib.mkIf (cfg.useCachy)
-      inputs.nix-cachyos-kernel.legacyPackages.${pkgs.system}.linuxPackages-cachyos-latest;
+      inputs.nix-cachyos-kernel.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linuxPackages-cachyos-latest;
   };
 }

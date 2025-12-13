@@ -19,7 +19,7 @@ in {
     services.desktopManager.plasma6.enable = lib.mkDefault true;
     environment.systemPackages = [
       pkgs.kde-rounded-corners
-      inputs.kwin-effects-forceblur.packages.${pkgs.system}.default
+      inputs.kwin-effects-forceblur.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
   };
 }
