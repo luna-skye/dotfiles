@@ -5,8 +5,16 @@
     host.name = "mimas";
     session = {
       default = "plasma";
-      # hyprland.enable = true;
       plasma.enable = true;
+      niri.enable = true;
+
+      monitors = [{
+        name        = "eDP-1";
+        resolution  = "1920x1080";
+        offset      = "0x0";
+        refreshRate = 60;
+        workspaces  = [ 1 2 3 4 5 ];
+      }];
     };
     services = {
       dunst.enable = true;
