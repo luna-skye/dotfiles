@@ -63,6 +63,11 @@ repl:
   nix repl --expr 'builtins.getFlake "'$(pwd)'"'
 
 
+# Inspect evaluated result of a hm home.file text configuration
+inspect-home-file name:
+  nix eval --raw --impure --expr '(builtins.getFlake "'$(pwd)'").outputs.nixosConfigurations.'$(hostname)'.config.home-manager.users.'$(whoami)'.home.file.'\"{{name}}\"'.text'
+
+
 # Generate files for a new NixOS host
 new-host name:
   mkdir -p "./hosts/{{name}}"
