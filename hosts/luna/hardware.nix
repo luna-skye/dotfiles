@@ -26,6 +26,11 @@
     fsType = "ext4";
   };
 
+  fileSystems."/mnt/vega" = {
+    device = "/dev/disk/by-uuid/290798c4-597f-4e47-ac8d-37ddeba1fc86";
+    fsType = "ext4";
+  };
+
   swapDevices = [
     { device = "/dev/disk/by-uuid/a9d5a4d6-87fd-4a6a-b7eb-2895d2131a8b"; }
   ];
