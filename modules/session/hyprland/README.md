@@ -12,26 +12,12 @@ Options can be accessed through the `zen.session.hyprland` config path.
 | Name         | Type     | Default | Scope   | Description                               |
 |--------------|----------|---------|---------|-------------------------------------------|
 | `enable` | `boolean` | `false`   | NixOS Host | Whether to install the Hyprland window manager |
-| `monitors` | `listOf monitorType` | `[]`   | NixOS Host | Monitor definitions for layout and workspaces |
 | `defaultExecOne` | `boolean` | `true`   | NixOS Host | Whether to apply default execOnce commands on boot |
 | `defaultLayerRules` | `boolean` | `true`   | NixOS Host | Whether to apply default layerRules |
 | `defaultWindowRules` | `boolean` | `true`   | NixOS Host | Whether to apply default windowRules |
 | `execOnce` | `listOf string` | `[]`   | NixOS Host | Additional execOnce commands to include |
 | `layerRules` | `listOf string` | `[]`   | NixOS Host | Additional layerRules to include |
 | `windowRules` | `listOf string` | `[]`   | NixOS Host | Additional windowRules to include |
-
-
-### Monitor Configuration
-This module includes a custom option type, called `monitorType`, which allows you to define many aspects of a monitor for Hyprland specific configuration. These are defined as an attribute set with the following fields.
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| `name` | `string` | `""` | The monitor's name (`"DP-1"`, `"HDMI-A-1"`, etc.), can be found with `hyprctl monitors` |
-| `resolution` | `string` | `"highres"` | The resolution of the monitor, as `"${width}x${height}"` |
-| `offset` | `string` | `"auto"` | The offset of the monitor, for multi-monitor configurations, defined similarly to `resolution` |
-| `refreshRate` | `number` or `null` | `null` | The monitor's refresh rate |
-| `workspaces` | `listOf number` | `[1]` | The workspaces to associate with this monitor exclusively |
-
-If the above `zen.session.hyprland.monitors` option is not set, then a single monitor of those defined defaults will be used.
 
 ### Keybind Options
 Alongside to the base options within the NixOS host scope, there are Home-Manager user scope options for keybinds available through the `zen.session.hyprland.keybinds` config path, allowing individual users to personal keybinds.

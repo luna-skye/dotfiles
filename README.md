@@ -126,9 +126,10 @@ The Nix REPL is a vital tool for debugging and exploring Nix code, this repo's `
 │   ├─  fonts      # Fonts
 │   ├─  gc         # Nix garbage collection
 │   ├─  networking # NixOS networking
+│   ├─  security   # NixOS security options and hardening
 │   ├─  services   # Services (dunst, astal, tofi, etc.)
 │   ├─  session    # Graphical user sessions (Hyprland, Niri, KDE Plasma)
-│   └─  stellix    # Custom & dynamic color palettes
+│   └─  theme      # Custom & dynamic color palettes
 └─  users      # Declares each Home-Manager user
 ```
 
