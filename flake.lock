@@ -896,7 +896,7 @@
         "nix-cachyos-kernel": "nix-cachyos-kernel",
         "nixpkgs": "nixpkgs_3",
         "sops-nix": "sops-nix",
-        "stellae-nix": "stellae-nix",
+        "stellae": "stellae",
         "zen-browser": "zen-browser",
         "zenvim": "zenvim"
       }
@@ -921,14 +921,14 @@
     },
     "stellae": {
       "inputs": {
-        "nixpkgs": "nixpkgs_8"
+        "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1743498800,
-        "narHash": "sha256-uWMNflkK9LynH/m28IZ7GEpC4Z1I0H6E9P17ET86/sI=",
+        "lastModified": 1765869842,
+        "narHash": "sha256-4K9jnZx0hCgmZ3ELyPTKfVtRKEg294amPHkYt6wKHP8=",
         "owner": "luna-skye",
         "repo": "stellae",
-        "rev": "bdc601cfe1770b4c545a5b026c68bbbbde81c3eb",
+        "rev": "892725d603fcafd5b472f5428f1e8483e75cdb21",
         "type": "github"
       },
       "original": {
@@ -937,16 +937,16 @@
         "type": "github"
       }
     },
-    "stellae-nix": {
+    "stellae_2": {
       "inputs": {
-        "nixpkgs": "nixpkgs_5"
+        "nixpkgs": "nixpkgs_8"
       },
       "locked": {
-        "lastModified": 1765398816,
-        "narHash": "sha256-OweOAvzrgdgrCZncBMuy1UeRA4FWmprGJ0xMDltDkFY=",
+        "lastModified": 1743498800,
+        "narHash": "sha256-uWMNflkK9LynH/m28IZ7GEpC4Z1I0H6E9P17ET86/sI=",
         "owner": "luna-skye",
         "repo": "stellae",
-        "rev": "90ee44d89e83d84a60ef5e8c898cd8f7e075770d",
+        "rev": "bdc601cfe1770b4c545a5b026c68bbbbde81c3eb",
         "type": "github"
       },
       "original": {
@@ -1100,7 +1100,7 @@
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs_6",
         "nixvim": "nixvim",
-        "stellae": "stellae"
+        "stellae": "stellae_2"
       },
       "locked": {
         "lastModified": 1753824139,
