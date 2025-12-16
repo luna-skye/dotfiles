@@ -1,11 +1,9 @@
-{ inputs, config, lib, helpers }:
+{ config, lib, helpers, stellae }:
 
 
 let
-  stellae = inputs.stellae-nix.lib;
-  colors = config.zen.theme.palette;
-
   cfg = config.zen.session.niri;
+  colors = config.zen.theme.element;
 
 in {
   options = {
@@ -37,12 +35,12 @@ in {
 
     active-color-1 = lib.mkOption {
       type = lib.types.attrs;
-      default = colors.primary;
+      default = colors.tokens.primary;
       description = "Color for active window borders and tabs";
     };
     active-color-2 = lib.mkOption {
       type = lib.types.attrs;
-      default = colors.secondary;
+      default = colors.tokens.secondary;
       description = "Color for active window borders and tabs";
     };
     inactive-color = lib.mkOption {
@@ -79,8 +77,8 @@ in {
         gap ${toString cfg.style.tab.gaps}
         corner-radius ${toString cfg.style.tab.radius}
         gaps-between-tabs ${toString cfg.style.tab.gaps}
-        active-color "#${stellae.colors.hslToHex cfg.style.active-color-1}"
-        inactive-color "#${stellae.colors.hslToHex cfg.style.inactive-color}"
+        active-color "#${stellae.lib.hslToHex cfg.style.active-color-1}"
+        inactive-color "#${stellae.lib.hslToHex cfg.style.inactive-color}"
       }
 
       default-column-width { proportion ${toString cfg.style.layout.default-window-size}; }
@@ -93,8 +91,8 @@ in {
       focus-ring { off; }
       border {
         width ${toString cfg.style.window.border-size}
-        active-gradient from="#${stellae.colors.hslToHex cfg.style.active-color-1}" to="#${stellae.colors.hslToHex cfg.style.active-color-2}" angle=45
-        inactive-gradient from="#${stellae.colors.hslToHex cfg.style.inactive-color}" to="#${stellae.colors.hslToHex cfg.style.inactive-color}" angle=45 relative-to="workspace-view"
+        active-gradient from="#${stellae.lib.hslToHex cfg.style.active-color-1}" to="#${stellae.lib.hslToHex cfg.style.active-color-2}" angle=45
+        inactive-gradient from="#${stellae.lib.hslToHex cfg.style.inactive-color}" to="#${stellae.lib.hslToHex cfg.style.inactive-color}" angle=45 relative-to="workspace-view"
       }
 
       struts {
@@ -107,18 +105,18 @@ in {
         ${if (cfg.style.shadow.enable) then "// off" else "off"}
         softness ${toString cfg.style.shadow.size}
         spread ${toString cfg.style.shadow.spread}
-        color "#${stellae.colors.hslToHex cfg.style.shadow.color}"
+        color "#${stellae.lib.hslToHex cfg.style.shadow.color}"
       }
     }
 
     overview {
       zoom 0.5
-      backdrop-color "#${stellae.colors.hslToHex colors.surface.crust}"
+      backdrop-color "#${stellae.lib.hslToHex colors.surface.crust}"
       workspace-shadow {
         ${if (cfg.style.shadow.enable) then "// off" else "off"}
         softness ${toString cfg.style.shadow.size}
         spread ${toString cfg.style.shadow.spread}
-        color "#${stellae.colors.hslToHex cfg.style.shadow.color}"
+        color "#${stellae.lib.hslToHex cfg.style.shadow.color}"
       }
     }
 

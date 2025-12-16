@@ -1,12 +1,11 @@
-{ inputs, osConfig, config, lib, ... }:
+{ osConfig, config, lib, stellae, ... }:
 
 
 let
   inherit (lib) mkDefault;
   hostCfg = osConfig.zen.services.dunst;
 
-  stellae = inputs.stellae-nix.lib;
-  colors = config.zen.theme.palette;
+  colors = config.zen.theme.element;
 
 in {
   options.zen.services.dunst = {};
@@ -14,7 +13,7 @@ in {
   config = lib.mkIf (hostCfg.enable) {
     services.dunst = {
       enable = mkDefault true;
-      settings = {
+      settings = stellae.exporters.dunst.hmOptions { element = config.zen.theme.element; } // {
         global = {
           origin = mkDefault "top-right";
           monitor = mkDefault "1";
@@ -28,22 +27,6 @@ in {
           frame_width = mkDefault 2;
           progress_bar = mkDefault true;
           sort = mkDefault "yes";
-        };
-
-        urgency_normal = {
-          background = "#${stellae.colors.hslToHex colors.surface.mantle}";
-          foreground = "#${stellae.colors.hslToHex colors.primary}";
-          frame_color = "#${stellae.colors.hslToHex colors.primary}";
-        };
-        urgency_low = {
-          background = "#${stellae.colors.hslToHex colors.surface.mantle}";
-          foreground = "#${stellae.colors.hslToHex colors.surface.subtext0}";
-          frame_color = "#${stellae.colors.hslToHex colors.surface.surface1}";
-        };
-        urgency_critical = {
-          background = "#${stellae.colors.hslToHex colors.surface.mantle}";
-          foreground = "#${stellae.colors.hslToHex colors.accent.light_red}";
-          frame_color = "#${stellae.colors.hslToHex colors.accent.light_red}";
         };
       };
     };

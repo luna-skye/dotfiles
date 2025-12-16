@@ -1,4 +1,4 @@
-{ inputs, osConfig, config, pkgs, lib, helpers, ... }:
+{ osConfig, config, pkgs, lib, helpers, stellae, ... }:
 
 #  TODO: Improve layout options
 #  TODO: Nix controlled window rules
@@ -12,7 +12,7 @@ let
 
   # config from submodules
   keybinds = import ./keybinds.nix { inherit config lib helpers; };
-  style = import ./style.nix { inherit inputs config lib helpers; };
+  style = import ./style.nix { inherit config lib helpers stellae; };
   window-rules = import ./window-rules.nix { inherit config lib helpers; };
 
   # generate monitor config from session nix cfg

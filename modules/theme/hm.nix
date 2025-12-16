@@ -1,8 +1,7 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, stellae, ... }:
 
 
 let
-  stellae = inputs.stellae-nix.lib;
   cfg = config.zen.theme;
 
   mkFontOption = default: desc: lib.mkOption {
@@ -38,12 +37,6 @@ in {
       sans      = mkFontOption { name = "Noto Sans";        package = pkgs.noto-fonts;             } "Sans font to apply to target apps";
       serif     = mkFontOption { name = "Noto Serif";       package = pkgs.noto-fonts;             } "Serif font to apply to target apps";
       emoji     = mkFontOption { name = "Noto Color Emoji"; package = pkgs.noto-fonts-color-emoji; } "Emoji font to apply to target apps";
-    };
-
-    palette = lib.mkOption {
-      type = lib.types.attrs;
-      default = stellae.colors.convertElementTokens cfg.element;
-      description = "Palette, converted from a STELLAE element, used in software theme configuration";
     };
   };
 

@@ -1,10 +1,9 @@
-{ inputs, config, lib, ... }:
+{ config, lib, stellae, ... }:
 
 
 let
   inherit (lib) mkDefault;
 
-  stellae = inputs.stellae-nix.lib;
   colors = config.zen.theme.palette;
 
 in {
@@ -16,8 +15,8 @@ in {
         gaps_in = mkDefault 2;
         gaps_out = mkDefault 4;
         border_size = mkDefault 2;
-        "col.active_border" = mkDefault "rgb(${stellae.colors.hslToRgb colors.primary}) rgb(${stellae.colors.hslToRgb colors.secondary}) 45deg";
-        "col.inactive_border" = mkDefault "rgb(${stellae.colors.hslToRgb colors.surface.surface0}) rgb(${stellae.colors.hslToRgb colors.surface.surface0}) 45deg";
+        "col.active_border" = mkDefault "rgb(${stellae.lib.hslToRgb colors.primary}) rgb(${stellae.lib.hslToRgb colors.secondary}) 45deg";
+        "col.inactive_border" = mkDefault "rgb(${stellae.lib.hslToRgb colors.surface.surface0}) rgb(${stellae.lib.hslToRgb colors.surface.surface0}) 45deg";
       };
 
       decoration = {
@@ -33,7 +32,7 @@ in {
           passes = mkDefault 2;
           xray = mkDefault false;
         };
-        shadow.color = mkDefault "rgba(${stellae.colors.hslToRgb colors.surface.crust}99)";
+        shadow.color = mkDefault "rgba(${stellae.hslToRgb colors.surface.crust}99)";
       };
 
       animations = {

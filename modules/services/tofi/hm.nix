@@ -1,11 +1,8 @@
-{ inputs, osConfig, config, pkgs, lib, ... }:
+{ osConfig, config, pkgs, lib, stellae, ... }:
 
 
 let
   hostCfg = osConfig.zen.services.tofi;
-
-  stellae = inputs.stellae-nix.lib;
-  colors = config.zen.theme.palette;
 
   configMenuScript = pkgs.writeShellScript "config-menu" /* bash */ ''
     dotf=' NixOS Dotfiles'
@@ -39,7 +36,7 @@ in {
   config = lib.mkIf (hostCfg.enable) {
     programs.tofi = {
       enable = true;
-      settings = {
+      settings = stellae.exporters.tofi.hmOptions { element = config.zen.theme.element; } // {
         width = "100%";
         height = "100%";
         border-width = 0;
@@ -51,11 +48,7 @@ in {
         prompt-text = " Run ";
         prompt-padding = 16;
         font = "monospace";
-        background-color = "#${stellae.colors.hslToHex colors.surface.crust}${stellae.colors.toHex 230}";
-        text-color = "#${stellae.colors.hslToHex colors.surface.subtext0}";
-        selection-color = "#${stellae.colors.hslToHex colors.primary}";
       };
     };
-
   };
 }
