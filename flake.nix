@@ -21,7 +21,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stellae-nix.url = "github:luna-skye/stellae";
+    stellae.url = "github:luna-skye/stellae";
     zenvim.url = "github:luna-skye/nvim";
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -40,7 +40,7 @@
     home-manager,
     sops-nix,
     nix-cachyos-kernel,
-    stellae-nix,
+    stellae,
     ...
   }: let
     inherit (inputs.nixpkgs) lib;
@@ -58,10 +58,7 @@
     };
 
     mkNixosHost = host: users: lib.nixosSystem {
-      specialArgs = {
-        inherit inputs;
-        inherit helpers;
-      };
+      specialArgs = { inherit inputs helpers stellae; };
       modules = [
         inputs.musnix.nixosModules.musnix
         sops-nix.nixosModules.sops
@@ -73,11 +70,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "backup";
-          home-manager.extraSpecialArgs = {
-            inherit self;
-            inherit inputs;
-            inherit helpers;
-          };
+          home-manager.extraSpecialArgs = { inherit self inputs helpers stellae; };
           home-manager.users = builtins.listToAttrs (map (user: mkHmUser user) users);
         }
       ];
