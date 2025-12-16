@@ -1,5 +1,6 @@
 { lib, pkgs, ... }:
 
+
 let
   tmux-nova = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "nova";

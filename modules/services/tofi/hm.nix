@@ -1,5 +1,6 @@
 { inputs, osConfig, config, pkgs, lib, ... }:
 
+
 let
   hostCfg = osConfig.zen.services.tofi;
 

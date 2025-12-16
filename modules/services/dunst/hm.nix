@@ -1,5 +1,6 @@
 { inputs, osConfig, config, lib, ... }:
 
+
 let
   inherit (lib) mkDefault;
   hostCfg = osConfig.zen.services.dunst;
