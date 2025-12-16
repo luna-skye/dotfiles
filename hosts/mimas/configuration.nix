@@ -20,6 +20,7 @@
       dunst.enable = true;
       tofi.enable = true;
       swww.enable = true;
+      dms.enable = true;
     };
     apps = {
       zen-browser.enable = true;
