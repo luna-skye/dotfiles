@@ -71,6 +71,7 @@ in {
         QT_QPA_PLATFORM "wayland;xcb"
         QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
         QT_QPA_PLATFORMTHEME "qt6ct-kde"
+        QT_QPA_PLATFORMTHEME_QT6 "qt6ct-kde"
         GDK_BACKEND "wayland,x11"
         GTK_THEME "catppuccin-mocha-mauve-standard"
         DISPLAY ":2"
