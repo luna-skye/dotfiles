@@ -1,5 +1,6 @@
 { lib, ... }:
 
+
 {
   imports = [
     ./packages.nix
@@ -8,12 +9,13 @@
 
   zen = {
     networking.allowSSH = true;
-    cli.git = {
-      username = "Luna Skye";
-      email = "sepshuncontact@gmail.com";
+    cli = {
+      git = {
+        username = "Luna Skye";
+        email = "sepshuncontact@gmail.com";
+      };
+      cava.enable = true;
     };
-
-    session.hyprland.keybinds.actions.openBrowser = "zen-twilight";
 
     apps.default = {
       browser = [ "zen.desktop" ];

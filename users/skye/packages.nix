@@ -8,7 +8,6 @@
     aseprite
     blockbench
 
-    cava
     zenity
     v4l-utils
     waifu2x-converter-cpp
