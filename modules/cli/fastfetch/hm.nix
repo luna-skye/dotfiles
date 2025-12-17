@@ -38,7 +38,7 @@ in {
           { type = "display"; key = "│ ├ {name}";            keyColor = "yellow"; }
           { type = "custom";  key = "├  Disks";             keyColor = "yellow"; }
           { type = "disk";    key = "│ ├ {name} ({1})";      keyColor = "yellow"; }
-          { type = "localip"; key = "├  Local IP ({name})"; keyColor = "yellow"; }
+          { type = "localip"; key = "├  Local IP";          keyColor = "yellow"; }
           { type = "uptime";  key = "└ 󰅐 Uptime";            keyColor = "yellow"; }
           "break"
         ];
