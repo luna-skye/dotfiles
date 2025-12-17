@@ -1,5 +1,6 @@
 { ... }:
 
+
 {
   zen = {
     host.name = "luna";
@@ -15,7 +16,7 @@
     benchmarks.enable = true;
 
     session = {
-      default = "plasma";
+      default = "niri";
       plasma.enable = true;
       hyprland.enable = false;
       niri.enable = true;
