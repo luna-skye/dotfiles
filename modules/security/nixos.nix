@@ -19,7 +19,6 @@ in {
   config = {
     security = {
       polkit.enable = true;
-      rtkit.enable = true;
       forcePageTableIsolation = true;
 
       pam.loginLimits = lib.lists.optionals (cfg.disableCoreDumps) [{
