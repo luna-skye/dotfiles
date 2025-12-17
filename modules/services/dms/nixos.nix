@@ -12,6 +12,13 @@ in {
   config = lib.mkIf (cfg.enable) {
     programs.dms-shell = {
       enable = true;
+
+      enableSystemMonitoring = true;
+      enableClipboard = true;
+      enableVPN = true;
+      enableDynamicTheming = false;
+      enableAudioWavelength = true;
+      enableCalendarEvents = true;
     };
   };
 }
