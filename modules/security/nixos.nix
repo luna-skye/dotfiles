@@ -65,6 +65,7 @@ in {
       };
 
       kernelParams = lib.lists.optionals (cfg.setKernelParams) [
+        "threadirqs"
         "slab_nomerge" # make it harder to influence slab cache layout
         "vsyscall=none" # disables vsyscalls, they've been replaced with vDSO
         "debugfs=off" # disables debugfs, which exposes sensitive info about the kernel
