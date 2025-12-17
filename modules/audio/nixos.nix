@@ -11,6 +11,7 @@ in {
     security.rtkit.enable = mkDefault true;
 
     services = {
+      irqbalance.enable = mkDefault true;
       pulseaudio.enable = mkDefault false;
       pipewire = {
         enable = mkDefault true;
