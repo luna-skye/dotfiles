@@ -46,7 +46,7 @@ in {
         "kernel.perf_event_paranoid" = 3;  # restrict all usage of performance events to the CAP_PERFMON capability
 
         # kernel self-protection
-        # sysrq exposes a lot of potentially dangerous debuggin functionality to unprivileged users
+        # sysrq exposes a lot of potentially dangerous debugging functionality to unprivileged users
         # 4 makes it so a user can only use the secure attention key. A value of 0 would disable completely
         "kernel.sysrq" = 4;
 
@@ -80,7 +80,7 @@ in {
         # making page allocations less predictable
         "page_alloc.shuffel=1"
 
-        # enable skernel page table isolation, which mitigates meltdown and
+        # enables kernel page table isolation, which mitigates meltdown and
         # prevents some KASLR bypasses
         "pti=on"
 
