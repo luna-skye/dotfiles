@@ -2,6 +2,7 @@
 
 
 let
+  inherit (lib) mkDefault;
   cfg = config.zen.services.dms;
 
 in {
@@ -11,14 +12,18 @@ in {
 
   config = lib.mkIf (cfg.enable) {
     programs.dms-shell = {
-      enable = true;
+      enable = mkDefault true;
 
-      enableSystemMonitoring = true;
-      enableClipboard = true;
-      enableVPN = true;
-      enableDynamicTheming = false;
-      enableAudioWavelength = true;
-      enableCalendarEvents = true;
+      systemd = {
+        enable = mkDefault true;
+        restartIfChanged = mkDefault true;
+      };
+
+      enableSystemMonitoring = mkDefault true;
+      enableClipboard = mkDefault true;
+      enableVPN = mkDefault true;
+      enableAudioWavelength = mkDefault true;
+      enableCalendarEvents = mkDefault true;
     };
   };
 }
