@@ -42,6 +42,7 @@
       swww.enable = true;
       tofi.enable = true;
       dunst.enable = true;
+      dms.enable = true;
     };
 
     apps = {
