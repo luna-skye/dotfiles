@@ -42,5 +42,15 @@ in {
       match is-focused=false
       opacity ${toString cfg.style.window.inactive-opacity}
     }
+
+    // Picture-in-Picture
+    window-rule {
+      match title="Picture-in-Picture"
+      open-focused false
+      open-floating true
+      default-floating-position x=32 y=32 relative-to="bottom-right"
+      default-column-width { fixed 480; }
+      default-window-height { fixed 270; }
+    }
   '';
 }
