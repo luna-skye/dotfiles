@@ -924,11 +924,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1765934059,
-        "narHash": "sha256-pYIp9ONdieMMV3UFdcsdXofOGzuK2dVdSIiGNZUF09k=",
+        "lastModified": 1766012586,
+        "narHash": "sha256-D4gIbQzrC90USg+EOE4TKA3y2Tie3Ks4A/yzBgdeSUk=",
         "owner": "luna-skye",
         "repo": "stellae",
-        "rev": "504333d6b9495d33c9488ee55226bec9417c1e90",
+        "rev": "fc386add95eec706f7f335562393d826b457a576",
         "type": "github"
       },
       "original": {
