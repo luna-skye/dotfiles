@@ -1,0 +1,12 @@
+[log]
+enabled = false
+
+[mgr]
+ratio = [3, 3, 3]
+show_hidden = false
+show_symlink = true
+sort_by = "natural"
+sort_dir_first = true
+
+[preview]
+tab_size = 2
