@@ -92,7 +92,7 @@ in {
       border {
         width ${toString cfg.style.window.border-size}
         active-gradient from="${cfg.style.active-color-1}" to="${cfg.style.active-color-2}" angle=45
-        inactive-gradient from="${cfg.style.inactive-color}" to="#${cfg.style.inactive-color}" angle=45 relative-to="workspace-view"
+        inactive-gradient from="${cfg.style.inactive-color}" to="${cfg.style.inactive-color}" angle=45 relative-to="workspace-view"
       }
 
       struts {
@@ -116,7 +116,7 @@ in {
         ${if (cfg.style.shadow.enable) then "// off" else "off"}
         softness ${toString cfg.style.shadow.size}
         spread ${toString cfg.style.shadow.spread}
-        color "#${cfg.style.shadow.color}"
+        color "${cfg.style.shadow.color}"
       }
     }
 
