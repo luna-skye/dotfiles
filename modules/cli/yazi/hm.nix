@@ -12,28 +12,21 @@ in {
   };
 
   config = lib.mkIf (cfg.enable) {
-    programs.yazi = {
-      enable = lib.mkDefault true;
+    programs.yazi.enable = lib.mkDefault true;
 
-      # enableFishIntegration    = lib.mkDefault config.zen.cli.shell.fish.enable;
-      # enableNushellIntegration = lib.mkDefault config.zen.cli.shell.nushell.enable;
+    home.file.".config/yazi/yazi.toml".text = /* toml */ ''
+      [log]
+      enabled = false
 
-      #  TODO: setup some zen config options for these
-      settings = {
-        log.enabled = lib.mkDefault false;
-        manager = {
-          show_hidden    = lib.mkDefault false;
-          sort_by        = lib.mkDefault "natural";
-          sort_dir_first = lib.mkDefault true;
-          ratio          = lib.mkDefault [2 4 2];
-          show_symlink   = lib.mkDefault true;
-        };
-        preview = {
-          tab_size = lib.mkDefault 2;
-        };
-      };
-    };
+      [mgr]
+      ratio = [3, 3, 3]
+      show_hidden = false
+      show_symlink = true
+      sort_by = "natural"
+      sort_dir_first = true
 
-    #  TODO: Implement fish and nushell integration for yy persistent command
+      [preview]
+      tab_size = 2
+    '';
   };
 }
