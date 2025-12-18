@@ -4,7 +4,7 @@
 let
   inherit (lib) mkDefault;
 
-  colors = config.zen.theme.palette;
+  colors = stellae.lib.elementToFormattedRgb config.zen.theme.palette;
 
 in {
   options.zen.session.hyprland = {};
@@ -15,8 +15,8 @@ in {
         gaps_in = mkDefault 2;
         gaps_out = mkDefault 4;
         border_size = mkDefault 2;
-        "col.active_border" = mkDefault "rgb(${stellae.lib.hslToRgb colors.primary}) rgb(${stellae.lib.hslToRgb colors.secondary}) 45deg";
-        "col.inactive_border" = mkDefault "rgb(${stellae.lib.hslToRgb colors.surface.surface0}) rgb(${stellae.lib.hslToRgb colors.surface.surface0}) 45deg";
+        "col.active_border" = mkDefault "${colors.tokens.primary} ${colors.tokens.secondary} 45deg";
+        "col.inactive_border" = mkDefault "${colors.surface.base} ${colors.surface.surface0} 45deg";
       };
 
       decoration = {
@@ -32,7 +32,7 @@ in {
           passes = mkDefault 2;
           xray = mkDefault false;
         };
-        shadow.color = mkDefault "rgba(${stellae.hslToRgb colors.surface.crust}99)";
+        shadow.color = mkDefault "${colors.surface.crust}99";
       };
 
       animations = {

@@ -3,7 +3,7 @@
 
 let
   cfg = config.zen.cli.cava;
-  element = config.zen.theme.element;
+  colors = stellae.lib.elementToFormattedHex config.zen.theme.element;
 
 in {
   options.zen.cli.cava = {
@@ -38,8 +38,8 @@ in {
       ; reverse = 0
 
       [color]
-      ; background = '#${stellae.lib.hslToHex element.surface.crust}'
-      foreground = '#${stellae.lib.hslToHex element.tokens.primary}'
+      ; background = '#${colors.surface.crust}'
+      foreground = '#${colors.tokens.primary}'
 
       gradient = 0
       gradient_count = 8
