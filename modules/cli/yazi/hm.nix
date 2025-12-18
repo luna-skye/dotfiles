@@ -1,4 +1,4 @@
-{ config, lib, helpers, ... }:
+{ config, lib, helpers, stellae, ... }:
 
 let
   cfg = config.zen.cli.yazi;
@@ -13,6 +13,8 @@ in {
 
   config = lib.mkIf (cfg.enable) {
     programs.yazi.enable = lib.mkDefault true;
+
+    home.file.".config/yazi/theme.toml".text = stellae.exporters.yazi.plaintext { inherit (config.zen.theme) element; };
 
     home.file.".config/yazi/yazi.toml".text = /* toml */ ''
       [log]
