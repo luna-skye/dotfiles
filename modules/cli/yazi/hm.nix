@@ -4,8 +4,6 @@ let
   cfg = config.zen.cli.yazi;
 
 in {
-  imports = [];
-
   options.zen.cli.yazi = {
     enable = helpers.mkBooleanOption true "Whether to install and configure Yazi for the user";
     enableYyCommand = helpers.mkBooleanOption true "Whether to enable the `yy` shortcut for persistent yazi navigation";
