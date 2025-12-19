@@ -57,6 +57,7 @@
         minecraft.atl.enable = true;
         minecraft.prism.enable = true;
         r2modman.enable = true;
+        osu.enable = true;
       };
       media = {
         image.oculante.enable = true;
