@@ -14,6 +14,7 @@ in {
       optional (hostCfg.minecraft.atl.enable)      pkgs.atlauncher    ++
       optional (hostCfg.minecraft.prism.enable)    pkgs.prismlauncher ++
       optional (hostCfg.minecraft.modrinth.enable) pkgs.modrinth-app  ++
+      optional (hostCfg.osu.enable)                pkgs.osu-lazer-bin ++
       builtins.attrValues { inherit (pkgs) 
         gamescope
         vulkan-tools

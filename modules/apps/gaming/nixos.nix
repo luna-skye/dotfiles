@@ -32,6 +32,10 @@ in {
       atl.enable = helpers.mkBooleanOption false "Whether to enable the ATLauncher Minecraft launcher";
       prism.enable = helpers.mkBooleanOption false "Whether to enable the Prism Launcher";
     };
+
+    osu = {
+      enable = helpers.mkBooleanOption false "Whether to install the Osu! rhythm game";
+    };
   };
 
   config = lib.mkIf (cfg.enable) {
