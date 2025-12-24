@@ -104,7 +104,7 @@ in {
         touchpad {
           // off
           tap
-          natural-scroll
+          // natural-scroll
           accel-speed 0.2
           scroll-method "two-finger"
         }
