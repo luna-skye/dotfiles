@@ -4,7 +4,7 @@
   zen = {
     host.name = "mimas";
     session = {
-      default = "plasma";
+      default = "niri";
       plasma.enable = true;
       niri.enable = true;
 
