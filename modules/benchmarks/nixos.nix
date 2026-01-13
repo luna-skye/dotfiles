@@ -27,7 +27,7 @@ in {
         geekbench            # general cpu/gpu benches
         phoronix-test-suite  # variety of tests across cpu, mem, gpu, io, and network
         iozone               # io (disk) tests
-        vkmark               # vulkan tests
+        # vkmark               # vulkan tests (disabled due to failed builds 2026-01-13)
         furmark              # opengl/vulkan tests
         ;
       } ++

@@ -4,7 +4,7 @@
 let
   cfg = osConfig.zen.apps.idea;
 
-  idea = pkgs.jetbrains.idea-community;
+  idea = pkgs.jetbrains.idea-oss;
   libPath = lib.makeLibraryPath [
     pkgs.glfw
     pkgs.libglvnd
