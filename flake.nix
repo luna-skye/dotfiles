@@ -7,9 +7,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    sops-nix.url = "github:Mic92/sops-nix";
-
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
+    jovian-nixos.url = "github:jovian-experiments/jovian-nixos";
+    sops-nix.url = "github:Mic92/sops-nix";
 
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
@@ -32,14 +32,16 @@
       url = "github:musnix/musnix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
   };
 
   outputs = inputs@{
     self,
     nixpkgs,
     home-manager,
-    sops-nix,
     nix-cachyos-kernel,
+    jovian-nixos,
+    sops-nix,
     stellae,
     ...
   }: let
@@ -62,6 +64,7 @@
       modules = [
         inputs.musnix.nixosModules.musnix
         sops-nix.nixosModules.sops
+        jovian-nixos.nixosModules.default
 
         (./modules/nixos.nix)
         (./hosts + "/${host}/hardware.nix")
@@ -81,6 +84,7 @@
       mimas = mkNixosHost "mimas" [ "skye" ];
       narvi = mkNixosHost "narvi" [ "steve" ];
       ariel = mkNixosHost "ariel" [ "seajewel" ];
+      calypso = mkNixosHost "calypso" [ "skye" ];
     };
   };
 }
