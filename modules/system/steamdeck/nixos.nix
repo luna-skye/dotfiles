@@ -82,6 +82,7 @@ in {
       session = {
         default = mkDefault "plasma";
         plasma.enable = mkDefault true;
+        plasma.useSDDM = mkDefault false;
 
         # preconfigure monitors for window managers if used
         monitors = mkDefault [{
