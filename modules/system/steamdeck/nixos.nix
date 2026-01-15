@@ -68,7 +68,7 @@ in {
       enable = mkDefault true;
       algorithm = mkDefault "zstd";
     };
-    services.automatic-timzoned.enable = mkDefault true;
+    services.automatic-timezoned.enable = mkDefault true;
 
 
     services.flatpak.enable = mkDefault true;
