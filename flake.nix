@@ -84,7 +84,7 @@
       mimas = mkNixosHost "mimas" [ "skye" ];
       narvi = mkNixosHost "narvi" [ "steve" ];
       ariel = mkNixosHost "ariel" [ "seajewel" ];
-      calypso = mkNixosHost "calypso" [ "skye" ];
+      callisto = mkNixosHost "callisto" [ "skye" ];
     };
   };
 }
