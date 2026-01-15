@@ -23,4 +23,6 @@
     description = "skye";
     extraGroups = [ "networkmanager" "wheel" "video" "seat" "audio" "libvirtd" ];
   };
+
+  system.stateVersion = "26.06";
 }

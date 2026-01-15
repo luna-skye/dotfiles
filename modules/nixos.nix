@@ -19,12 +19,12 @@ in {
     networking.hostName = mkDefault cfg.host.name;
     time.timeZone = mkDefault cfg.host.timezone;
 
+    nixpkgs.hostPlatform = mkDefault "x86_64-linux";
     sops.age.keyFile = "/var/lib/sops-nix/keys.txt";
 
     # ---------------------------------------------
     # no ethical consumption under capitalism
     nixpkgs.config.allowUnfree = mkDefault true;
-    nixpkgs.hostPlatform = mkDefault "x86_64-linux";
 
     # Experimental features which we rely on
     nix.settings.experimental-features = [ "nix-command" "flakes" "pipe-operators" ];
@@ -69,6 +69,6 @@ in {
     # this value at the release version of the first install of this system.
     # Before changing this value read the documentation for this option
     # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-    system.stateVersion = "23.11"; # Did you read the comment?
+    system.stateVersion = mkDefault "23.11"; # Did you read the comment?
   };
 }
