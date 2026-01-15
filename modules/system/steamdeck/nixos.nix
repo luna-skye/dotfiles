@@ -41,7 +41,6 @@ in {
 
     networking = {
       networkmanager.enable = mkDefault true;
-      firewall.enable = mkDefault false;
       hostName = config.zen.host.name;
     };
 
