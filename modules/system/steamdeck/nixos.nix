@@ -78,17 +78,26 @@ in {
     };
 
 
-    zen.session = {
-      default = mkDefault "plasma";
-      plasma.enable = mkDefault true;
+    zen = {
+      session = {
+        default = mkDefault "plasma";
+        plasma.enable = mkDefault true;
 
-      # preconfigure monitors for window managers if used
-      monitors = mkDefault [{
-        name        = "eDP-1";
-        resolution  = "1280x800";
-        offset      = "0x0";
-        refreshRate = 90;
-      }];
+        # preconfigure monitors for window managers if used
+        monitors = mkDefault [{
+          name        = "eDP-1";
+          resolution  = "1280x800";
+          offset      = "0x0";
+          refreshRate = 90;
+        }];
+      };
+      security = {
+        apparmor.enable = false;
+        setKernelParams = false;
+        setSysctlTweaks = false;
+        blacklistKernelModules = false;
+        disableCoreDumps = false;
+      };
     };
 
     jovian = {
