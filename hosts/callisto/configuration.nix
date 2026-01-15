@@ -24,5 +24,5 @@
     extraGroups = [ "networkmanager" "wheel" "video" "seat" "audio" "libvirtd" ];
   };
 
-  system.stateVersion = "26.06";
+  system.stateVersion = "26.05";
 }
