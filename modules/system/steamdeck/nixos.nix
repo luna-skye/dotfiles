@@ -34,9 +34,9 @@ in {
     systemd.settings.Manager.DefaultTimeoutStepSec = mkDefault "5s";
     hardware.amdgpu.initrd.enable = mkDefault false;
 
-    fileSystems."/" = {
-      options = [ "compress=zstd" ];
-    };
+    # fileSystems."/" = {
+    #   options = [ "compress=zstd" ];
+    # };
 
     networking = {
       networkmanager.enable = mkDefault true;
