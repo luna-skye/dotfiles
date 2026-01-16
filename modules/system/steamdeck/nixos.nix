@@ -1,4 +1,4 @@
-{ config, pkgs, lib, helpers, ... }:
+{ config, lib, helpers, ... }:
 
 
 let
