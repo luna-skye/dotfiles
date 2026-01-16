@@ -19,7 +19,6 @@ in {
       limine.maxGenerations = mkDefault 5;
     };
     boot.kernelParams = [ "quiet" ];
-    boot.kernelPackages = pkgs.linuxPackages_latest;
     boot.kernel.sysctl = {
       "kernel.split_lock_mitigate" = 0;
       "kernel.nmi_watchdog" = 0;
