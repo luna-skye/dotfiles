@@ -18,6 +18,7 @@
       media = {
         image.gwenview.enable = true;
         video.mpv.enable = true;
+        video.vlc.enable = true;
         audio.elisa.enable = true;
       };
     };
