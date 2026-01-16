@@ -40,7 +40,7 @@ in {
     boot.loader.systemd-boot.configurationLimit = mkDefault 10;
 
     # Force disable emergency mode, it's deadlocked NixOS systems for me in the past
-    systemd.enableEmergencyMode = mkForce false;
+    # systemd.enableEmergencyMode = mkForce false;
 
     # XServer & XKB
     services.xserver.enable = mkDefault true;
