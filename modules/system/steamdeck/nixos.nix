@@ -110,16 +110,10 @@ in {
       hardware.has.amd.gpu = true;
     };
 
-    # Create Steam CEF debugging file if it doesn't exist so Decky loads correctly
-    # Thanks to: https://github.com/Jovian-Experiments/Jovian-NixOS/issues/460#issuecomment-3439375088
-    systemd.services.steam-cef-debug = lib.mkIf (config.jovian.decky-loader.enable) {
-      description = "Create Steam CEF debugging file";
-      serviceConfig = {
-        type = "oneshot";
-        User = config.jovian.steam.user;
-        ExecStart = "/bin/sh -c 'mkdir -p ~/.steam/steam && [ ! -f ~/.steam/steam/.cef-enable-remote-debugging ] && touch ~/.steam/steam/.cef-enable-remote-debugging || true'";
-      };
-      wantedBy = [ "multi-user.target" ];
-    };
+    # create cef file for decky
+    systemd.tmpfiles.rules = lib.mkIf config.jovian.decky-loader.enable [
+      "d /home/${config.jovian.steam.user}/.steam/steam 0755 ${config.jovian.steam.user} users -"
+      "f /home/${config.jovian.steam.user}/.steam/steam/.cef-enable-remote-debugging 0644 ${config.jovian.steam.user} users -"
+    ];
   };
 }
