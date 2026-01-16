@@ -15,6 +15,11 @@
         minecraft.prism.enable = true;
         r2modman.enable = true;
       };
+      media = {
+        image.gwenview.enable = true;
+        video.mpv.enable = true;
+        audio.elisa.enable = true;
+      };
     };
   };
 
