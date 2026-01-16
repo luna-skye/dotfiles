@@ -3,6 +3,7 @@
 {
   zen = {
     host.name = "mimas";
+
     session = {
       default = "niri";
       plasma.enable = true;
@@ -16,21 +17,31 @@
         workspaces  = [ 1 2 3 4 5 ];
       }];
     };
+
     services = {
       dunst.enable = true;
       tofi.enable = true;
       swww.enable = true;
       dms.enable = true;
     };
+
     apps = {
       zen-browser.enable = true;
       obsidian.enable = true;
+
       gaming.enable = true;
       discord.enable = true;
       signal.enable = true;
+
       anki.enable = true;
       komikku.enable = true;
+
       feishin.enable = true;
+      media = {
+        image.gwenview.enable = true;
+        video.mpv.enable = true;
+        audio.elisa.enable = true;
+      };
     };
   };
   services.upower.enable = true;
