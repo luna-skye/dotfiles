@@ -111,8 +111,8 @@ in {
 
     # create cef file for decky
     systemd.tmpfiles.rules = lib.mkIf config.jovian.decky-loader.enable [
-      "d /home/${config.jovian.steam.user}/.steam/steam 0755 ${config.jovian.steam.user} users -"
-      "f /home/${config.jovian.steam.user}/.steam/steam/.cef-enable-remote-debugging 0644 ${config.jovian.steam.user} users -"
+      "d /home/${config.jovian.steam.user}/.local/share/Steam 0755 ${config.jovian.steam.user} users -"
+      "f /home/${config.jovian.steam.user}/.local/share/Steam/.cef-enable-remote-debugging 0644 ${config.jovian.steam.user} users -"
     ];
   };
 }
