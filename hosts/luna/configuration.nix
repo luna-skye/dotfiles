@@ -1,7 +1,4 @@
-{ ... }:
-
-
-{
+{ ... }: {
   zen = {
     host.name = "luna";
     # ups.enable = true;
@@ -46,11 +43,40 @@
       dms.enable = true;
     };
 
+    cli = {
+      imagemagick.enable = true;
+    };
     apps = {
       zen-browser.enable = true;
       chromium.enable = true;
-      obsidian.enable = true;
       rgb.enable = true;
+      media = {
+        image.oculante.enable = true;
+        video.vlc.enable = true;
+        video.mpv.enable = true;
+        audio.elisa.enable = true;
+      };
+      bottles.enable = true;
+
+      obsidian.enable = true;
+      blender.enable = true;
+      blockbench.enable = true;
+      aseprite.enable = true;
+      inkscape.enable = true;
+      krita.enable = true;
+      davinci-resolve.enable = true;
+      godot.enable = true;
+      idea.enable = true;
+      daw.enable = true;
+      obs.enable = true;
+
+      discord.enable = true;
+      signal.enable = true;
+      mumble.enable = true;
+
+      anki.enable = true;
+      komikku.enable = true;
+      feishin.enable = true;
       gaming = {
         enable = true;
         lutris.enable = true;
@@ -59,29 +85,9 @@
         r2modman.enable = true;
         osu.enable = true;
       };
-      media = {
-        image.oculante.enable = true;
-        video.vlc.enable = true;
-        video.mpv.enable = true;
-        audio.elisa.enable = true;
-      };
-      feishin.enable = true;
-      bottles.enable = true;
-      krita.enable = true;
-      blender.enable = true;
-      davinci-resolve.enable = true;
-      godot.enable = true;
-      idea.enable = true;
-      unityhub.enable = false;
-      daw.enable = true;
-      discord.enable = true;
-      signal.enable = true;
-      mumble.enable = true;
-      anki.enable = true;
-      komikku.enable = true;
-      obs.enable = true;
     };
   };
+  jovian.decky-loader.enable = true;
 
   xdg.portal.enable = true;
   environment.sessionVariables.XDG_DESKTOP_PORTAL_DIR = "/run/current-system/sw/share/xdg-desktop-portal/portals";
