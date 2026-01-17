@@ -1,4 +1,4 @@
-{ osConfig, pkgs, lib }:
+{ osConfig, pkgs, lib, ... }:
 
 let
   osCfg = osConfig.zen.apps.figma-linux;
