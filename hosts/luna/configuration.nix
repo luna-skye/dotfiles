@@ -106,4 +106,6 @@
     25565 # mc server stuff
     36123 # mc mekanism voice
   ];
+
+  system.stateVersion = "23.11";
 }

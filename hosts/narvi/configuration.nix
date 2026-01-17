@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{ ... }: {
   zen = {
     host.name = "narvi";
     benchmarks.enable = true;
@@ -52,4 +50,6 @@
   };
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "steve";
+
+  system.stateVersion = "23.11";
 }

@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{ pkgs, ... }: {
   zen = {
     host.name = "ariel";
     system = {
@@ -45,4 +43,6 @@
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "seajewel";
   services.xserver.videoDrivers = [ "amdgpu" ];
+
+  system.stateVersion = "23.11";
 }
