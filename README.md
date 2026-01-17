@@ -17,10 +17,12 @@
 * 🌎 Global, modular, option-oriented configuration
 * 🏡 Home Manager as a NixOS module
 * 🖥️ Host specific configuration, named after moons in our solar system 🌘
-  * [luna](https://pcpartpicker.com/user/DeceptiveSanctuary/saved/KyRwqs) | my main pc workstation ([Earth Moon](https://science.nasa.gov/moon/))
+  * [luna](https://pcpartpicker.com/user/DeceptiveSanctuary/saved/KyRwqs) | my main workstation/gaming pc ([Earth Moon](https://science.nasa.gov/moon/))
   * [mimas](https://www.amazon.com/HP-Pavilion-14-dw1010wm-Touch-Processor/dp/B09N9T9SLW) | my sad little laptop ([Saturn Moon](https://science.nasa.gov/saturn/moons/mimas/))
-  * ariel | a near-future household system ([Uranus Moon](https://science.nasa.gov/uranus/moons/ariel/))
-  * [narvi](https://pcpartpicker.com/list/mnznCd) | household relative's workstation ([Saturn Moon](https://science.nasa.gov/saturn/moons/narvi/))
+  * ariel | relative's gaming pc ([Uranus Moon](https://science.nasa.gov/uranus/moons/ariel/))
+  * [narvi](https://pcpartpicker.com/list/mnznCd) | relative's workstation/gaming pc ([Saturn Moon](https://science.nasa.gov/saturn/moons/narvi/))
+  * callisto | my Steam Deck OLED ([Jupiter Moon](https://science.nasa.gov/jupiter/jupiter-moons/callisto/))
+  * kari | relative's Steam Deck OLED ([Saturn Moon](https://science.nasa.gov/saturn/moons/kari/))
 * 🗑️ Automatic garbage collection & optimizations
 * 🔥 Easy to use `just` commands
   * Build for current host with `just build`
