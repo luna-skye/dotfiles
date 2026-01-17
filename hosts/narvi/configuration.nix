@@ -2,9 +2,6 @@
   zen = {
     host.name = "narvi";
     benchmarks.enable = true;
-    system = {
-      kernel.useCachy = true;
-    };
     session = {
       default = "plasma";
       plasma.enable = true;

@@ -3,7 +3,6 @@
     host.name = "luna";
     # ups.enable = true;
     system = {
-      kernel.useCachy = true;
       fan2go = {
         enable = true;
         settings = import ./fans.nix;

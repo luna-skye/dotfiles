@@ -1,9 +1,6 @@
 { pkgs, ... }: {
   zen = {
     host.name = "ariel";
-    system = {
-      kernel.useCachy = true;
-    };
     session = {
       default = "plasma";
       plasma.enable = true;
