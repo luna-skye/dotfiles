@@ -5,7 +5,7 @@ let
 
 in {
   #  TODO: Grab and symlink some themes from Github
-  config = lib.mkIf (osCfg) {
+  config = lib.mkIf (osCfg.enable) {
     home.packages = [ pkgs.aseprite ];
   };
 }
