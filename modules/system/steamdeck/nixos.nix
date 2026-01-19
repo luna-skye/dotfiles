@@ -100,13 +100,15 @@ in {
     };
 
     jovian = {
+      hardware.has.amd.gpu = mkDefault true;
+      devices.steamdeck.enable = mkDefault true;
+
       steam.enable = mkDefault true;
       steam.autoStart = mkDefault true;
       steam.user = mkDefault config.zen.system.steamdeck.username;
-      decky-loader.enable = mkDefault true;
       steamos.useSteamOSConfig = mkDefault true;
       steam.desktopSession = mkDefault config.zen.session.default;
-      hardware.has.amd.gpu = true;
+      decky-loader.enable = mkDefault true;
     };
 
     # create cef file for decky
