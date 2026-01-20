@@ -18,7 +18,13 @@ in {
       timeout = mkDefault 0;
       limine.maxGenerations = mkDefault 5;
     };
-    boot.kernelParams = [ "quiet" ];
+    boot.kernelParams = [
+      "quiet"
+
+      # Disable wifi 6ghz
+      "cfg80211.ieee80211_regdom=00"
+      "iwlwifi.lar_disable=1"
+    ];
     boot.kernel.sysctl = {
       "kernel.split_lock_mitigate" = 0;
       "kernel.nmi_watchdog" = 0;
