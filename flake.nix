@@ -15,10 +15,6 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
-    kwin-effects-forceblur = {
-      url = "github:taj-ny/kwin-effects-forceblur";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     stellae.url = "github:luna-skye/stellae";
     zenvim.url = "github:luna-skye/nvim";
