@@ -39,6 +39,7 @@
       tofi.enable = true;
       dunst.enable = true;
       dms.enable = true;
+      noctalia-shell.enable = true;
     };
 
     cli = {
