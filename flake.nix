@@ -7,7 +7,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
     jovian-nixos.url = "github:jovian-experiments/jovian-nixos";
     sops-nix.url = "github:Mic92/sops-nix";
 
@@ -39,7 +38,6 @@
     self,
     nixpkgs,
     home-manager,
-    nix-cachyos-kernel,
     jovian-nixos,
     sops-nix,
     stellae,
