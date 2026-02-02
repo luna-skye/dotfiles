@@ -10,12 +10,6 @@
     jovian-nixos.url = "github:jovian-experiments/jovian-nixos";
     sops-nix.url = "github:Mic92/sops-nix";
 
-    hyprland.url = "github:hyprwm/Hyprland";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-
     stellae.url = "github:luna-skye/stellae";
     zenvim.url = "github:luna-skye/nvim";
     zen-browser = {

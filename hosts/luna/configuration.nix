@@ -14,7 +14,6 @@
     session = {
       default = "niri";
       plasma.enable = true;
-      hyprland.enable = false;
       niri.enable = true;
 
       monitors = [
