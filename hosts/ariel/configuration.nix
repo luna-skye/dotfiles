@@ -13,6 +13,7 @@
       zen-browser.enable = true;
       chromium.enable = true;
       obsidian.enable = true;
+      piper.enable = true;
       rgb.enable = true;
       office.enable = true;
       gaming = {
