@@ -17,10 +17,8 @@
     };
 
     services = {
-      dunst.enable = true;
       tofi.enable = true;
-      swww.enable = true;
-      dms.enable = true;
+      noctalia-shell.enable = true;
     };
 
     apps = {
