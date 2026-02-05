@@ -26,7 +26,6 @@
       url = "github:musnix/musnix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
 
   outputs = inputs@{

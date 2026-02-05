@@ -2,14 +2,11 @@
   zen = {
     host.name = "luna";
     # ups.enable = true;
-    system = {
-      fan2go = {
-        enable = true;
-        settings = import ./fans.nix;
-      };
-    };
 
-    benchmarks.enable = true;
+    system.fan2go = {
+      enable = true;
+      settings = import ./fans.nix;
+    };
 
     session = {
       default = "niri";
@@ -39,6 +36,7 @@
       noctalia-shell.enable = true;
     };
 
+    benchmarks.enable = true;
     cli = {
       imagemagick.enable = true;
     };
