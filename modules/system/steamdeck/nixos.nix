@@ -13,14 +13,10 @@ in {
 
   config = lib.mkIf (cfg.enable) {
     boot.loader = {
-      systemd-boot.enable = mkDefault true;
-      efi.canTouchEfiVariables = mkDefault true;
       timeout = mkDefault 0;
       limine.maxGenerations = mkDefault 5;
     };
     boot.kernelParams = [
-      "quiet"
-
       # Disable wifi 6ghz
       "cfg80211.ieee80211_regdom=00"
       "iwlwifi.lar_disable=1"
@@ -33,20 +29,13 @@ in {
     boot.initrd = {
       systemd.enable = mkDefault true;
       kernelModules = mkDefault [];
-      verbose = mkDefault false;
     };
-    boot.plymouth.enable = mkDefault true;
-    boot.consoleLogLevel = mkDefault 0;
     systemd.settings.Manager.DefaultTimeoutStepSec = mkDefault "5s";
     hardware.amdgpu.initrd.enable = mkDefault false;
 
-    # fileSystems."/" = {
-    #   options = [ "compress=zstd" ];
-    # };
-
     networking = {
-      networkmanager.enable = mkDefault true;
       hostName = config.zen.host.name;
+      networkmanager.enable = mkDefault true;
     };
 
     hardware.bluetooth = {
