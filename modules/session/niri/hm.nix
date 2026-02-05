@@ -1,18 +1,15 @@
 { osConfig, config, pkgs, lib, helpers, stellae, ... }:
 
-#  TODO: Improve layout options
-#  TODO: Nix controlled window rules
-#  TODO: Add keybind options
-#  TODO: Improve default keybindings (tabs, move windows, etc.)
-#  TODO: Fix screencasting
+#  TODO: Switch to Niri flake
+#  TODO: Fix GTK/QT Themes
 
 let
   cfg = config.zen.session.niri;
   hostCfg = osConfig.zen.session.niri;
 
   # config from submodules
-  keybinds = import ./keybinds.nix { inherit config lib helpers; };
-  style = import ./style.nix { inherit config lib helpers stellae; };
+  keybinds     = import ./keybinds.nix     { inherit config lib helpers; };
+  style        = import ./style.nix        { inherit config lib helpers  stellae; };
   window-rules = import ./window-rules.nix { inherit config lib helpers; };
 
   # generate monitor config from session nix cfg
@@ -33,40 +30,14 @@ let
 
 in {
   options.zen.session.niri = {
+    screenshot-path = helpers.mkStringOption "~/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png" "Where to store screenshots on disk and with what string format";
+
     window-rules = window-rules.options;
     keybinds = keybinds.options;
     style = style.options;
-    screenshot-path = helpers.mkStringOption "~/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png" "Where to store screenshots on disk and with what string format";
   };
 
   config = lib.mkIf (hostCfg.enable) {
-    home.pointerCursor = {
-      gtk.enable = true;
-      package = pkgs.catppuccin-cursors.mochaMauve;
-      name = "catppuccin-mocha-mauve-cursors";
-      size = 24;
-    };
-    gtk = {
-      enable = true;
-      theme = {
-        name = "catppuccin-mocha-mauve-standard";
-        package = pkgs.catppuccin-gtk.override {
-          accents = [ "mauve" ];
-          size = "standard";
-          variant = "mocha";
-        };
-      };
-    };
-    qt = {
-      enable = true;
-      platformTheme.name = "kde";
-    };
-
-    home.packages = [
-      pkgs.networkmanagerapplet
-      pkgs.kdePackages.qt6ct
-    ];
-
     # NIRI CONFIG FILE
     home.file.".config/niri/config.kdl".text = ''
       // STARTUP //
@@ -83,6 +54,7 @@ in {
 
       spawn-at-startup "nm-applet"
       spawn-at-startup "xwayland-satellite" ":2"
+      ${if (osConfig.zen.services.noctalia-shell.enable) then ''spawn-at-startup "noctalia-shell"'' else ""}
       ${if (osConfig.zen.services.swww.enable) then ''spawn-at-startup "bash" "-c" "swww-daemon"'' else ""}
 
       // STYLE //
@@ -117,11 +89,53 @@ in {
           // scroll-method "no-scroll"
         }
 
-        focus-follows-mouse
+        // focus-follows-mouse
       }
 
       // KEYBINDS //
       ${keybinds.output}
     '';
+
+
+    home.packages = [
+      pkgs.networkmanagerapplet
+      pkgs.kdePackages.qt6ct
+    ];
+
+    home.pointerCursor = {
+      gtk.enable = true;
+      package = pkgs.catppuccin-cursors.mochaMauve;
+      name = "catppuccin-mocha-mauve-cursors";
+      size = 24;
+    };
+
+    # GTK Theme
+    gtk = {
+      enable = true;
+      theme = {
+        name = "catppuccin-mocha-mauve-standard";
+        package = pkgs.catppuccin-gtk.override {
+          accents = [ "mauve" ];
+          size = "standard";
+          variant = "mocha";
+        };
+      };
+    };
+    xdg.configFile = let
+      gtkPath = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}";
+    in {
+      "gtk-4.0/assets".source = "${gtkPath}/gtk-4.0/assets";
+      "gtk-4.0/gtk.css".source = "${gtkPath}/gtk-4.0/gtk.css";
+      "gtk-4.0/gtk-dark.css".source = "${gtkPath}/gtk-4.0/gtk-dark.css";
+    };
+
+    # qt = {
+    #   enable = true;
+    #   platformTheme.name = "qtct";
+    #   style = {
+    #     package = pkgs.catppuccin-qt5ct;
+    #     name = "catppuccin-mocha-mauve";
+    #   };
+    # };
   };
 }
