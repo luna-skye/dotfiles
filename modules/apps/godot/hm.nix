@@ -9,7 +9,7 @@ let
     name = "godot-4.5.1";
     url = "https://github.com/NixOS/nixpkgs/";
     ref = "refs/heads/nixpkgs-unstable";
-    rev = "5f02c91314c8ba4afe83b256b023756412218535";
+    rev = "6308c3b21396534d8aaeac46179c14c439a89b8a";
   }) { inherit (pkgs.stdenv.hostPlatform) system; };
 
 in {
