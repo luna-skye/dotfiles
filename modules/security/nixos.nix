@@ -9,7 +9,6 @@ let
 in {
   options.zen.security = {
     apparmor.enable = helpers.mkBooleanOption true "Whether to enable AppArmor security";
-
     setKernelParams = helpers.mkBooleanOption true "Whether to enable hardened kernel parameters";
     setSysctlTweaks = helpers.mkBooleanOption true "Whether to enable hardened sysctl settings";
     blacklistKernelModules = helpers.mkBooleanOption true "Whether to blacklist unmaintained or uncommon kernel modules";
@@ -139,7 +138,7 @@ in {
         "hfs"
         "hfsplus"
         "squashfs"
-        "udf"
+        # "udf"
         "hpfs"
         "jfs"
         "minix"
@@ -148,7 +147,6 @@ in {
         "qnx4"
         "qnx6"
         "sysv"
-        "udf"
         "squashfs" # compressed read-only file system used for Live CDs
         "cifs" # cmb (common internet file system)
         "ksmbd" # smb3 kernel server
